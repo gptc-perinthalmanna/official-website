@@ -58,11 +58,11 @@ The primary maintainers, though, are:
 
     Open the `gptc-perinthalmanna` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
 
-## Maintainers
+## 🧔 Maintainers
 <a href="https://github.com/amjed-ali-k/gptc-perinthalmanna/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=amjed-ali-k/gptc-perinthalmanna" />
 </a>
 
-## License
+## 💼 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
