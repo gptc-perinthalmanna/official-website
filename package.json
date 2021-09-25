@@ -49,5 +49,10 @@
   },
   "bugs": {
     "url": "https://github.com/amjed-ali-k/gptc-perinthalmanna/issues"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
