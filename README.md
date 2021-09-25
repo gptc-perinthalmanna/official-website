@@ -33,7 +33,7 @@ The primary maintainers, though, are:
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
+1.  **Clone this Repo.**
 
     Open the terminal / command prompt and paste the code below.
 
