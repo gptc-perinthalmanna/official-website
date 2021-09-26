@@ -3,7 +3,7 @@ module.exports = {
     title: `GPTC Perinthalmanna`,
     description: `Government Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.`,
     author: `@amjed-ali-k`,
-    siteUrl: `gptcperinthalmanna.in`,
+    siteUrl: `https://gptcperinthalmanna.in`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -17,6 +17,8 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

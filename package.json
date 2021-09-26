@@ -5,18 +5,22 @@
   "version": "0.1.0",
   "author": "Amjed Ali K <amjedmgm@gmail.com>",
   "dependencies": {
+    "bootstrap": "^5.1.1",
     "gatsby": "^4.0.0-zz-next.1",
     "gatsby-plugin-image": "^2.0.0-zz-next.1",
     "gatsby-plugin-manifest": "^4.0.0-zz-next.1",
     "gatsby-plugin-offline": "^5.0.0-zz-next.1",
     "gatsby-plugin-react-helmet": "^5.0.0-zz-next.1",
+    "gatsby-plugin-sass": "^5.0.0-alpha-9689ff.13",
     "gatsby-plugin-sharp": "^4.0.0-zz-next.1",
     "gatsby-source-filesystem": "^4.0.0-zz-next.1",
     "gatsby-transformer-sharp": "^4.0.0-zz-next.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0"
+    "react-helmet": "^6.1.0",
+    "reactstrap": "^9.0.0-6",
+    "sass": "^1.42.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^13.1.0",

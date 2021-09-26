@@ -4,6 +4,7 @@ import { PageProps, Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import { Button, Col } from "reactstrap"
 
 type DataProps = {
   site: {
@@ -36,6 +37,9 @@ const UsingTypescript: React.FC<PageProps<DataProps>> = ({ data, path }) => (
       .
     </p>
     <Link to="/">Go back to the homepage</Link>
+
+    <Col>This is a column</Col>
+    <Button color="primary"> Hello </Button>
   </Layout>
 )
 
