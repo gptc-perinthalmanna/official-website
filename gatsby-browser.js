@@ -6,4 +6,4 @@
 
 // You can delete this file if you're not using it
 
-import "./src/scss/tabler.scss"
+import "@tabler/core/src/scss/tabler.scss"
