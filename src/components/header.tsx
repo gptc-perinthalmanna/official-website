@@ -10,6 +10,8 @@ import {
   IconDownload,
   IconBuildingFortress,
   IconBook,
+  IconSchool,
+  IconBuildingPavilon,
 } from "@tabler/icons"
 
 import { Nav, Navbar, NavDropdown } from "react-bootstrap"
@@ -29,10 +31,36 @@ type MenuType = {
 
 const DATA: MenuType[] = [
   {
-    title: "home",
+    title: "Home",
     link: "/",
     dropdown: false,
     icon: <IconHome />,
+  },
+  {
+    title: "The College",
+    dropdown: true,
+    icon: <IconSchool />,
+    child: [
+      {
+        title: "Breif History",
+        link: "/about/history",
+      },
+      {
+        title: "Who's Who",
+        link: "/about/whoswho",
+      },
+      {
+        title: "Principal's Desk",
+        link: "/about/principals-desk",
+      },
+      {
+        title: "Placement Officer's Desk",
+        link: "/about/placement",
+      },
+      { title: "Industrial Relationships", link: "/about/industiralrelations" },
+      { title: "Press and Media", link: "/about/press" },
+      { title: "Right To Information", link: "/about/rti" },
+    ],
   },
   {
     title: "Departments",
@@ -65,79 +93,167 @@ const DATA: MenuType[] = [
     icon: <IconBook />,
     child: [
       {
-        title: "Faculty and Staffs",
-        link: "/faculty",
+        title: "Courses Offerred",
+        link: "/academics/courses",
       },
       {
-        title: "Academic Calendar",
-        link: "/calendar",
+        title: "Faculty and Staffs",
+        link: "/academics/faculty",
       },
       {
         title: "Prospectus",
-        link: "/prospectus",
+        link: "/academics/prospectus",
+      },
+      {
+        title: "GIFD",
+        link: "/academics/gifd",
+      },
+      {
+        title: "CTDP",
+        link: "/academics/ctdp",
+      },
+      {
+        title: "Scholar Support Programme",
+        link: "/academics/ssp",
+      },
+      {
+        title: "Academic Calendar",
+        link: "/academics/calendar",
+      },
+      {
+        title: "Moodle LMS",
+        link: "/academics/moodle",
       },
     ],
   },
   {
-    title: "Facilites",
+    title: "Facilities",
     dropdown: true,
     icon: <IconBuildingFortress />,
     child: [
       {
         title: "Advanced Library",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Health Centre",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Finishing School",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
+      },
+      {
+        title: "Language Lab",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Co-operative Society",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Internet Common Facility Centre",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Womens Hostel",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Staff Quaters",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Auditorium",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Electronics Block",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Civil Block",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
       {
         title: "Medical Facility",
-        link: "/to-be-done",
+        link: "/facilities/to-be-done",
       },
     ],
   },
   {
-    title: "Downloads",
+    title: "Campus",
+    icon: <IconBuildingPavilon />,
+    dropdown: true,
+    child: [
+      {
+        title: "Students Union",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "National Service Scheme",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Industrial Enterpernership Develepment Centre",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Boomithrasena Club",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Staff Club",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Parents Teachers Association",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Greivence Redressal Committee",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Alumini",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Placement Cell",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Continuing Education Cell",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Enterpenership Development Club",
+        link: "/campus/to-be-done",
+      },
+      {
+        title: "Anti Ragging Committee",
+        link: "/campus/to-be-done",
+      },
+    ],
+  },
+  {
+    title: "Archives",
     icon: <IconDownload />,
     dropdown: true,
     child: [
       {
         title: "Student Downloads",
-        link: "/downloads/student-downloads",
+        link: "/archives/student-downloads",
       },
+      {
+        title: "Important GOs and Circulars",
+        link: "/archives/gos",
+      },
+      {
+        title: "College Archives",
+        link: "/archives/archives",
+      },
+      { title: "Public Links", link: "/archives/public-link" },
     ],
   },
 ]
@@ -194,6 +310,7 @@ const Menu = (): React.ReactElement => (
 )
 
 const Header = ({ siteTitle }) => {
+  const [toggleNavBar, settoggleNavBar] = React.useState(false)
   return (
     <React.Fragment>
       <Navbar>
@@ -218,8 +335,15 @@ const Header = ({ siteTitle }) => {
         </div>{" "}
       </Navbar>
 
-      <Navbar expand="md" className="d-print-none">
-        <Navbar.Toggle>
+      <Navbar
+        expand="md"
+        onToggle={() => {
+          settoggleNavBar(!toggleNavBar)
+        }}
+        className="d-print-none"
+      >
+        <Navbar.Toggle aria-expanded={toggleNavBar}>
+          {" "}
           <span className="navbar-toggler-icon"></span>
         </Navbar.Toggle>
         <Navbar.Collapse>
