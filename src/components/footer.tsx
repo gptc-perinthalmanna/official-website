@@ -8,7 +8,7 @@ import {
 } from "@tabler/icons"
 import { Link } from "gatsby"
 import React from "react"
-import { ButtonGroup, Col, Container, Image, Row } from "react-bootstrap"
+import { Col, Container, Row } from "react-bootstrap"
 
 const Footer = (): React.ReactElement => {
   return (

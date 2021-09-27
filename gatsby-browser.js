@@ -7,3 +7,4 @@
 // You can delete this file if you're not using it
 
 import "@tabler/core/src/scss/tabler.scss"
+import "./src/css/custom.css"
