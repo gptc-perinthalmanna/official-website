@@ -14,7 +14,7 @@ import {
   IconBuildingPavilon,
 } from "@tabler/icons"
 
-import { Nav, Navbar, NavDropdown } from "react-bootstrap"
+import { Nav, Navbar, NavDropdown, Container } from "react-bootstrap"
 
 type SubMenuType = {
   title: string
@@ -280,7 +280,7 @@ const DropDownMenuItem = ({ item }: { item: MenuType }): React.ReactElement => {
       <div className="dropdown-menu-columns">
         <div className="dropdown-menu-column">
           {item.child.map((val: SubMenuType) => (
-            <NavDropdown.Item>{val.title}</NavDropdown.Item>
+            <NavDropdown.Item key={val.title}>{val.title}</NavDropdown.Item>
           ))}
         </div>
       </div>
@@ -292,10 +292,10 @@ const Menu = (): React.ReactElement => (
   <Nav>
     {DATA.map((menuItem: MenuType) => {
       if (menuItem.dropdown) {
-        return <DropDownMenuItem item={menuItem} />
+        return <DropDownMenuItem key={menuItem.title} item={menuItem} />
       } else {
         return (
-          <Link className="nav-link" to={menuItem.link}>
+          <Link key={menuItem.title} className="nav-link" to={menuItem.link}>
             <Nav.Item className="flex-row">
               <div className="nav-link-icon d-md-none d-lg-inline-block">
                 {menuItem.icon}
@@ -314,7 +314,7 @@ const Header = ({ siteTitle }) => {
   return (
     <React.Fragment>
       <Navbar>
-        <div className="container-xl">
+        <Container fluid="xl">
           <Navbar.Brand className="navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
             Govt Polytechnic College, Perinthalmanna
           </Navbar.Brand>
@@ -332,7 +332,7 @@ const Header = ({ siteTitle }) => {
               </div>
             </Nav.Item>
           </Nav>
-        </div>{" "}
+        </Container>
       </Navbar>
 
       <Navbar
