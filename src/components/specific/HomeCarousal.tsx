@@ -9,7 +9,7 @@ const DATA: Img[] = [
     imageUri: "../images/image1.jpg",
     imageAlt: "Carousal Image 1",
     local: true,
-    imageComponent: <StaticImage src="../images/image1.jpg" alt="" />,
+    imageComponent: <StaticImage src="../../images/image1.jpg" alt="" />,
   },
   {
     title: "This is a Title",
@@ -17,7 +17,7 @@ const DATA: Img[] = [
     imageUri: "../images/image2.jpg",
     imageAlt: "Carousal Image 1",
     local: true,
-    imageComponent: <StaticImage src="../images/image2.jpg" alt="" />,
+    imageComponent: <StaticImage src="../../images/image2.jpg" alt="" />,
   },
   {
     title: "This is a Title",
@@ -25,7 +25,7 @@ const DATA: Img[] = [
     imageUri: "../images/image3.jpg",
     imageAlt: "Carousal Image 1",
     local: true,
-    imageComponent: <StaticImage src="../images/image3.jpg" alt="" />,
+    imageComponent: <StaticImage src="../../images/image3.jpg" alt="" />,
   },
   {
     title: "This is a Title",
@@ -33,7 +33,7 @@ const DATA: Img[] = [
     imageUri: "../images/image4.jpg",
     imageAlt: "Carousal Image 1",
     local: true,
-    imageComponent: <StaticImage src="../images/image4.jpg" alt="" />,
+    imageComponent: <StaticImage src="../../images/image4.jpg" alt="" />,
   },
   {
     title: "This is a Title",
@@ -41,7 +41,7 @@ const DATA: Img[] = [
     imageUri: "../images/image5.jpg",
     imageAlt: "Carousal Image 1",
     local: true,
-    imageComponent: <StaticImage src="../images/image5.jpg" alt="" />,
+    imageComponent: <StaticImage src="../../images/image5.jpg" alt="" />,
   },
   {
     title: "This is a Title",

@@ -142,7 +142,7 @@ function AnnouncementTicker() {
               // seperator
               const border = page.length === count + 1 ? null : "border-bottom"
               return (
-                <li key={anouncement.title} className={`${border} py-2`}>
+                <li key={count} className={`${border} py-2`}>
                   {iconLiteral[anouncement.type]} {anouncement.title}
                 </li>
               )

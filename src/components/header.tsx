@@ -254,6 +254,7 @@ const DATA: MenuType[] = [
         link: "/archives/archives",
       },
       { title: "Public Links", link: "/archives/public-link" },
+      { title: "Image Gallery", link: "/other/album" },
     ],
   },
 ]
@@ -280,7 +281,9 @@ const DropDownMenuItem = ({ item }: { item: MenuType }): React.ReactElement => {
       <div className="dropdown-menu-columns">
         <div className="dropdown-menu-column">
           {item.child.map((val: SubMenuType) => (
-            <NavDropdown.Item key={val.title}>{val.title}</NavDropdown.Item>
+            <Link className="text-decoration-none" to="/other/album">
+              <NavDropdown.Item key={val.title}>{val.title}</NavDropdown.Item>
+            </Link>
           ))}
         </div>
       </div>
