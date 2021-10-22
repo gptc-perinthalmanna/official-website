@@ -17,9 +17,9 @@
     "gatsby-source-filesystem": "^4.0.0-zz-next.1",
     "gatsby-transformer-sharp": "^4.0.0-zz-next.1",
     "prop-types": "^15.7.2",
-    "react": "^17.0.1",
+    "react": "^17.0.2",
     "react-bootstrap": "^2.0.0-rc.0",
-    "react-dom": "^17.0.1",
+    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "sass": "^1.42.1"
   },
