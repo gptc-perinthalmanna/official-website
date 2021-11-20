@@ -1,5 +1,4 @@
 import { NextPage } from "next";
-import Head from "next/head";
 import Page from "../../components/layout/Page";
 import Divider from "../../components/ui/Divider";
 import { H1, H2 } from "../../components/ui/Heading";
@@ -40,7 +39,7 @@ const courses_offered = [
 ]
 
 const BreifHistory: NextPage = () => (
-  <Page title="Breif History of Govt Polytechnic College, Perinthalmanna">
+  <Page title="Breif History of Govt Polytechnic College, Perinthalmanna" desc="Breif history of the college since it is started on 1981." >
     <div className="container mx-auto">
       {/* TODO : Cover Image */}
       <H1>Breif History</H1>

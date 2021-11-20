@@ -4,7 +4,7 @@ import { GrLocation } from "react-icons/gr";
 export class Footer extends Component {
   render() {
     return (
-      <footer className="bg-blue-900 py-3 mt-3">
+      <footer className="bg-blue-900 py-3">
         <div className="container mx-auto">
           <div className="flex pt-8 pb-6 flex-wrap">
             <Box title="Contact Details">
