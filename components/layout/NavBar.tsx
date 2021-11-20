@@ -138,7 +138,7 @@ const _menu: MenuItem[] = [
         icon: HiInformationCircle,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/college/right-to-information"
       },
     ],
   },
