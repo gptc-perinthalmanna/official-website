@@ -19,7 +19,7 @@ To be a centre of excellence to mould technically competent engineers for indust
 
 You can always contribute to this repository. Contributing to a project on Github is pretty straight forward. If this is you're first time, these are the steps you should take.
 
-- Fork this repo.
+- Fork this repo. 
 
 And that's it! Read the code available and change the part you don't like! You're change should not break the existing code and should pass the tests.
 
