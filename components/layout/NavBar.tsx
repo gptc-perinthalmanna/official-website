@@ -117,7 +117,7 @@ const _menu: MenuItem[] = [
         icon: BsPatchQuestion,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/college/whos-who"
       },
       {
         name: "Industrial Relationships",

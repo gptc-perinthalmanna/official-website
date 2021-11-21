@@ -2,6 +2,6 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['uoce.chimpgroup.com'],
+    domains: ['uoce.chimpgroup.com', 'images.unsplash.com', 'www.whatsappprofiledpimages.com'],
   },
 }
