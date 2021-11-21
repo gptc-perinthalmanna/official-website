@@ -1,13 +1,12 @@
 import { NextPage } from "next";
-import Image from "next/image";
 
+import FeatureCard from "../../components/custom/FeatureCard";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
-import BoldTitle from "../../components/ui/BoldTitle";
 
 const _staffs = [
   {
@@ -56,6 +55,23 @@ const _staffs = [
   },
 ];
 
+
+const _facilities = [
+  {
+    title: "Embedded System Lab",
+    description: "An embedded system is a microprocessor-based computer hardware system with software that is designed to perform a dedicated function, either as an independent system or as a part of a large system. At the core is an integrated circuit designed to carry out computation for real-time operations.",
+    image: "/images/embedded-lab.jpeg",
+    color: "green"
+  },
+  {
+    title: "Digital Lab",
+    description: "Digital lab is a laboratory where students can learn about digital electronics and microprocessors. The lab is equipped with a wide range of digital electronics and microprocessor kits.",
+    image: "/images/computer-lab.jpg",
+    color: "blue"
+  }
+]
+
+
 const CustomPage: NextPage = () => (
   <Page title="Electronics Department">
     <CoverImage
@@ -96,25 +112,15 @@ const CustomPage: NextPage = () => (
           </div>
           <div>
             <PageTitle>Department Facilities</PageTitle>
-            <div className="flex flex-col w-full my-2 overflow-hidden border-2 rounded-lg shadow-sm lg:flex-row-reverse border-violet-500 ">
-              <div className="relative w-full h-60 lg:w-1/2">
-                <Image
-                  src={"/images/embedded-lab.jpeg"}
-                  alt="Embedded System Lab"
-                  layout="fill"
-                />
-              </div>
-              <div className="w-full p-5 lg:w-1/2">
-                <BoldTitle color="violet">Embedded System Lab</BoldTitle>
-                <p>
-                  An embedded system is a microprocessor-based computer hardware
-                  system with software that is designed to perform a dedicated
-                  function, either as an independent system or as a part of a
-                  large system. At the core is an integrated circuit designed to
-                  carry out computation for real-time operations.
-                </p>
-              </div>
-            </div>
+            {_facilities.map((facility) => (
+              <FeatureCard
+              key={facility.title}
+              color={facility.color}
+              image={facility.image}
+              title={facility.title}
+              description={facility.description}
+            />
+            ))}
           </div>
         </Content.Left>
       </Content>

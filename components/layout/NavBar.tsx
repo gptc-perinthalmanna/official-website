@@ -222,7 +222,7 @@ const _menu: MenuItem[] = [
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+          link: "/academics/moodle"
       },
     ],
   },

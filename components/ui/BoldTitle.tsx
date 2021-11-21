@@ -43,7 +43,7 @@ function BoldTitle({
       </Head>
       <span
         className={
-          "text-3xl font-bold text-transparent font-poppins bg-gradient-to-r bg-clip-text " +
+          "lg:text-3xl md:text-2xl sm:text-xl text-lg font-bold text-transparent font-poppins bg-gradient-to-r bg-clip-text " +
           className
         }
       >
