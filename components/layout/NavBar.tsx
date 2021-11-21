@@ -151,7 +151,7 @@ const _menu: MenuItem[] = [
         icon: GiCircuitry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/departments/electronics"
       },
       {
         name: "Civil Department",
@@ -455,10 +455,10 @@ function NavBar() {
 
   return (
     <div>
-      <nav className="bg-gradient-to-r from-pink-700 to-pink-500 shadow-md dark:bg-gray-800">
-        <div className="container lg:px-6 sm:px-0 mx-auto">
+      <nav className="shadow-md bg-gradient-to-r from-pink-700 to-pink-500 dark:bg-gray-800">
+        <div className="px-0 mx-auto xl:container xl:px-6">
           <div className="flex items-center justify-between">
-            <div className="flex flex-row flex-wrap items-center mx-8">
+            <div className="flex flex-row flex-wrap items-center lg:mx-8">
               {_menu.map((item, index) => (
                 
                 <NavItem
@@ -491,7 +491,7 @@ function NavBar() {
       >
         <div
           id="nav-menu-item-content"
-          className="absolute container z-50 py-2 px-3 transition-all duration-700  border-2 rounded-b-2xl border-red-100 bg-red-50"
+          className="container absolute z-50 px-3 py-2 transition-all duration-700 border-2 border-red-100 rounded-b-2xl bg-red-50"
         >
           <div className="flex flex-wrap justify-start">
             {selectedMenu &&
@@ -501,13 +501,13 @@ function NavBar() {
                   <Link href={item.link} key={item.name}>
                   <a
                    
-                    className="max-w-xs p-2 cursor-pointer ring-pink-100 hover:ring-2 transition-all ease-in-out duration-300 hover:bg-white flex items-center rounded-lg"
+                    className="flex items-center max-w-xs p-2 transition-all duration-300 ease-in-out rounded-lg cursor-pointer ring-pink-100 hover:ring-2 hover:bg-white"
                   >
-                    <div className="text-gray-700 mr-2">
+                    <div className="mr-2 text-gray-700">
                       <Icon size={40} />
                     </div>
                     <div>
-                      <div className="text-md font-bold text-gray-700">
+                      <div className="font-bold text-gray-700 text-md">
                         {item.name}
                       </div>
                       <p className="text-xs text-gray-600">
@@ -544,7 +544,7 @@ function NavItem({
   return (
     <Linked link={link}>
     <a
-      className="px-2 py-5 flex items-center cursor-pointer justify-around mx-2 text-sm font-medium text-gray-100 hover:text-gray-200 transition-colors duration-200 transform dark:text-gray-200 hover:bg-pink-800"
+      className="flex items-center justify-around px-2 py-5 mx-2 text-sm font-medium text-gray-100 transition-colors duration-200 transform cursor-pointer hover:text-gray-200 dark:text-gray-200 hover:bg-pink-800"
       {...props}
     >
       <Icon /> <p className="ml-2">{children}</p>
