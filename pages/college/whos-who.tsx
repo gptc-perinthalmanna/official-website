@@ -215,10 +215,10 @@ const CustomPage: NextPage = () => (
             <div className="mb-5">
           {_details.map((detail) => (
             <div key={detail.title}>
-              <h2 className="text-left mt-5 font-bold lg:text-3xl md:text-2xl text-xl  text-gray-700">
+              <h2 className="mt-5 text-xl font-bold text-left text-gray-700 lg:text-3xl md:text-2xl">
                 {detail.title}
               </h2>
-              <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 mt-3">
+              <div className="grid grid-cols-2 gap-4 mt-3 lg:grid-cols-3 2xl:grid-cols-4">
                
                {detail.staffs.map((staff) => (
                    <UserProfileCard

@@ -1,4 +1,6 @@
 import { NextPage } from "next";
+import Image from "next/image";
+
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -11,7 +13,6 @@ const _staffs = [
   {
     name: "Prakasan P",
     designation: "Head of Department",
-    
   },
   {
     name: "Jamsheer",
@@ -47,14 +48,13 @@ const _staffs = [
   },
   {
     name: "Abdul Aziz M",
-    designation: "Tradesman"
+    designation: "Tradesman",
   },
   {
     name: "Amjed Ali K",
-    designation: "Tradesman"
-  }
-]
-
+    designation: "Tradesman",
+  },
+];
 
 const CustomPage: NextPage = () => (
   <Page title="Electronics Department">
@@ -86,15 +86,34 @@ const CustomPage: NextPage = () => (
             <PageTitle>Department Staff</PageTitle>
             <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
               {_staffs.map((staff) => (
-                <UserProfileCard key={staff.name} fullName={staff.name} designation={staff.designation} />
+                <UserProfileCard
+                  key={staff.name}
+                  fullName={staff.name}
+                  designation={staff.designation}
+                />
               ))}
             </div>
           </div>
           <div>
             <PageTitle>Department Facilities</PageTitle>
-            <div className="p-5 my-2 border-2 rounded-lg border-violet-500 ">
-                 <BoldTitle>Embedded System Lab</BoldTitle>
-                  <p>skajl</p>
+            <div className="flex flex-col w-full my-2 overflow-hidden border-2 rounded-lg shadow-sm lg:flex-row-reverse border-violet-500 ">
+              <div className="relative w-full h-60 lg:w-1/2">
+                <Image
+                  src={"/images/embedded-lab.jpeg"}
+                  alt="Embedded System Lab"
+                  layout="fill"
+                />
+              </div>
+              <div className="w-full p-5 lg:w-1/2">
+                <BoldTitle color="violet">Embedded System Lab</BoldTitle>
+                <p>
+                  An embedded system is a microprocessor-based computer hardware
+                  system with software that is designed to perform a dedicated
+                  function, either as an independent system or as a part of a
+                  large system. At the core is an integrated circuit designed to
+                  carry out computation for real-time operations.
+                </p>
+              </div>
             </div>
           </div>
         </Content.Left>
