@@ -1,7 +1,22 @@
-import React from 'react'
+import React from "react";
 
-export function PageTitle({ children, ...props }: { children: React.ReactNode }) {
-    return (
-        <h1 className='text-2xl font-bold text-gray-700 my-3 '> {children} </h1>
-    )
+export function PageTitle({
+  children,
+  className,
+  ...props
+}: {
+  children: React.ReactNode;
+  className?: string;
+}) {
+  return (
+    <h1
+      className={
+        "my-3 text-xl font-bold text-gray-700 md:text-2xl lg:text-2xl xl:text-3xl " +
+        className
+      }
+      {...props}
+    >
+      {children}
+    </h1>
+  );
 }

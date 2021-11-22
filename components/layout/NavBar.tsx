@@ -184,8 +184,8 @@ const _menu: MenuItem[] = [
         name: "Prospectus",
         icon: IoDocumentAttach,
         description:
-          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+          "View the details including Fees Charged, Reservation Policy, Admission Policy and Document Retention policy approved by State Govt.",
+          link: "/academics/prospectus"
       },
       {
         name: "Govt Institute for Fashion Designing",
@@ -201,28 +201,35 @@ const _menu: MenuItem[] = [
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
           link: "/college/breif-history"
       },
-      {
-        name: "Scholar Support Programme",
-        icon: HiSupport,
-        description:
-          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
-      },
+   
 
       {
         name: "Academic Calendar",
         icon: BsFillCalendarMonthFill,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+          link: "/academics/academic-calender"
       },
-
+      {
+        name: "Continuing Education Cell",
+        icon: GrWorkshop,
+        description:
+          "Here we teaches and manages about the fastest growing techs in the world",
+          link: "/academics/ce-cell"
+      },
       {
         name: "Moodle LMS",
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
           link: "/academics/moodle"
+      },
+      {
+        name: "Estention of Approval",
+        icon: MdOutlineScreenSearchDesktop,
+        description:
+          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
+          link: "/academics/eoa"
       },
     ],
   },
@@ -384,12 +391,12 @@ const _menu: MenuItem[] = [
           link: "/college/breif-history"
       },
       {
-        name: "Continuing Education Cell",
-        icon: GrWorkshop,
+        name: "Scholar Support Programme",
+        icon: HiSupport,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
+          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
           link: "/college/breif-history"
-      },
+      },   
       {
         name: "Enterpenership Development Club",
         icon: FaUserTie,

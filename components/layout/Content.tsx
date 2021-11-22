@@ -27,6 +27,14 @@ function Right({children}: {children: React.ReactNode}) {
     )
 }
 
+function Half({children}: {children: React.ReactNode}) {
+    return (
+        <div className='w-full lg:w-1/2'>
+            {children}
+        </div>
+    )
+}
+
 function FullWidth({children}: {children: React.ReactNode}) {
     return (
         <div className='w-full'>
@@ -38,3 +46,4 @@ function FullWidth({children}: {children: React.ReactNode}) {
 Content.FullWidth = FullWidth
 Content.Left = Left
 Content.Right = Right
+Content.Half = Half

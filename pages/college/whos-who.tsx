@@ -5,11 +5,9 @@ import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 
-
-
 const _details = [
   {
-    title: "Internet Common Facility Centre",
+    title: "Test",
     staffs: [
       {
         name: "Amjed Ali",
@@ -125,6 +123,10 @@ const _details = [
     ],
   },
   {
+    title: "Vocational Diploma",
+    staffs: [{ name: "Jamseer N", designation: "Co-ordinator" }],
+  },
+  {
     title: "Grievance cell",
     staffs: [
       {
@@ -212,27 +214,25 @@ const CustomPage: NextPage = () => (
       <PageTitle>Whos Who</PageTitle>
       <Content>
         <Content.FullWidth>
-            <div className="mb-5">
-          {_details.map((detail) => (
-            <div key={detail.title}>
-              <h2 className="mt-5 text-xl font-bold text-left text-gray-700 lg:text-3xl md:text-2xl">
-                {detail.title}
-              </h2>
-              <div className="grid grid-cols-2 gap-4 mt-3 lg:grid-cols-3 2xl:grid-cols-4">
-               
-               {detail.staffs.map((staff) => (
-                   <UserProfileCard
-                     key={staff.name}
-                     fullName={staff.name}
-                     image={staff.avatar}
-                     designation={staff.designation}
-                     socialLinks={staff.social}
-                   />
-               ))}
-
+          <div className="mb-5">
+            {_details.map((detail) => (
+              <div key={detail.title}>
+                <h2 className="mt-5 text-xl font-bold text-left text-gray-700 lg:text-3xl md:text-2xl">
+                  {detail.title}
+                </h2>
+                <div className="grid grid-cols-2 gap-4 mt-3 lg:grid-cols-3 2xl:grid-cols-4">
+                  {detail.staffs.map((staff) => (
+                    <UserProfileCard
+                      key={staff.name}
+                      fullName={staff.name}
+                      image={staff.avatar}
+                      designation={staff.designation}
+                      socialLinks={staff.social}
+                    />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
           </div>
         </Content.FullWidth>
       </Content>

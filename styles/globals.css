@@ -7,3 +7,10 @@
 .font-poppins {
   font-family: 'Poppins', sans-serif;
 }
+
+
+.react-pdf__Page__canvas {
+  margin: 0 auto;
+  height: 100% !important;
+  max-width: 100% !important;
+}
