@@ -342,7 +342,7 @@ const _menu: MenuItem[] = [
           link: "/college/breif-history"
       },
       {
-        name: "Industrial Enterpernership Develepment Centre",
+        name: "Innovation Enterpernership Develepment Centre",
         icon: FaIndustry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
@@ -421,37 +421,37 @@ const _menu: MenuItem[] = [
         name: "Downloads",
         icon: RiDownloadCloud2Line,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          "Downloadable contents related to the college and departments.",
+          link: "/archives/downloads"
       },
 
       {
         name: "Important GOs and Circulars",
         icon: BsFillFileMedicalFill,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          "Government orders and Circulars regarding the college, staffs, students etc.",
+          link: "/archives/go-circulars"
       },
       {
         name: "College Archives",
         icon: FaArchive,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          "Old files and Archived contents that are not using / valid now.",
+          link: "/archives/archives"
       },
       {
         name: "Previous Question Papers",
         icon: BsFillPatchQuestionFill,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
+          "Previous Diploma semester final examination question papers in dowloadable pdf format. ",
           link: "/college/breif-history"
       },
       {
         name: "Design Files",
         icon: SiAdobeindesign,
         description:
-          "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          "Files and templates used to design the contents and posters regarding the college.",
+          link: "/archives/design-files"
       },
     ],
   },
