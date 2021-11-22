@@ -87,6 +87,7 @@ const _menu: MenuItem[] = [
     icon: BiHomeSmile,
     link: "/",
   },
+ // College 
   {
     name: "College",
     icon: FaUniversity,
@@ -142,6 +143,7 @@ const _menu: MenuItem[] = [
       },
     ],
   },
+ // Departments
   {
     name: "Departments",
     icon: BiGitBranch,
@@ -176,6 +178,7 @@ const _menu: MenuItem[] = [
       },
     ],
   },
+ // Academics
   {
     name: "Academics",
     icon: FaChalkboardTeacher,
@@ -225,7 +228,7 @@ const _menu: MenuItem[] = [
           link: "/academics/moodle"
       },
       {
-        name: "Estention of Approval",
+        name: "Extention of Approval",
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
@@ -233,6 +236,7 @@ const _menu: MenuItem[] = [
       },
     ],
   },
+ // Facilities
   {
     name: "Facilities",
     icon: MdOutlineGppGood,
@@ -242,87 +246,88 @@ const _menu: MenuItem[] = [
         icon: GiArchiveResearch,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Health Centre",
         icon: MdHealthAndSafety,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Finishing School",
         icon: GiFinishLine,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Language Lab",
         icon: HiOutlineSpeakerphone,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Co-operative Society",
         icon: SiHandshake,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Internet Common Facility Centre",
         icon: MdSignalWifiStatusbarConnectedNoInternet4,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Womens Hostel",
         icon: GrRestroomWomen,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Staff Quaters",
         icon: FaChalkboardTeacher,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Auditorium",
         icon: SiGoogleclassroom,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Electronics Block",
         icon: HiOutlineOfficeBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/electronics-block"
       },
       {
         name: "Civil Block",
         icon: RiBuilding2Line,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
       {
         name: "Medical Facility",
         icon: FaClinicMedical,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/facilities/library"
       },
     ],
   },
+  // Campus 
   {
     name: "Campus",
     icon: RiBuildingLine,
@@ -413,6 +418,7 @@ const _menu: MenuItem[] = [
       },
     ],
   },
+  // Archives
   {
     name: "Archives",
     icon: GiArchiveResearch,
