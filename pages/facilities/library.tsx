@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import { RiAlarmWarningFill } from "react-icons/ri";
+import ImagePost from "../../components/custom/ImagePost";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -153,6 +154,9 @@ const CustomPage: NextPage = () => (
         <Content.Right>
           <div>
             <PhotoGallery />
+          </div>
+          <div>
+            <ImagePost image={"/images/library.jpg"} date={"12 Nov 2021"} title={"NSS Camp "} subtitle={"Conducted NSS Camps - In Nov"} />
           </div>
         </Content.Right>
       </Content>

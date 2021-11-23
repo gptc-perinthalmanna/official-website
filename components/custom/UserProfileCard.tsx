@@ -2,11 +2,11 @@ import React from "react";
 import Image from "next/image";
 import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaTelegram } from "react-icons/fa";
-import avatarPlaceholder from "../../public/avatar-placeholder.png";
+// import avatarPlaceholder from "../../images/avatar-placeholder.png";
 function UserProfileCard({
   fullName,
   designation,
-  image,
+  image = "/images/avatar-placeholder.png",
   socialLinks,
 }: {
   fullName: string;
@@ -15,20 +15,20 @@ function UserProfileCard({
   socialLinks?: { [key: string]: string };
 }) {
   return (
-    <div className="w-full border-2 shadow-md bg-gray-50 rounded-lg sahdow-lg overflow-hidden flex flex-col md:flex-row">
-      <div className="w-full md:w-2/5 relative h-60 md:h-40">
+    <div className="flex flex-col w-full overflow-hidden border-2 rounded-lg shadow-md bg-gray-50 sahdow-lg md:flex-row">
+      <div className="relative w-full md:w-2/5 h-60 md:h-40">
         <Image
-          className="object-center object-cover w-full h-full"
-          src={image || avatarPlaceholder}
+          className="object-cover object-center w-full h-full"
+          src={image}
           alt="photo"
           sizes="100%"
           layout="fill"
         />
       </div>
-      <div className="w-full md:w-3/5 text-left p-6 md:p-4 ">
-        <p className="lg:text-xl md:text-lg text-md text-gray-700 font-bold">{fullName}</p>
-        <p className="text-gray-400 lg:text-lg md:text-md text-sm font-normal">{designation}</p>
-        <div className="flex mt-2 justify-start space-x-2">
+      <div className="w-full p-6 text-left md:w-3/5 md:p-4 ">
+        <p className="font-bold text-gray-700 lg:text-xl md:text-lg text-md">{fullName}</p>
+        <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">{designation}</p>
+        <div className="flex justify-start mt-2 space-x-2">
           {socialLinks?.facebook && (
             <a
               href={socialLinks.facebook}

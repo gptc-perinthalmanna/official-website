@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { BsEyeFill } from "react-icons/bs";
 import { GiTargetPoster } from "react-icons/gi";
+import ImagePost from "../components/custom/ImagePost";
 import Footer from "../components/layout/Footer";
 import LogoBanner from "../components/layout/LogoBanner";
 import NavBar from "../components/layout/NavBar";
@@ -23,26 +24,26 @@ const Home: NextPage = () => {
       <NavBar />
       <NewsTicker />
 
-      <div className="container my-3 mx-auto">
+      <div className="container mx-auto my-3">
         <div className="flex flex-col lg:flex-row">
           <div className="w-full lg:w-3/4">
-            <h1 className="text-2xl font-bold text-gray-700 my-3">
+            <h1 className="my-3 text-2xl font-bold text-gray-700">
               Welcome to Govt Polytechnic College Perinthalmanna
             </h1>
             <div className="flex">
               <div
-                className="w-2/4 2xl:w-2/5 min-h-full bg-cover bg-no-repeat bg-center relative"
+                className="relative w-2/4 min-h-full bg-center bg-no-repeat bg-cover 2xl:w-2/5"
                 style={{
                   backgroundImage:
                     "url('https://www.gptcperinthalmanna.in/wp-content/uploads/2021/04/main1-scaled.jpg')",
                 }}
               >
-                <a className="absolute bottom-2 left-2 py-2 px-3 bg-gray-800 text-xs text-gray-50 hover:bg-gray-700 cursor-pointer transition-all duration-200">
+                <a className="absolute px-3 py-2 text-xs transition-all duration-200 bg-gray-800 cursor-pointer bottom-2 left-2 text-gray-50 hover:bg-gray-700">
                   Virtual Tour
                 </a>
               </div>
-              <div className="bg-gray-200 p-3 w-2/4 2xl:w-3/5 flex-grow">
-                <h2 className="text-xl font-serif font-semibold">
+              <div className="flex-grow w-2/4 p-3 bg-gray-200 2xl:w-3/5">
+                <h2 className="font-serif text-xl font-semibold">
                   About our College
                 </h2>
                 <p className="font-serif">
@@ -55,56 +56,39 @@ const Home: NextPage = () => {
                   present is praiseworthy, so the future has to be envisioned in
                   the light of the glorious past and the meritorious present
                 </p>
-                <div className="text-gray-500 text-sm pt-4 cursor-pointer hover:text-gray-600">
+                <div className="pt-4 text-sm text-gray-500 cursor-pointer hover:text-gray-600">
                   - Know More
                 </div>
               </div>
             </div>
           </div>
-          <div className="w-full flex flex-col h-60 lg:h-auto mt-3 lg:mt-0 lg:w-1/4 lg:pl-2">
-            <h1 className="text-2xl font-bold text-gray-700 my-3">Events</h1>
+          <div className="flex flex-col w-full mt-3 h-60 lg:h-auto lg:mt-0 lg:w-1/4 lg:pl-2">
+            <h1 className="my-3 text-2xl font-bold text-gray-700">Events</h1>
 
             <div className="flex h-full">
-              <div
-                className="group cursor-pointer w-full min-h-full bg-cover bg-no-repeat bg-center relative"
-                style={{
-                  backgroundImage:
-                    "url('http://uoce.chimpgroup.com/wp-content/uploads/Home-About-Us.jpg')",
-                }}
-              >
-                <div className="absolute opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out top-2 left-2 bg-gray-700 text-xs text-white rounded p-1">
-                  {" "}
-                  12 Oct 2021
-                </div>
-                <div className="absolute group-hover:pb-4 bottom-0 w-full opacity-90 py-2 px-3 bg-gray-800 text-xs text-gray-50 group-hover:bg-gray-700 cursor-pointer transition-all duration-200">
-                  <h2 className="text-sm font-bold">Meet up 2021</h2>
-                  <p className="font-serif">
-                    Electronics 2014 batch is conducted a meetup in Electroncis
-                    block
-                  </p>
-                </div>
-              </div>
+              <ImagePost fullHeight image="http://uoce.chimpgroup.com/wp-content/uploads/Home-About-Us.jpg" date="12 Oct 2021" title="Meet up 2021" subtitle="Electronics 2014 batch is conducted a meetup in Electroncis" />
+           
             </div>
           </div>
         </div>
       </div>
 
-      <div className="bg-cover container mx-auto bg-no-repeat  bg-bottom" style={{backgroundImage: "url('https://www.gptcperinthalmanna.in/wp-content/uploads/2021/04/main1-scaled.jpg')"}}>
-  <div className="mx-auto lg:px-4 bg-gray-900 bg-opacity-80 flex justify-center">
+      <div className="container mx-auto bg-bottom bg-no-repeat bg-cover" style={{backgroundImage: "url('https://www.gptcperinthalmanna.in/wp-content/uploads/2021/04/main1-scaled.jpg')"}}>
+  <div className="flex justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
     <div className="w-2/3 py-16 text-center">
-      <div className="w-20 text-white mx-auto">
+      <div className="w-20 mx-auto text-white">
       <BsEyeFill size={70} />
       </div>
       <h1 className="text-2xl font-bold text-white"> Vision </h1>
-      <p className="text-white text-sm"> To be a centre of excellence to mould technically competent engineers for industry expertise and social development. </p>
+      <p className="text-sm text-white"> To be a centre of excellence to mould technically competent engineers for industry expertise and social development. </p>
     </div>
     <div className="w-2/3 py-16 text-center">
-      <div className="w-20 text-white mx-auto">
+      <div className="w-20 mx-auto text-white">
       
                 <GiTargetPoster size={70} />
       </div>
       <h1 className="text-2xl font-bold text-white"> Mission </h1>
-      <p className="text-white text-sm">Impart quality technical education and skills to develop engineering professionals to meet the needs of industry and society. 
+      <p className="text-sm text-white">Impart quality technical education and skills to develop engineering professionals to meet the needs of industry and society. 
         Facilitate professional interactions between industry and engineers and to promote innovation and entrepreneurship.
         Inculcate moral values and life ethics in engineering professionals to serve the society.</p>
     </div>
