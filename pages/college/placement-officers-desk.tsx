@@ -12,6 +12,7 @@ import logoImage from "../../public/logo.png";
 import Image from "next/image";
 import ContactForm from "../../components/custom/ContactForm";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
+import RibbonCard from "../../components/custom/RibbonCard";
 
 const _features = [
   {
@@ -81,21 +82,18 @@ const CustomPage: NextPage = () => (
             instagram: "https://www.instagram.com/gptcperinthalmanna/",
           }}
         />
-
       </div>
       <div className="h-auto lg:w-1/3">
-        <div className="flex h-full border-2 border-t-0 border-b-0 border-l-8 border-r-0 border-pink-600 rounded-lg bg-gradient-to-r from-pink-700 to-pink-600">
-          <div className="p-3">
-            <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
-            <p className="text-gray-100">
-              Develop the personality of every student by imparting training in
-              soft skills, communication skills, group discussion, interview
-              techniques, leadership qualities and team work. Empower the
-              students to face life confidently and to enable every one of them
-              to leave the campus with a coveted job in reputed establishment.
-            </p>
-          </div>
-        </div>
+        <RibbonCard>
+          <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
+          <p className="text-gray-100">
+            Develop the personality of every student by imparting training in
+            soft skills, communication skills, group discussion, interview
+            techniques, leadership qualities and team work. Empower the students
+            to face life confidently and to enable every one of them to leave
+            the campus with a coveted job in reputed establishment.
+          </p>
+        </RibbonCard>
       </div>
     </div>
     <div className="px-4 py-5 mx-auto mt-5 bg-gradient-to-r from-purple-800 to-blue-600">

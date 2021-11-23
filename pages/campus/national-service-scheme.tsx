@@ -1,9 +1,11 @@
 import { NextPage } from "next";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
+import RibbonCard from "../../components/custom/RibbonCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
+import Carousel from "../../components/ui/Carousal";
 
 const CustomPage: NextPage = () => (
   <Page title="National Service Scheme (NSS)">
@@ -11,8 +13,7 @@ const CustomPage: NextPage = () => (
       <PageTitle>National Service Scheme</PageTitle>
       <Content>
         <Content.Left>
-          <div>
-            
+          <div className="mr-2">
             <LargeUserCardWithDetails
               avatar={
                 "http://uoce.chimpgroup.com/home-v4/wp-content/uploads/2015/07/UOCE-Team-Members-12.jpg"
@@ -32,7 +33,16 @@ const CustomPage: NextPage = () => (
               }}
             />
           </div>
+          <div>
+              <Carousel />
+          </div>
         </Content.Left>
+        <Content.Right>
+          <RibbonCard color="red">
+            <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
+            <p className="text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium minima perspiciatis tenetur, modi aperiam distinctio necessitatibus officia, nostrum cupiditate animi voluptatum earum, est assumenda id iusto non quasi quia accusamus!</p>
+          </RibbonCard>
+        </Content.Right>
       </Content>
     </Container>
   </Page>
