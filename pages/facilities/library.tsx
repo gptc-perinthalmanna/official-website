@@ -6,6 +6,7 @@ import Content from "../../components/layout/Content";
 import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
+import PhotoGallery from "../../components/widgets/PhotoGallery";
 
 const _staffs = [
   {
@@ -21,7 +22,6 @@ const _staffs = [
     designation: "Lecturer in Electronics",
   },
 ];
-
 
 
 const CustomPage: NextPage = () => (
@@ -150,6 +150,11 @@ const CustomPage: NextPage = () => (
             </div>
           </div>
         </Content.Left>
+        <Content.Right>
+          <div>
+            <PhotoGallery />
+          </div>
+        </Content.Right>
       </Content>
     </Container>
   </Page>

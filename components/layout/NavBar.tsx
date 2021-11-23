@@ -253,7 +253,7 @@ const _menu: MenuItem[] = [
         icon: MdHealthAndSafety,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/health-centre"
       },
       {
         name: "Finishing School",
