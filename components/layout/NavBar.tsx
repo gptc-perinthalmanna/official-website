@@ -260,49 +260,49 @@ const _menu: MenuItem[] = [
         icon: GiFinishLine,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/finishing-school"
       },
       {
         name: "Language Lab",
         icon: HiOutlineSpeakerphone,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/language-lab"
       },
       {
         name: "Co-operative Society",
         icon: SiHandshake,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/co-operative-society"
       },
       {
         name: "Internet Common Facility Centre",
         icon: MdSignalWifiStatusbarConnectedNoInternet4,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/internet-common-facility-centre"
       },
       {
         name: "Womens Hostel",
         icon: GrRestroomWomen,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/womens-hostel"
       },
       {
-        name: "Staff Quaters",
+        name: "Staff Quarters",
         icon: FaChalkboardTeacher,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/staff-quarters"
       },
       {
         name: "Auditorium",
         icon: SiGoogleclassroom,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/auditorium"
       },
       {
         name: "Electronics Block",
@@ -316,14 +316,14 @@ const _menu: MenuItem[] = [
         icon: RiBuilding2Line,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/civil-block"
       },
       {
         name: "Medical Facility",
         icon: FaClinicMedical,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+          link: "/facilities/medical-facility"
       },
     ],
   },

@@ -20,7 +20,7 @@ const _images = [
   },
 ];
 
-function PhotoGallery() {
+function PhotoGallery({ images = _images }) {
   return (
     <>
       <h2 className="mx-2 mb-3 text-2xl font-bold text-teal-700">Photos</h2>
