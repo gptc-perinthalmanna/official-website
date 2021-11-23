@@ -337,84 +337,84 @@ const _menu: MenuItem[] = [
         icon: FaUsers,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "National Service Scheme",
         icon: RiServiceFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Innovation Enterpernership Develepment Centre",
         icon: FaIndustry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Boomithrasena Club",
         icon: GiGroundSprout,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Staff Club",
         icon: GrUserWorker,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Parents Teachers Association",
         icon: RiParentFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Greivence Redressal Committee",
         icon: GrCompliance,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Alumini",
         icon: GiSchoolOfFish,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Placement Cell",
         icon: MdWork,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Scholar Support Programme",
         icon: HiSupport,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },   
       {
         name: "Enterpenership Development Club",
         icon: FaUserTie,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Anti Ragging Committee",
         icon: HiBan,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
     ],
   },
@@ -450,7 +450,7 @@ const _menu: MenuItem[] = [
         icon: BsFillPatchQuestionFill,
         description:
           "Previous Diploma semester final examination question papers in dowloadable pdf format. ",
-          link: "/college/breif-history"
+          link: "/campus/national-service-scheme"
       },
       {
         name: "Design Files",

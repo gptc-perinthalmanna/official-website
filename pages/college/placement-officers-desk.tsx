@@ -1,10 +1,6 @@
 import { NextPage } from "next";
 import { BiHistory, BiMapPin } from "react-icons/bi";
-import {
-  BsFacebook,
-  BsLinkedin,
-  BsTelegram,
-} from "react-icons/bs";
+import { BsFacebook, BsLinkedin, BsTelegram } from "react-icons/bs";
 import { FaAward, FaUserGraduate, FaUserTie } from "react-icons/fa";
 import { GiTreasureMap } from "react-icons/gi";
 import { IoLogoWhatsapp } from "react-icons/io5";
@@ -12,9 +8,10 @@ import { RiBuilding2Line } from "react-icons/ri";
 import { SiGofundme } from "react-icons/si";
 import Page from "../../components/layout/Page";
 import { H1 } from "../../components/ui/Heading";
-import logoImage from '../../public/logo.png'
+import logoImage from "../../public/logo.png";
 import Image from "next/image";
 import ContactForm from "../../components/custom/ContactForm";
+import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 
 const _features = [
   {
@@ -61,57 +58,35 @@ const _features = [
 
 const CustomPage: NextPage = () => (
   <Page title="Placement Officers Desk in GPC Perinthalmanna">
-      <div className="container mx-auto">
-    <H1>Placement Officers Desk</H1>
+    <div className="container mx-auto">
+      <H1>Placement Officers Desk</H1>
     </div>
-    <div className="container mx-auto flex flex-wrap mt-4">
-      <div className="lg:w-2/3 w-full mb-2 lg:mb-0 lg:px-3">
-        <div className="flex bg-gray-100 rounded-lg border-2">
-          <div className="p-3 max-w-full">
-            <Image
-              className="rounded-lg"
-              src="http://uoce.chimpgroup.com/home-v4/wp-content/uploads/2015/07/UOCE-Team-Members-12.jpg"
-              alt="Placement Officer in Charge"
-              height={250}
-              width={250}
-            />
-          </div>
-          <div className="p-3">
-            <h2 className="text-3xl font-light">Vivek C</h2>
-            <h3 className="text-lg font-bold uppercase text-gray-800 ">
-              Placement Officer
-            </h3>
-            <p className="text-xs mb-3 text-gray-700">
-              Demonstrator, Mechanical Department
-            </p>
-            <div className="text-gray-500 mb-1 text-sm flex">
-              Email:
-              <span className="ml-2 text-gray-600">
-                placement@gptcperinthalmanna.in
-              </span>
-            </div>
-            <div className="text-gray-500 mb-1 text-sm flex">
-              Phone: <span className="ml-2 text-gray-600">+91 93924 92492</span>
-            </div>
-            <div className="text-gray-500 mb-1 text-sm flex">
-              Address:
-              <span className="ml-2 text-gray-600">
-                23 Stronke, Ndoeoidk ldasfk, London, N13 OLU
-              </span>
-            </div>
-            <div className="flex mt-3">
-              <BsFacebook className="mr-2" size={25} color="#1778F2" />
-              <BsLinkedin className="mr-2" size={25} color="#006192" />
-              <BsTelegram className="mr-2" size={25} color="#0088CC" />
-              <IoLogoWhatsapp className="mr-2" size={25} color="#4FCE5D" />
-            </div>
-          </div>
-        </div>
+    <div className="container flex flex-wrap mx-auto mt-4">
+      <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
+        <LargeUserCardWithDetails
+          avatar={
+            "http://uoce.chimpgroup.com/home-v4/wp-content/uploads/2015/07/UOCE-Team-Members-12.jpg"
+          }
+          fullName={"Deepak"}
+          designation={"Placement Officer"}
+          subtitle={"Demonstrator, Mechanical Department"}
+          email={"placement@gptcperinthalmanna.in"}
+          phone={"+91 93924 92492"}
+          address={"23 Stronke, Ndoeoidk ldasfk, London, N13 OLU"}
+          socialLinks={{
+            facebook: "https://www.facebook.com/gptcperinthalmanna/",
+            linkedin: "https://www.linkedin.com/company/gptc-perinthalmanna/",
+            telegram: "https://t.me/gptcperinthalmanna",
+            whatsapp: "https://wa.me/919392492492",
+            instagram: "https://www.instagram.com/gptcperinthalmanna/",
+          }}
+        />
+
       </div>
-      <div className="lg:w-1/3 h-auto">
-        <div className="flex border-l-8 border-pink-600 border-t-0 border-r-0 border-b-0 h-full bg-gradient-to-r from-pink-700 to-pink-600 rounded-lg border-2">
+      <div className="h-auto lg:w-1/3">
+        <div className="flex h-full border-2 border-t-0 border-b-0 border-l-8 border-r-0 border-pink-600 rounded-lg bg-gradient-to-r from-pink-700 to-pink-600">
           <div className="p-3">
-            <h2 className="text-2xl mb-2 font-bold text-gray-100">Mission</h2>
+            <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
             <p className="text-gray-100">
               Develop the personality of every student by imparting training in
               soft skills, communication skills, group discussion, interview
@@ -123,26 +98,26 @@ const CustomPage: NextPage = () => (
         </div>
       </div>
     </div>
-    <div className="mx-auto mt-5 py-5 px-4 bg-gradient-to-r from-purple-800 to-blue-600">
-      <div className="container mx-auto py-16">
-        <h1 className="text-center mb-9 mt-3">
+    <div className="px-4 py-5 mx-auto mt-5 bg-gradient-to-r from-purple-800 to-blue-600">
+      <div className="container py-16 mx-auto">
+        <h1 className="mt-3 text-center mb-9">
           <span className="text-4xl font-bold text-gray-100">Why us?</span>
-          <p className="text-white text-center">
+          <p className="text-center text-white">
             Here are a few reasons that we are the top choosen college for
             several campus recruitments
           </p>
         </h1>
 
-        <div className="flex justify-center flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {_features.map((feature) => {
             const Icon = feature.icon;
             return (
               <div
                 key={feature.title}
-                className="flex flex-col w-80 my-4 px-3 items-center"
+                className="flex flex-col items-center px-3 my-4 w-80"
               >
                 <Icon size={90} color="#fff" />
-                <h2 className="text-gray-100 pt-2 font-bold text-xl">
+                <h2 className="pt-2 text-xl font-bold text-gray-100">
                   {feature.title}
                 </h2>
                 <p className="text-sm text-gray-200">{feature.des}</p>
@@ -152,25 +127,45 @@ const CustomPage: NextPage = () => (
         </div>
       </div>
     </div>
-    <div className="mx-auto py-5 px-4 bg-gradient-to-r from-pink-600 to-pink-700">
-        <div className="container text-center py-7 mx-auto text-white">
-            <Image src={logoImage} className="filter grayscale invert" alt="Logo" />
-            <h2 className="text-3xl font-bold pb-5 ">Career Guidance and Placement Cell</h2>
-        <p className="font-thin leading-9 text-xl p-3">
-Career guidance and placement cell has been assisting the students in paving a way to their careers. The cell conducts training programmes to prepare the students to face the recruitment process and to meet the needs of the industry. It also provides complete support to visiting companies at every stage of placement process. <strong> Arrangements for pre placement talks, written tests, interviews and group discussions are made as per the requirement of the visiting companies.</strong> It bridges the gap between the industry and the institution.
+    <div className="px-4 py-5 mx-auto bg-gradient-to-r from-pink-600 to-pink-700">
+      <div className="container mx-auto text-center text-white py-7">
+        <Image src={logoImage} className="filter grayscale invert" alt="Logo" />
+        <h2 className="pb-5 text-3xl font-bold ">
+          Career Guidance and Placement Cell
+        </h2>
+        <p className="p-3 text-xl font-thin leading-9">
+          Career guidance and placement cell has been assisting the students in
+          paving a way to their careers. The cell conducts training programmes
+          to prepare the students to face the recruitment process and to meet
+          the needs of the industry. It also provides complete support to
+          visiting companies at every stage of placement process.{" "}
+          <strong>
+            {" "}
+            Arrangements for pre placement talks, written tests, interviews and
+            group discussions are made as per the requirement of the visiting
+            companies.
+          </strong>{" "}
+          It bridges the gap between the industry and the institution. We
+          Receives and forwards the feedback pertinent to curriculum improvement
+          from the visiting companies to the faculty, to ensure that the
+          curriculum follows the latest industrial trends. We are confident that
+          these young men and women would be an asset to your organization
+          through their technical and managerial capabilities and their talent
+          for innovation. We, works towards continuing education for the college
+          employees over the years, the placement cell has maintained symbiotic,
+          vibrant and purposeful relationship with Industries and as a result,
+          has built up an impressive placement record both in terms of
+          percentage of registered students placed, as well as the number of
+          companies visiting the campus.
+        </p>
+      </div>
+    </div>
 
-We Receives and forwards the feedback pertinent to curriculum improvement from the visiting companies to the faculty, to ensure that the curriculum follows the latest industrial trends. We are confident that these young men and women would be an asset to your organization through their technical and managerial capabilities and their talent for innovation.
-
-We, works towards continuing education for the college employees over the years, the placement cell has maintained symbiotic, vibrant and purposeful relationship with Industries and as a result, has built up an impressive placement record both in terms of percentage of registered students placed, as well as the number of companies visiting the campus.</p>
-   
-        </div>
-         </div>
-
-         <div className="container mx-auto">
-             <div className="max-w-xl mx-auto">
-             <ContactForm />
-             </div>
-         </div>
+    <div className="container mx-auto">
+      <div className="max-w-xl mx-auto">
+        <ContactForm />
+      </div>
+    </div>
   </Page>
 );
 
