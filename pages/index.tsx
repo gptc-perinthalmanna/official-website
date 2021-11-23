@@ -8,7 +8,7 @@ import LogoBanner from "../components/layout/LogoBanner";
 import NavBar from "../components/layout/NavBar";
 import TopBanner from "../components/layout/TopBanner";
 import NewsTicker from "../components/NewsTicker";
-
+import HeroCarousel from "../components/ui/HeroCarousal";
 
 const Home: NextPage = () => {
   return (
@@ -22,6 +22,9 @@ const Home: NextPage = () => {
       <TopBanner />
       <LogoBanner />
       <NavBar />
+      <div className="w-full h-90">
+        <HeroCarousel />
+      </div>
       <NewsTicker />
 
       <div className="container mx-auto my-3">
@@ -66,35 +69,54 @@ const Home: NextPage = () => {
             <h1 className="my-3 text-2xl font-bold text-gray-700">Events</h1>
 
             <div className="flex h-full">
-              <ImagePost fullHeight image="http://uoce.chimpgroup.com/wp-content/uploads/Home-About-Us.jpg" date="12 Oct 2021" title="Meet up 2021" subtitle="Electronics 2014 batch is conducted a meetup in Electroncis" />
-           
+              <ImagePost
+                fullHeight
+                image="http://uoce.chimpgroup.com/wp-content/uploads/Home-About-Us.jpg"
+                date="12 Oct 2021"
+                title="Meet up 2021"
+                subtitle="Electronics 2014 batch is conducted a meetup in Electroncis"
+              />
             </div>
           </div>
         </div>
       </div>
 
-      <div className="container mx-auto bg-bottom bg-no-repeat bg-cover" style={{backgroundImage: "url('https://www.gptcperinthalmanna.in/wp-content/uploads/2021/04/main1-scaled.jpg')"}}>
-  <div className="flex justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
-    <div className="w-2/3 py-16 text-center">
-      <div className="w-20 mx-auto text-white">
-      <BsEyeFill size={70} />
+      <div
+        className="container mx-auto bg-bottom bg-no-repeat bg-cover"
+        style={{
+          backgroundImage:
+            "url('https://www.gptcperinthalmanna.in/wp-content/uploads/2021/04/main1-scaled.jpg')",
+        }}
+      >
+        <div className="flex justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
+          <div className="w-2/3 py-16 text-center">
+            <div className="w-20 mx-auto text-white">
+              <BsEyeFill size={70} />
+            </div>
+            <h1 className="text-2xl font-bold text-white"> Vision </h1>
+            <p className="text-sm text-white">
+              {" "}
+              To be a centre of excellence to mould technically competent
+              engineers for industry expertise and social development.{" "}
+            </p>
+          </div>
+          <div className="w-2/3 py-16 text-center">
+            <div className="w-20 mx-auto text-white">
+              <GiTargetPoster size={70} />
+            </div>
+            <h1 className="text-2xl font-bold text-white"> Mission </h1>
+            <p className="text-sm text-white">
+              Impart quality technical education and skills to develop
+              engineering professionals to meet the needs of industry and
+              society. Facilitate professional interactions between industry and
+              engineers and to promote innovation and entrepreneurship.
+              Inculcate moral values and life ethics in engineering
+              professionals to serve the society.
+            </p>
+          </div>
+        </div>
       </div>
-      <h1 className="text-2xl font-bold text-white"> Vision </h1>
-      <p className="text-sm text-white"> To be a centre of excellence to mould technically competent engineers for industry expertise and social development. </p>
-    </div>
-    <div className="w-2/3 py-16 text-center">
-      <div className="w-20 mx-auto text-white">
-      
-                <GiTargetPoster size={70} />
-      </div>
-      <h1 className="text-2xl font-bold text-white"> Mission </h1>
-      <p className="text-sm text-white">Impart quality technical education and skills to develop engineering professionals to meet the needs of industry and society. 
-        Facilitate professional interactions between industry and engineers and to promote innovation and entrepreneurship.
-        Inculcate moral values and life ethics in engineering professionals to serve the society.</p>
-    </div>
-  </div>
-</div>
-<Footer />
+      <Footer />
     </div>
   );
 };
