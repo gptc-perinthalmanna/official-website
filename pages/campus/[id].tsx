@@ -6,7 +6,6 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
-import PhotoGallery from "../../components/widgets/PhotoGallery";
 
 const _staffs = [
   {
@@ -132,6 +131,20 @@ const _pages: { [key: string]: PageType } = {
     cover: "/images/campus/library/cover.jpg",
     staffs: _staffs,
   },
+  "students-union": {
+    title: "Students Union",
+    about:
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    cover: "/images/campus/library/cover.jpg",
+    staffs: _staffs,
+  },
+  "alumini": {
+    title: "Alumini",
+    about:
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    cover: "/images/campus/library/cover.jpg",
+    staffs: _staffs,
+  },
 };
 
 const _paths = [
@@ -143,6 +156,8 @@ const _paths = [
   "boomithrasena-club",
   "innovation-entrepreneurship-development-club",
   "sholar-support-programme",
+  "students-union",
+  "alumini"
 ];
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
@@ -223,6 +238,6 @@ export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = ({
     // Next.js will attempt to re-generate the page:
     // - When a request comes in
     // - At most once every 10 seconds
-    revalidate: 6000, // In seconds
+    revalidate: 600000, // In seconds
   };
 };
