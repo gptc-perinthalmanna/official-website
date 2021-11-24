@@ -6,7 +6,8 @@ import ImagePost from "../custom/ImagePost";
 const responsive = {
   0: { items: 1 },
   568: { items: 2 },
-  1024: { items: 3 },
+  1028: { items: 3 },
+  1280: { items: 4 },
 };
 
 const events = [
@@ -50,6 +51,8 @@ const EventCarousel = ({ items = events }: { items?: typeof events }) => {
 
   return (
     <AliceCarousel
+      autoPlay
+      autoPlayInterval={5000}
       mouseTracking
       touchTracking
       keyboardNavigation

@@ -351,35 +351,35 @@ const _menu: MenuItem[] = [
         icon: FaIndustry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/innovation-entrepreneurship-development-club"
       },
       {
         name: "Boomithrasena Club",
         icon: GiGroundSprout,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/boomithrasena-club"
       },
       {
         name: "Staff Club",
         icon: GrUserWorker,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/staff-club"
       },
       {
         name: "Parents Teachers Association",
         icon: RiParentFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/parents-teachers-association"
       },
       {
         name: "Greivence Redressal Committee",
         icon: GrCompliance,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/greivance-redressal-committee"
       },
       {
         name: "Alumini",
@@ -393,14 +393,14 @@ const _menu: MenuItem[] = [
         icon: MdWork,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/placement-cell"
       },
       {
         name: "Scholar Support Programme",
         icon: HiSupport,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/campus/national-service-scheme"
+          link: "/campus/sholar-support-programme"
       },   
       {
         name: "Enterpenership Development Club",
@@ -414,7 +414,7 @@ const _menu: MenuItem[] = [
         icon: HiBan,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+          link: "/campus/anti-ragging-committe"
       },
     ],
   },
