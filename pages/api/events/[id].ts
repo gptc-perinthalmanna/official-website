@@ -1,6 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
-import {  EventType, getEvents } from "../../../../server/pages";
+import { EventType } from "../../../server/db";
+import {   getEvents } from "../../../server/pages";
 
 export default async function handler(
   req: NextApiRequest,

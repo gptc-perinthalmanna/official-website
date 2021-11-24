@@ -3,22 +3,21 @@ import { Deta } from "deta"; // import Deta
 // Initialize with a Project Key
 const deta = Deta(process.env.DETA_PROJECT_ID);
 
-// This how to connect to or create a database.
 export const usersDb = deta.Base("users");
 
 export const facilitiesDb = deta.Base("page_facilities");
 export const campusDB = deta.Base("page_campus");
 export const departmentsDB = deta.Base("page_departments");
 
-export const pressAndMedia = deta.Base("post_press_and_media");
+export const pressAndMediaDB = deta.Base("post_press_and_media");
 export const eventsDB = deta.Base("post_events");
+export const notificationsDB = deta.Base("post_notifications");
+export const deptFacilitiesDB = deta.Base("post_dept_facilities");
 
-export const filesDB = deta.Base("files");
-export const notificationsDB = deta.Base("notifications");
+export const filesDB = deta.Base("media_files");
+export const imagesDB = deta.Base("media_images");
 
-export const imagesDB = deta.Base("images");
-
-export const otherDB = deta.Base("other");
+export const otherDB = deta.Base("other_details");
 
 // Types Definitioinss
 
@@ -56,10 +55,10 @@ export interface UserType {
   phone: string;
   address: string;
   socialLinks: {
-    facebook: string;
-    linkedin: string;
-    instagram: string;
-    whatsapp: string;
+    facebook?: string;
+    linkedin?: string;
+    instagram?: string;
+    whatsapp?: string;
   };
 }
 
@@ -104,3 +103,35 @@ export interface ImageType {
   success: boolean;
   status: number;
 }
+
+export interface OtherType {
+    key: string;
+    value: {[key: string]: string};
+}
+
+export interface DepartmentsType {
+    key: string;
+    title: string;
+    about: string;
+    cover: string;
+    staffs_ids: string[];
+}
+
+export interface PressAndMediaType {
+    key: string;
+    title: string;
+    date: string;
+    author_id: string;
+    description: string;
+}
+
+export interface EventType{
+    key: string;
+    title: string;
+    subtitle: string;
+    image: string
+    date:string;
+    type:string;
+    page_key: string;
+}
+

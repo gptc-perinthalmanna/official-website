@@ -1,4 +1,4 @@
-import { facilitiesDb, campusDB, imagesDB, usersDb, eventsDB, CampusPageType, UserType, FacilityPageType, ImageType } from "./db";
+import { facilitiesDb, campusDB, imagesDB, usersDb, eventsDB, CampusPageType, UserType, FacilityPageType, ImageType, EventType } from "./db";
 
 interface StaffType {
   name: string;
@@ -16,19 +16,6 @@ interface PhotoType {
   alt: string;
   thumbnail: string;
 }
-
-
-
-export interface EventType{
-    key: string;
-    title: string;
-    subtitle: string;
-    image: string
-    date:string;
-    type:string;
-    page_key: string;
-}
-
 
 
 export async function getFacilities(key: string) {
@@ -88,6 +75,6 @@ export async function getNssPage() {
 
 
 export async function getEvents(page_id: string) {
-  const events = await (await eventsDB.fetch({page_id})).items as unknown as EventType[] | null;
+  const events = (await eventsDB.fetch({page_id})).items as unknown as EventType[] | null;
   return events;
 }

@@ -31,3 +31,8 @@ export async function getUser(key: string){
     return user as unknown as UserType | undefined;
 }
 
+
+export async function createUser(user: any){
+    const newUser = await usersDb.put(user);
+    return newUser as unknown as UserType | undefined;
+}
