@@ -1,4 +1,4 @@
-import { facilitiesDb, campusDB, imagesDB, usersDb } from "./db";
+import { facilitiesDb, campusDB, imagesDB, usersDb, eventsDB } from "./db";
 
 interface StaffType {
   name: string;
@@ -10,7 +10,7 @@ interface StaffType {
   };
 }
 
-interface FacilityPageType {
+export interface FacilityPageType {
   title: string;
   about: string;
   cover: string;
@@ -26,7 +26,8 @@ interface PhotoType {
   thumbnail: string;
 }
 
-interface Image {
+export interface ImageType {
+  key: string;
   data: {
     id: string;
     title: string;
@@ -56,14 +57,23 @@ interface Image {
   status: number;
 }
 
-interface CampusType {
+export interface EventType{
+    key: string;
+    title: string;
+    subtitle: string;
+    image: string
+    date:string;
+    type:string;
+    page_key: string;
+}
+
+export interface CampusPageType {
   title: string;
   about: string;
   cover: string;
   staffs_ids?: string[];
   staffs?: StaffType[];
-  events_ids?: string[];
-  events?: PhotoType[];
+  events?: EventType[];
 }
 
 
@@ -78,7 +88,7 @@ export async function getFacilities(key: string) {
   facility.staffs = [];
 
   facility?.photos_id?.forEach(async (element) => {
-    const image = (await imagesDB.get(element)) as unknown as Image | null;
+    const image = (await imagesDB.get(element)) as unknown as ImageType | null;
     if (image) {
       facility?.photos?.push({
         src: image.data.url,
@@ -99,22 +109,24 @@ export async function getFacilities(key: string) {
 }
 
 export async function getCampus(key: string) {
-  let campus = (await campusDB.get(key)) as unknown as FacilityPageType | null;
-  if (!campus) {
+  let campus = (await campusDB.get(key)) as unknown as CampusPageType | null;
+  if (!campus || campus == null) {
     return null;
   }
-  campus.photos = [];
-
-  campus?.photos_id?.forEach(async (element) => {
-    const image = (await imagesDB.get(element)) as unknown as Image | null;
-    if (image) {
-      campus?.photos?.push({
-        src: image.data.url,
-        alt: image.data.title,
-        thumbnail: image.data.thumb.url,
-      });
-    }
+  campus.events = [];
+  const events = await (await eventsDB.fetch({page_id: key})).items as unknown as EventType[];
+  events.forEach( (element) => {
+      campus?.events?.push(element);
   });
+
+  campus.staffs = [];
+  campus.staffs_ids?.forEach(async (element) => {
+    const staff = (await usersDb.get(element)) as unknown as StaffType | null;
+    if (staff) {
+      campus?.staffs?.push(staff);
+    }
+  })
+
 
   return campus;
 }
