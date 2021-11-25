@@ -102,33 +102,41 @@ export interface ImageType {
 }
 
 export interface OtherType {
-    key: string;
-    value: {[key: string]: string};
+  key: string;
+  value: { [key: string]: string };
 }
 
 export interface DepartmentsType {
-    key: string;
-    title: string;
-    about: string;
-    cover: string;
-    staffs_ids: string[];
+  key: string;
+  title: string;
+  about: string;
+  cover: string;
+  staffs_ids: string[];
 }
 
 export interface PressAndMediaType {
-    key: string;
-    title: string;
-    date: string;
-    author_id: string;
-    description: string;
+  key: string;
+  title: string;
+  date: string;
+  author_id: string;
+  description: string;
 }
 
-export interface EventType{
-    key: string;
-    title: string;
-    subtitle: string;
-    image: string
-    date:string;
-    type:string;
-    page_key: string;
+export interface EventType {
+  key: string;
+  title: string;
+  subtitle: string;
+  image: string;
+  date: string;
+  type: string;
+  page_key: string;
 }
 
+export interface DepartmentFacilityType {
+  key: string;
+  title: string;
+  decription: string;
+  image: string;
+  color: string;
+  tags: string[];
+}
