@@ -78,3 +78,13 @@ export async function getEvents(page_id: string) {
   const events = (await eventsDB.fetch({page_id})).items as unknown as EventType[] | null;
   return events;
 }
+
+export async function createPage(type = 'facility', data: any) {
+  if (type === 'facility') {
+    const facility = (await facilitiesDb.put(data)) as unknown as FacilityPageType | null;
+    return facility;
+  } else if (type === 'campus') {
+    const campus = (await campusDB.put(data)) as unknown as CampusPageType | null;
+    return campus;
+  }
+}

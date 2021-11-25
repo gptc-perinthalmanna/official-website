@@ -39,7 +39,6 @@ export interface CampusPageType {
   about: string;
   cover: string;
   staffs_ids?: string[];
-  staffs?: UserType[];
 }
 
 export interface UserType {
@@ -64,11 +63,9 @@ export interface UserType {
 
 export interface FacilityPageType {
   key: string;
-  photos: never[];
   title: string;
   about: string;
   cover: string;
-  staffs?: UserType[];
   staffs_ids?: string[];
   photos_id?: string[];
 }
