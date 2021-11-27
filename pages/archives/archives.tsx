@@ -1,32 +1,31 @@
 import { NextPage } from "next";
+import useSWR from "swr";
 import PdfCard from "../../components/custom/PdfCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
+import { fetcher } from "../../server/calls";
+import { FileType } from "../../server/db";
 
-const _archives = [
-  {
-    title: "Rules and Regulations For Diploma programmes",
-    description: "124KB | PDF",
-    url: "https://www.gptcperinthalmanna.in/wp-content/gallery/Downloads/students%20downloads/academic/rules.pdf",
-  },
-  {
-    title: "Semester Registration - tekerala.org",
-    description: "143KB | PDF",
-    url: "https://tekerala.org/student_detailss/index.php"
-  },
-  {
-    title: "Academic Calender 2019-20 Even Semester",
-    description: "143KB | PDF",
-    url: "https://www.gptcperinthalmanna.in/wp-content/uploads/2019/12/Academic_Calender_2019even.pdf"
-  },
-  {
-    title: "Exam Manual",
-    description: "143KB | PDF",
-    url: "https://tekerala.org/index.php"
-  },
-];
+
+const FileContainer = () => {
+  const { data, error } = useSWR<FileType[]>(
+    "/api/files/tag/downloads",
+    fetcher
+  );
+
+  if (!data) return <div />;
+  if (error) return <div>failed to load</div>;
+
+  return (
+    <>
+      {data.map((file) => (
+        <PdfCard {...file} key={file.key} />
+      ))}
+    </>
+  );
+};
 
 const CustomPage: NextPage = () => (
   <Page title="Archives">
@@ -35,9 +34,7 @@ const CustomPage: NextPage = () => (
       <Content>
         <Content.FullWidth>
           <div className="flex flex-wrap">
-            {_archives.map((file) => (
-              <PdfCard key={file.title} {...file} />
-            ))}
+            <FileContainer />
           </div>
         </Content.FullWidth>
       </Content>

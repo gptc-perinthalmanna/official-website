@@ -5,23 +5,30 @@ import LogoBanner from "./LogoBanner";
 import NavBar from "./NavBar";
 import TopBanner from "./TopBanner";
 
-const _desc = "Government Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala. Academically and otherwise its position in the state is unchallenged. Activities focusing on the result enhancement and the overall development of the students to make them excel in their respective fields are remarkable."
+const _desc =
+  "Government Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala. Academically and otherwise its position in the state is unchallenged. Activities focusing on the result enhancement and the overall development of the students to make them excel in their respective fields are remarkable.";
 const _title = "Govt Polytechnic College Perinthalmanna";
 
-function Page({ children, title = _title, desc = _desc }: { children: React.ReactNode; title?: string; desc?: string }) {
+function Page({
+  children,
+  title = _title,
+  desc = _desc,
+}: {
+  children: React.ReactNode;
+  title?: string;
+  desc?: string;
+}) {
   return (
     <>
       <Head>
-      <title>{title}</title>
-      <meta name="description" content={desc} />
+        <title>{title}</title>
+        <meta name="description" content={desc} />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <TopBanner />
       <LogoBanner />
       <NavBar />
-      <div>
-      {children}
-      </div>
+      <div>{children}</div>
       <Footer />
     </>
   );
