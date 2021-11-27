@@ -186,3 +186,75 @@ https://i.ibb.co/RzDR70n/co-operative-society.jpg
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
 };
+
+
+
+====
+
+
+[
+  {
+    "title":  "Test",
+    "staffs_ids":  [
+     "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Exam Monitoring Cell",
+    "staffs_ids":  [
+      "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Anti Ragging Squad",
+    "staffs_ids":  [
+       "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "National Service Scheme",
+    "staffs_ids":  [
+      "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Women Cell",
+    "staffs_ids":  [
+    "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Scholar Support",
+    "staffs_ids":  [
+      "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Vocational Diploma",
+    "staffs_ids":  ["b7ae9ac8-095d-4434-ad42-de1527434263"],
+  },
+  {
+    "title":  "Grievance cell",
+    "staffs_ids":  [
+     "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Finishing School",
+    "staffs_ids":  [
+     "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Placement Cell",
+    "staffs_ids":  [
+     "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  },
+  {
+    "title":  "Training Manager",
+    "staffs_ids":  [
+      "b7ae9ac8-095d-4434-ad42-de1527434263"
+    ],
+  }
+];
