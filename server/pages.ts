@@ -25,11 +25,11 @@ export async function getFacilities(key: string) {
   if (!facility) {
     return null;
   }
-
+  let unresolvedpromises: any
   let photos : PhotoType[] = Array();
   let staffs : StaffType[] = Array();
 
-  facility?.photos_id?.forEach(async (element) => {
+  unresolvedpromises = facility?.photos_id?.map(async (element) => {
     const image = (await imagesDB.get(element)) as unknown as ImageType | null;
     if (image) {
       photos.push({
@@ -38,14 +38,16 @@ export async function getFacilities(key: string) {
         thumbnail: image.data.thumb.url,
       });
     }
+    return image
   });
-
-  facility?.staffs_ids?.forEach(async (element) => {
+  unresolvedpromises = facility?.staffs_ids?.map(async (element) => {
     const staff = (await usersDb.get(element)) as unknown as UserType | null;
     if (staff) {
       staffs.push(staff);
     }
+    return staff
   });
+  if (unresolvedpromises) await Promise.all(unresolvedpromises)
 
   return {...facility, photos, staffs};
 }
@@ -56,23 +58,29 @@ export async function getCampus(key: string) {
     return null;
   }
 
+  let unresolvedpromises: any
   let staffs : UserType[] = [];
-  campus.staffs_ids?.forEach(async (element) => {
+  let events : EventType[] | null = [];
+
+  unresolvedpromises = campus.staffs_ids?.map(async (element) => {
     const staff = (await usersDb.get(element)) as unknown as UserType | null;
     if (staff) {
       staffs.push(staff);
     }
+    return staff
   })
 
+  const _events = await getEvents(key)
+  if (_events) events = _events
+  
 
-  return {...campus, staffs};
+  if (unresolvedpromises) await Promise.all(unresolvedpromises)
+  return {...campus, staffs, events};
 }
 
 
 export async function getNssPage() {
-
 }
-
 
 export async function getEvents(page_id: string) {
   const events = (await eventsDB.fetch({page_id})).items as unknown as EventType[] | null;

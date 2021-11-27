@@ -20,9 +20,7 @@ async function validation<T = Record<string, any>>(
 }
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
-  key: yup.string().default(function () {
-    return uuidv4();
-  }),
+  key: yup.string().required(),
  title: yup.string().min(3).required(),
  about: yup.string().min(40).required(),
  cover: yup.string().url().required(),

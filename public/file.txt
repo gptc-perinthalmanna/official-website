@@ -2,8 +2,6 @@ https://i.ibb.co/xFk0Fvr/library-4.jpg
 https://i.ibb.co/4JVh78Q/library-3.jpg
 https://i.ibb.co/M8Fwp72/library-2.jpg
 https://i.ibb.co/WBXfsyF/library-1.jpg
-
-
 https://i.ibb.co/sK3NQ8x/womens-hostel.jpg
 https://i.ibb.co/9w88HNf/staff-quaters.jpg
 https://i.ibb.co/89ghQjs/language-lab.jpg
@@ -12,8 +10,8 @@ https://i.ibb.co/X7frJcY/health-centre.jpg
 https://i.ibb.co/44vmmQf/finishing-school.jpg
 https://i.ibb.co/RzDR70n/co-operative-society.jpg
 
-const _pages: { [key: string]: PageType } = {
-  "health-centre": {
+
+ {
       key: " "health-centre""
     "title": "Health Centre",
     "about":
@@ -22,7 +20,7 @@ const _pages: { [key: string]: PageType } = {
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"],
     "photos": [],
   },
-  "finishing-school": {
+  {
       "key": "finishing-school",
     "title": "Finishing School",
     "about":
@@ -30,7 +28,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/44vmmQf/finishing-school.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "language-lab": {
+{
       "key": "language-lab",
     "title": "Language Lab",
     "about":
@@ -38,7 +36,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/89ghQjs/language-lab.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "co-operative-society": {
+ {
       "key": "co-operative-society",
     "title": "Co-Operative Society",
     "about":
@@ -46,7 +44,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/RzDR70n/co-operative-society.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "internet-common-facility-centre": {
+ {
       "key": "internet-common-facility-centre",
     "title": "Internet Common Facility Centre",
     "about":
@@ -54,7 +52,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/12Kj6hG/internet-common-facility-centre.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "womens-hostel": {
+ {
       "key": "womens-hostel",
     "title": "Womens Hostel",
     "about":
@@ -62,7 +60,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/sK3NQ8x/womens-hostel.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "staff-quarters": {
+  {
       "key": "staff-quarters",
     "title": "Staff quarters",
     "about":
@@ -70,7 +68,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/9w88HNf/staff-quaters.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  auditorium: {
+ {
       "key": "auditorium",
     "title": "Auditorium",
     "about":
@@ -78,7 +76,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/89ghQjs/language-lab.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "electronics-block": {
+  {
       "key": "electronics-block",
     "title": "Electronics Block",
     "about":
@@ -86,7 +84,7 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/89ghQjs/language-lab.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "civil-block": {
+  {
       "key": "civil-block",
     "title": "Civil Block",
     "about":
@@ -94,12 +92,97 @@ const _pages: { [key: string]: PageType } = {
     "cover": "https://i.ibb.co/89ghQjs/language-lab.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
-  "medical-facility": {
+{
       "key": "medical-facility",
     "title": "Medical-facility",
     "about":
       "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
     "cover": "https://i.ibb.co/89ghQjs/language-lab.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  }
+
+
+
+
+
+
+ {
+    "key": "greivance-redressal-committee",
+    "title": "Greivance Redressal Committee | Internal Complaints Cell",
+    "about":
+      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic neque eum necessitatibus maiores, quae nam a harum ducimus, vel dignissimos ullam. Explicabo cupiditate, nihil debitis autem itaque quisquam earum atque!",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+
+  },
+
+ {
+    "key": "placement-cell",
+    "title": "Placement Cell",
+    "about": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tempora ratione nisi, consequuntur autem dolorum, animi nostrum accusantium nesciunt deserunt voluptatibus adipisci sint error consequatur aperiam nihil enim doloremque eius?",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+ {
+    "key": "parents-teachers-association",
+    "title": "Parents Teachers Association",
+    "about": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta explicabo aliquid quaerat assumenda accusamus maxime autem cum, eos hic perferendis? Ipsum molestias blanditiis magni delectus sapiente dolor earum sequi.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+ {
+    "key": "staff-club",
+    "title": "Staff Club",
+    "about": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta explicabo aliquid quaerat assumenda accusamus maxime autem cum, eos hic perferendis? Ipsum molestias blanditiis magni delectus sapiente dolor earum sequi.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+ {
+    "key": "anti-ragging-committe",
+    "title": "Anti Ragging Committe",
+    "about":
+      "This lab is equipped with High speed, broadband internet connection through OFC which is provided by BSNL under the scheme of NATIONAL MISSION FOR EDUCATION under Ministry for HRD. This will ensure ample net campus in the campus. The net lab will be available to the students from 8.30am to 5.00pm.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+ {
+    "key": "boomithrasena-club",
+    "title": "Boomithraseena Club",
+    "about":
+      "Indian women, who have to stay away from their homes for job purpose or do not have anyone to house them, often suffer from insecurities related to safety. The central government has passed a new scheme that is designed for meeting the housing requirements of working or helpless women. The name of the program is Working Women Hostel Scheme and will include children under special circumstances only.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+   {
+     "key": "innovation-entrepreneurship-development-club",
+    "title": "Innovation Entrepreneurship Development Club",
+    "about":
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+   {
+     "key": "sholar-support-programme",
+    "title": "Scholar Support Programme",
+    "about":
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+  {
+    "key": "students-union",
+    "title": "Students Union",
+    "about":
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
+    "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
+  },
+  {
+    "key": "alumini",
+    "title": "Alumini",
+    "about":
+      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+    "cover": "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
     "staffs_ids": ["b7ae9ac8-095d-4434-ad42-de1527434263"]
   },
 };

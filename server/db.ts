@@ -135,8 +135,16 @@ export interface EventType {
 export interface DepartmentFacilityType {
   key: string;
   title: string;
-  decription: string;
+  description: string;
   image: string;
   color: string;
   tags: string[];
+}
+
+
+export interface FileType {
+  key: string;
+  url: string;
+  title: string;
+  description: string;
 }

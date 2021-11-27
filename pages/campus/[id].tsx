@@ -6,21 +6,7 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
-
-const _staffs = [
-  {
-    name: "Prakasan P",
-    designation: "Head of Department",
-  },
-  {
-    name: "Jamsheer",
-    designation: "Lecturer in Electronics",
-  },
-  {
-    name: "Sheeba MH",
-    designation: "Lecturer in Electronics",
-  },
-];
+import { getCampus } from "../../server/pages";
 
 interface StaffType {
   name: string;
@@ -47,106 +33,6 @@ interface PhotoType {
   date: string;
 }
 
-const _pages: { [key: string]: PageType } = {
-  "greivance-redressal-committee": {
-    title: "Greivance Redressal Committee | Internal Complaints Cell",
-    about:
-      "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic neque eum necessitatibus maiores, quae nam a harum ducimus, vel dignissimos ullam. Explicabo cupiditate, nihil debitis autem itaque quisquam earum atque!",
-    cover: "/images/campus/greivance-redressal-committee.jpg",
-    staffs: _staffs,
-    events: [
-      {
-        title: "Event 1",
-        subtitle: "Subtitle 1",
-        image: "/images/library-1.jpg",
-        date: "12 Oct 2021",
-      },
-      {
-        title: "Event 1",
-        subtitle: "Subtitle 1",
-        image: "/images/library-2.jpg",
-        date: "12 Oct 2021",
-      },
-      {
-        title: "Event 1",
-        subtitle: "Subtitle 1",
-        image: "/images/library-3.jpg",
-        date: "12 Oct 2021",
-      },
-      {
-        title: "Event 1",
-        subtitle: "Subtitle 1",
-        image: "/images/library-4.jpg",
-        date: "12 Oct 2021",
-      },
-    ],
-  },
-
-  "placement-cell": {
-    title: "Placement Cell",
-    about:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt tempora ratione nisi, consequuntur autem dolorum, animi nostrum accusantium nesciunt deserunt voluptatibus adipisci sint error consequatur aperiam nihil enim doloremque eius?",
-    cover: "/images/campus/finishing-school.jpg",
-    staffs: _staffs,
-  },
-  "parents-teachers-association": {
-    title: "Parents Teachers Association",
-    about:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta explicabo aliquid quaerat assumenda accusamus maxime autem cum, eos hic perferendis? Ipsum molestias blanditiis magni delectus sapiente dolor earum sequi.",
-    cover: "/images/campus/language-lab.jpg",
-    staffs: _staffs,
-  },
-  "staff-club": {
-    title: "Staff Club",
-    about:
-      "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis dicta explicabo aliquid quaerat assumenda accusamus maxime autem cum, eos hic perferendis? Ipsum molestias blanditiis magni delectus sapiente dolor earum sequi.",
-    cover: "/images/campus/co-operative-society.jpg",
-    staffs: _staffs,
-  },
-  "anti-ragging-committe": {
-    title: "Anti Ragging Committe",
-    about:
-      "This lab is equipped with High speed, broadband internet connection through OFC which is provided by BSNL under the scheme of NATIONAL MISSION FOR EDUCATION under Ministry for HRD. This will ensure ample net campus in the campus. The net lab will be available to the students from 8.30am to 5.00pm.",
-    cover: "/images/campus/internet-common-facility-centre.jpg",
-    staffs: _staffs,
-  },
-  "boomithrasena-club": {
-    title: "Boomithraseena Club",
-    about:
-      "Indian women, who have to stay away from their homes for job purpose or do not have anyone to house them, often suffer from insecurities related to safety. The central government has passed a new scheme that is designed for meeting the housing requirements of working or helpless women. The name of the program is Working Women Hostel Scheme and will include children under special circumstances only.",
-    cover: "/images/campus/womens-hostel",
-    staffs: _staffs,
-  },
-  "innovation-entrepreneurship-development-club": {
-    title: "Innovation Entrepreneurship Development Club",
-    about:
-      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
-    cover: "/images/campus/library/cover.jpg",
-    staffs: _staffs,
-  },
-  "sholar-support-programme": {
-    title: "Scholar Support Programme",
-    about:
-      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
-    cover: "/images/campus/library/cover.jpg",
-    staffs: _staffs,
-  },
-  "students-union": {
-    title: "Students Union",
-    about:
-      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
-    cover: "/images/campus/library/cover.jpg",
-    staffs: _staffs,
-  },
-  "alumini": {
-    title: "Alumini",
-    about:
-      "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
-    cover: "/images/campus/library/cover.jpg",
-    staffs: _staffs,
-  },
-};
-
 const _paths = [
   "greivance-redressal-committee",
   "placement-cell",
@@ -157,7 +43,7 @@ const _paths = [
   "innovation-entrepreneurship-development-club",
   "sholar-support-programme",
   "students-union",
-  "alumini"
+  "alumini",
 ];
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
@@ -170,7 +56,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
           <div>
             <p>{page.about}</p>
           </div>
-          {page.staffs && (
+          {page.staffs && page.staffs.length > 0 && (
             <div>
               <PageTitle>Staffs</PageTitle>
               <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
@@ -186,13 +72,12 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
           )}
         </Content.FullWidth>
       </Content>
-      {page.events && (
+      {page.events && page.events.length > 0 && (
         <Content>
           <Content.FullWidth>
             <PageTitle>Events</PageTitle>
             <div className="mb-3">
-
-            <EventCarousel items={page.events} />
+              <EventCarousel items={page.events} />
             </div>
           </Content.FullWidth>
         </Content>
@@ -220,7 +105,7 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = ({
+export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = async ({
   params,
 }) => {
   // const res = await fetch('https://.../posts')
@@ -229,11 +114,10 @@ export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = ({
   if (!params || !params.id) {
     return { props: { error: true } };
   }
-  const key = params.id;
 
   return {
     props: {
-      page: _pages[key],
+      page: await getCampus(params.id),
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in

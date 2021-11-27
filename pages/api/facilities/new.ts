@@ -1,9 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as yup from "yup";
+import { DepartmentFacilityType } from "../../../server/db";
+import { createDeptFacility } from "../../../server/facilities";
 import { v4 as uuidv4 } from "uuid";
-import { FacilityPageType } from "../../../../server/db";
-import { createPage } from "../../../../server/pages";
+
 // helper
 async function validation<T = Record<string, any>>(
   scheme: yup.SchemaOf<T>,
@@ -19,12 +20,14 @@ async function validation<T = Record<string, any>>(
 }
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
- key: yup.string().required(),
- title: yup.string().min(3).required(),
- about: yup.string().min(40).required(),
- cover: yup.string().url().required(),
- staffs_ids: yup.array().of(yup.string().required()),
- photos_ids: yup.array().of(yup.string().required()).nullable(),
+  key: yup.string().default(function () {
+    return uuidv4();
+  }),
+  title: yup.string().min(3).required(),
+  description: yup.string().min(40).required(),
+  image: yup.string().url().required(),
+  color: yup.string().min(3).required(),
+  tags: yup.array().of(yup.string().required()),
 });
 
 export default async function handler(
@@ -40,10 +43,11 @@ export default async function handler(
       return res.status(400).json({ error: errors });
     }
 
-    const page: FacilityPageType = { ...data } as unknown as FacilityPageType;
+    const page: DepartmentFacilityType = {
+      ...data,
+    } as unknown as DepartmentFacilityType;
 
-
-    await createPage('facility', page);
+    await createDeptFacility(page);
 
     return res.status(200).json({
       message: "success",
