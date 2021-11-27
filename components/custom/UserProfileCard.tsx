@@ -4,14 +4,14 @@ import { BsFacebook, BsInstagram, BsLinkedin } from "react-icons/bs";
 import { FaTelegram } from "react-icons/fa";
 // import avatarPlaceholder from "../../images/avatar-placeholder.png";
 function UserProfileCard({
-  fullName,
+  name,
   designation,
-  image = "/images/avatar-placeholder.png",
+  avatar = "/images/avatar-placeholder.png",
   socialLinks,
 }: {
-  fullName: string;
+  name: string;
   designation: string;
-  image?: string;
+  avatar?: string;
   socialLinks?: { [key: string]: string };
 }) {
   return (
@@ -19,14 +19,14 @@ function UserProfileCard({
       <div className="relative w-full md:w-2/5 h-60 md:h-40">
         <Image
           className="object-cover object-center w-full h-full"
-          src={image}
+          src={avatar}
           alt="photo"
           sizes="100%"
           layout="fill"
         />
       </div>
       <div className="w-full p-6 text-left md:w-3/5 md:p-4 ">
-        <p className="font-bold text-gray-700 lg:text-xl md:text-lg text-md">{fullName}</p>
+        <p className="font-bold text-gray-700 lg:text-xl md:text-lg text-md">{name}</p>
         <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">{designation}</p>
       {socialLinks &&  <div className="flex justify-start mt-2 space-x-2">
           {socialLinks?.facebook && (

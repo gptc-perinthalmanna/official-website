@@ -53,6 +53,7 @@ export interface UserType {
   department: string;
   phone: string;
   address: string;
+  avatar?: string;
   socialLinks: {
     facebook?: string;
     linkedin?: string;

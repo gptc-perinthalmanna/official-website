@@ -28,7 +28,7 @@ export async function getAllUsers(){
 
 export async function getUser(key: string){
     const user = await usersDb.get(key);
-    return user as unknown as UserType | undefined;
+    return user as unknown as UserType | null;
 }
 
 
