@@ -78,9 +78,15 @@ export async function getCampus(key: string) {
 
 
 export async function getEvents(page_id: string) {
-  const events = (await eventsDB.fetch({"page_key" : page_id})).items as unknown as EventType[] | null;
+  const events = (await eventsDB.fetch({"tags?contains" : page_id})).items as unknown as EventType[] | null;
   return events;
 }
+
+export async function createEvent(event: {}) {
+  const event_id = await eventsDB.put(event);
+  return event_id;
+}
+
 
 export async function createPage(type = 'facility', data: any) {
   if (type === 'facility') {

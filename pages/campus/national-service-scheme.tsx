@@ -1,4 +1,7 @@
 import { NextPage } from "next";
+import { useEffect, useState } from "react";
+import useSWR from "swr";
+
 import InstagramHeader from "../../components/custom/InstagramHeader";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 import RibbonCard from "../../components/custom/RibbonCard";
@@ -8,6 +11,7 @@ import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
+import { fetcher } from "../../server/calls";
 import { usersDb, UserType } from "../../server/db";
 import { getOther } from "../../server/other";
 
@@ -30,74 +34,70 @@ interface ProgramOfficer {
 }
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
-  return(
-
-  <Page title="National Service Scheme (NSS)">
-    <Container>
-      <PageTitle>National Service Scheme</PageTitle>
-      <Content>
-        <Content.Left>
-          <div className="mr-2">
-            <LargeUserCardWithDetails
-              subTitle={"Program Officer, NSS"}
-              {...page.programOfficer}
-            />
-          </div>
-        </Content.Left>
-        <Content.Right>
-          <RibbonCard color="red">
-            <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
-            <p className="text-gray-100">{page.misssion}</p>
-            <h2 className="mb-2 text-2xl font-bold text-gray-100">Motto</h2>
-            <p className="text-gray-100">Not me but You!</p>
-          </RibbonCard>
-        </Content.Right>
-      </Content>
-      <Content>
-        <Content.FullWidth>
-          <PageTitle>About NSS</PageTitle>
-          <div className="my-3">
-            <p>{page.about}</p>
-          </div>
-        </Content.FullWidth>
-      </Content>
-      <Content>
-        <Content.FullWidth>
-          <PageTitle>NSS on Instagram </PageTitle>
-          <div className="mx-2 border-2 border-pink-700 rounded-lg">
-            <InstagramHeader />
-          </div>
-        </Content.FullWidth>
-      </Content>
-      <Content>
-        <Content.FullWidth>
-          <PageTitle>Previous Events</PageTitle>
-          <div className="my-3">
-            <EventCarousel />
-          </div>
-        </Content.FullWidth>
-      </Content>
-      <Content>
-        <Content.Left>
-          <PageTitle>Volunteer secretaries</PageTitle>
-          <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-            {page.vss.map((vs) => (
-              <UserProfileCard
-              {...vs}
-                key={vs.name}
+  return (
+    <Page title="National Service Scheme (NSS)">
+      <Container>
+        <PageTitle>National Service Scheme</PageTitle>
+        <Content>
+          <Content.Left>
+            <div className="mr-2">
+              <LargeUserCardWithDetails
+                subTitle={"Program Officer, NSS"}
+                {...page.programOfficer}
               />
-            ))}
-          </div>
-        </Content.Left>
-      </Content>
-    </Container>
-  </Page>
-)};
+            </div>
+          </Content.Left>
+          <Content.Right>
+            <RibbonCard color="red">
+              <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
+              <p className="text-gray-100">{page.misssion}</p>
+              <h2 className="mb-2 text-2xl font-bold text-gray-100">Motto</h2>
+              <p className="text-gray-100">Not me but You!</p>
+            </RibbonCard>
+          </Content.Right>
+        </Content>
+        <Content>
+          <Content.FullWidth>
+            <PageTitle>About NSS</PageTitle>
+            <div className="my-3">
+              <p>{page.about}</p>
+            </div>
+          </Content.FullWidth>
+        </Content>
+        <Content>
+          <Content.FullWidth>
+            <PageTitle>NSS on Instagram </PageTitle>
+            <div className="mx-2 border-2 border-pink-700 rounded-lg">
+              <InstagramHeader />
+            </div>
+          </Content.FullWidth>
+        </Content>
+        <Content>
+          <Content.FullWidth>
+            <PageTitle>Previous Events</PageTitle>
+            <div className="my-3">
+              <EventCarousel id="nss" />
+            </div>
+          </Content.FullWidth>
+        </Content>
+        <Content>
+          <Content.Left>
+            <PageTitle>Volunteer secretaries</PageTitle>
+            <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
+              {page.vss.map((vs) => (
+                <UserProfileCard {...vs} key={vs.name} />
+              ))}
+            </div>
+          </Content.Left>
+        </Content>
+      </Container>
+    </Page>
+  );
+};
 
 export default CustomPage;
 
 export async function getStaticProps() {
-  
   const page = (await getOther("page-national-service-scheme")) as PageType;
   let unresolvedpromises: any;
   let staffs: UserType[] = [];

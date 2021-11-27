@@ -130,7 +130,7 @@ export interface EventType {
   image: string;
   date: string;
   type: string;
-  page_key: string;
+  tags: string[];
 }
 
 export interface DepartmentFacilityType {
