@@ -9,6 +9,7 @@ import EventCarousel from "../../components/ui/EventCarousal";
 import { getCampus } from "../../server/pages";
 
 interface StaffType {
+  key: string;
   name: string;
   designation: string;
   social?: {
@@ -19,6 +20,7 @@ interface StaffType {
 }
 
 interface PageType {
+  key: string;
   title: string;
   about: string;
   cover: string;
@@ -54,7 +56,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
     image: string;
     date: string;
   }[] = [];
-  
+
   return (
     <Page title={page.title}>
       <CoverImage source={page.cover} title={page.title} />
@@ -70,11 +72,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
                 <PageTitle>Staffs</PageTitle>
                 <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
                   {page.staffs.map((staff) => (
-                    <UserProfileCard
-                      key={staff.name}
-                      fullName={staff.name}
-                      designation={staff.designation}
-                    />
+                    <UserProfileCard {...staff} key={staff.key} />
                   ))}
                 </div>
               </div>
@@ -86,7 +84,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             <Content.FullWidth>
               <PageTitle>Events</PageTitle>
               <div className="mb-3">
-                <EventCarousel items={events} />
+                <EventCarousel id={page.key} />
               </div>
             </Content.FullWidth>
           </Content>

@@ -10,7 +10,7 @@ const _title = "Govt Polytechnic College Perinthalmanna";
 
 function Page({ children, title = _title, desc = _desc }: { children: React.ReactNode; title?: string; desc?: string }) {
   return (
-    <div>
+    <>
       <Head>
       <title>{title}</title>
       <meta name="description" content={desc} />
@@ -19,9 +19,11 @@ function Page({ children, title = _title, desc = _desc }: { children: React.Reac
       <TopBanner />
       <LogoBanner />
       <NavBar />
+      <div>
       {children}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 }
 

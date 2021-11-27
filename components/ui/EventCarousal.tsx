@@ -19,33 +19,6 @@ interface Event {
   date: string;
 }
 
-const events = [
-  {
-    title: "Event 1",
-    subtitle: "Subtitle 1",
-    image: "/images/library-1.jpg",
-    date: "12 Oct 2021",
-  },
-  {
-    title: "Event 1",
-    subtitle: "Subtitle 1",
-    image: "/images/library-2.jpg",
-    date: "12 Oct 2021",
-  },
-  {
-    title: "Event 1",
-    subtitle: "Subtitle 1",
-    image: "/images/library-3.jpg",
-    date: "12 Oct 2021",
-  },
-  {
-    title: "Event 1",
-    subtitle: "Subtitle 1",
-    image: "/images/library-4.jpg",
-    date: "12 Oct 2021",
-  },
-];
-
 const EventCarousel = ({ id }: { id: string }) => {
   const { data, error } = useSWR<Event[]>("/api/events/" + id, fetcher);
 

@@ -7,6 +7,7 @@ import Content from "../../components/layout/Content";
 import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
+import EventCarousel from "../../components/ui/EventCarousal";
 import { DepartmentFacilityType, UserType } from "../../server/db";
 import { getDepartments } from "../../server/departments";
 
@@ -34,11 +35,7 @@ const CustomPage: NextPage<{ page: DeptPageType }> = ({ page }) => (
               <PageTitle>Department Staff</PageTitle>
               <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
                 {page.staffs.map((staff) => (
-                  <UserProfileCard
-                    key={staff.name}
-                    fullName={staff.name}
-                    designation={staff.designation}
-                  />
+                  <UserProfileCard {...staff} key={staff.name} />
                 ))}
               </div>
             </div>
@@ -58,6 +55,10 @@ const CustomPage: NextPage<{ page: DeptPageType }> = ({ page }) => (
             </div>
           )}
         </Content.Left>
+        <Content.FullWidth>
+          <PageTitle> Previous Events </PageTitle>
+          <EventCarousel id={page.key} />
+        </Content.FullWidth>
       </Content>
     </Container>
   </Page>
