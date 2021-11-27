@@ -19,8 +19,15 @@ interface Event {
   date: string;
 }
 
-const EventCarousel = ({ id }: { id: string }) => {
-  const { data, error } = useSWR<Event[]>("/api/events/" + id, fetcher);
+const EventCarousel = ({
+  id,
+  fetchAll = false,
+}: {
+  id?: string;
+  fetchAll?: boolean;
+}) => {
+  const _id = fetchAll ? "all" : id;
+  const { data, error } = useSWR<Event[]>("/api/events/" + _id, fetcher);
 
   if (error)
     return (

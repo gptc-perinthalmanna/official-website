@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EventType } from "../../../server/db";
-import { getEvents } from "../../../server/pages";
+import { getAllEvents, getEvents } from "../../../server/pages";
 
 export default async function handler(
   req: NextApiRequest,
@@ -10,7 +10,7 @@ export default async function handler(
   if (req.method === "GET") {
     const { id } = req.query;
     if (typeof id !== "string") return error(res);
-    const events = await getEvents(id);
+    const events = id === "all" ? await getAllEvents() : await getEvents(id);
     if (events) {
       res.status(200).json(events);
     } else {

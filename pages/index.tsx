@@ -3,11 +3,14 @@ import Head from "next/head";
 import { BsEyeFill } from "react-icons/bs";
 import { GiTargetPoster } from "react-icons/gi";
 import ImagePost from "../components/custom/ImagePost";
+import Container from "../components/layout/Container";
+import Content from "../components/layout/Content";
 import Footer from "../components/layout/Footer";
 import LogoBanner from "../components/layout/LogoBanner";
 import NavBar from "../components/layout/NavBar";
 import TopBanner from "../components/layout/TopBanner";
 import NewsTicker from "../components/NewsTicker";
+import EventCarousel from "../components/ui/EventCarousal";
 import HeroCarousel from "../components/ui/HeroCarousal";
 
 const Home: NextPage = () => {
@@ -116,6 +119,17 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
+<Container>
+      <Content>
+        <Content.FullWidth>
+          <h1 className="my-3 text-2xl font-bold text-gray-700">
+            Recent Events
+          </h1>
+          <EventCarousel fetchAll />
+        </Content.FullWidth>
+      </Content>
+      </Container>
+      <div className="my-3" />
       <Footer />
     </div>
   );

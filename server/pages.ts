@@ -82,6 +82,11 @@ export async function getEvents(page_id: string) {
   return events;
 }
 
+export async function getAllEvents() {
+  const events = (await eventsDB.fetch({}, {limit: 10})).items as unknown as EventType[] | null;
+  return events;
+}
+
 export async function createEvent(event: {}) {
   const event_id = await eventsDB.put(event);
   return event_id;
