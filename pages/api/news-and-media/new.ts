@@ -22,13 +22,13 @@ async function validation<T = Record<string, any>>(
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
   key: yup.string().default(function () {
-    return uuidv4();
+    return new Date().getTime().toString();
   }),
   title: yup.string().min(3).required(),
   author: yup.string().min(3).required(),
   description: yup.string().min(40).required(),
   date: yup.string().min(3).required(),
-  url: yup.string().url().required(),
+  url: yup.string().url(),
 });
 
 export default async function handler(

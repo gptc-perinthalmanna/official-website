@@ -6,8 +6,6 @@ export default async function handler(
     res: NextApiResponse<{} | { error: string }>
   ) {
     if (req.method === "GET") {
-      const { id } = req.query;
-      if (typeof id !== "string") return error(res);
       const news = await getAllNews();
       if (news) {
         res.status(200).json(news);
