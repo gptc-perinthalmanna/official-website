@@ -19,7 +19,7 @@ export const imagesDB = deta.Base("media_images");
 
 export const otherDB = deta.Base("other_details");
 
-// Types Definitioinss
+// Types Definitions
 
 export interface NotificationType {
   key: number;
@@ -103,7 +103,7 @@ export interface ImageType {
 
 export interface OtherType {
   key: string;
-  value: { [key: string]: string };
+  value: { [key: string]: any };
 }
 
 export interface DepartmentsType {
@@ -141,10 +141,10 @@ export interface DepartmentFacilityType {
   tags: string[];
 }
 
-
 export interface FileType {
   key: string;
   url: string;
   title: string;
   description: string;
+  tags: string[];
 }

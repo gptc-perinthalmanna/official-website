@@ -46,45 +46,55 @@ const _paths = [
   "alumini",
 ];
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
-  <Page title={page.title}>
-    <CoverImage source={page.cover} title={page.title} />
-    <Container>
-      <PageTitle>{page.title}</PageTitle>
-      <Content>
-        <Content.FullWidth>
-          <div>
-            <p>{page.about}</p>
-          </div>
-          {page.staffs && page.staffs.length > 0 && (
-            <div>
-              <PageTitle>Staffs</PageTitle>
-              <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-                {page.staffs.map((staff) => (
-                  <UserProfileCard
-                    key={staff.name}
-                    fullName={staff.name}
-                    designation={staff.designation}
-                  />
-                ))}
-              </div>
-            </div>
-          )}
-        </Content.FullWidth>
-      </Content>
-      {page.events && page.events.length > 0 && (
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
+  // fetch events /api/events/[page_id]
+  let events: {
+    title: string;
+    subtitle: string;
+    image: string;
+    date: string;
+  }[] = [];
+  
+  return (
+    <Page title={page.title}>
+      <CoverImage source={page.cover} title={page.title} />
+      <Container>
+        <PageTitle>{page.title}</PageTitle>
         <Content>
           <Content.FullWidth>
-            <PageTitle>Events</PageTitle>
-            <div className="mb-3">
-              <EventCarousel items={page.events} />
+            <div>
+              <p>{page.about}</p>
             </div>
+            {page.staffs && page.staffs.length > 0 && (
+              <div>
+                <PageTitle>Staffs</PageTitle>
+                <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
+                  {page.staffs.map((staff) => (
+                    <UserProfileCard
+                      key={staff.name}
+                      fullName={staff.name}
+                      designation={staff.designation}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
           </Content.FullWidth>
         </Content>
-      )}
-    </Container>
-  </Page>
-);
+        {events && events.length > 0 && (
+          <Content>
+            <Content.FullWidth>
+              <PageTitle>Events</PageTitle>
+              <div className="mb-3">
+                <EventCarousel items={events} />
+              </div>
+            </Content.FullWidth>
+          </Content>
+        )}
+      </Container>
+    </Page>
+  );
+};
 
 export default CustomPage;
 
@@ -105,23 +115,22 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = async ({
-  params,
-}) => {
-  // const res = await fetch('https://.../posts')
-  // const posts = await res.json()
+export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
+  async ({ params }) => {
+    // const res = await fetch('https://.../posts')
+    // const posts = await res.json()
 
-  if (!params || !params.id) {
-    return { props: { error: true } };
-  }
+    if (!params || !params.id) {
+      return { props: { error: true } };
+    }
 
-  return {
-    props: {
-      page: await getCampus(params.id),
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 600000, // In seconds
+    return {
+      props: {
+        page: await getCampus(params.id),
+      },
+      // Next.js will attempt to re-generate the page:
+      // - When a request comes in
+      // - At most once every 10 seconds
+      revalidate: 600000, // In seconds
+    };
   };
-};

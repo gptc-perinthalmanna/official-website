@@ -13,6 +13,7 @@ import Image from "next/image";
 import ContactForm from "../../components/custom/ContactForm";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 import RibbonCard from "../../components/custom/RibbonCard";
+import { getOther } from "../../server/other";
 
 const _features = [
   {
@@ -57,7 +58,23 @@ const _features = [
   },
 ];
 
-const CustomPage: NextPage = () => (
+interface PageType {
+  placementOfficer: PlacementOfficer;
+  misssion: string;
+  description: string;
+}
+
+interface PlacementOfficer {
+  avatar: string;
+  fullName: string;
+  subTitle: string;
+  email: string;
+  phone: string;
+  address: string;
+  socialLinks: { [key: string]: string };
+}
+
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
   <Page title="Placement Officers Desk in GPC Perinthalmanna">
     <div className="container mx-auto">
       <H1>Placement Officers Desk</H1>
@@ -65,33 +82,15 @@ const CustomPage: NextPage = () => (
     <div className="container flex flex-wrap mx-auto mt-4">
       <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
         <LargeUserCardWithDetails
-          avatar={
-            "http://uoce.chimpgroup.com/home-v4/wp-content/uploads/2015/07/UOCE-Team-Members-12.jpg"
-          }
-          fullName={"Deepak"}
           designation={"Placement Officer"}
-          subtitle={"Demonstrator, Mechanical Department"}
-          email={"placement@gptcperinthalmanna.in"}
-          phone={"+91 93924 92492"}
-          address={"23 Stronke, Ndoeoidk ldasfk, London, N13 OLU"}
-          socialLinks={{
-            facebook: "https://www.facebook.com/gptcperinthalmanna/",
-            linkedin: "https://www.linkedin.com/company/gptc-perinthalmanna/",
-            telegram: "https://t.me/gptcperinthalmanna",
-            whatsapp: "https://wa.me/919392492492",
-            instagram: "https://www.instagram.com/gptcperinthalmanna/",
-          }}
+          {...page.placementOfficer}
         />
       </div>
       <div className="h-auto lg:w-1/3">
         <RibbonCard>
           <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
           <p className="text-gray-100">
-            Develop the personality of every student by imparting training in
-            soft skills, communication skills, group discussion, interview
-            techniques, leadership qualities and team work. Empower the students
-            to face life confidently and to enable every one of them to leave
-            the campus with a coveted job in reputed establishment.
+            {page.misssion}
           </p>
         </RibbonCard>
       </div>
@@ -132,29 +131,7 @@ const CustomPage: NextPage = () => (
           Career Guidance and Placement Cell
         </h2>
         <p className="p-3 text-xl font-thin leading-9">
-          Career guidance and placement cell has been assisting the students in
-          paving a way to their careers. The cell conducts training programmes
-          to prepare the students to face the recruitment process and to meet
-          the needs of the industry. It also provides complete support to
-          visiting companies at every stage of placement process.{" "}
-          <strong>
-            {" "}
-            Arrangements for pre placement talks, written tests, interviews and
-            group discussions are made as per the requirement of the visiting
-            companies.
-          </strong>{" "}
-          It bridges the gap between the industry and the institution. We
-          Receives and forwards the feedback pertinent to curriculum improvement
-          from the visiting companies to the faculty, to ensure that the
-          curriculum follows the latest industrial trends. We are confident that
-          these young men and women would be an asset to your organization
-          through their technical and managerial capabilities and their talent
-          for innovation. We, works towards continuing education for the college
-          employees over the years, the placement cell has maintained symbiotic,
-          vibrant and purposeful relationship with Industries and as a result,
-          has built up an impressive placement record both in terms of
-          percentage of registered students placed, as well as the number of
-          companies visiting the campus.
+          {page.description}
         </p>
       </div>
     </div>
@@ -168,3 +145,16 @@ const CustomPage: NextPage = () => (
 );
 
 export default CustomPage;
+
+
+export async function getStaticProps() {
+  return {
+    props: {
+      page: await getOther("page-placement-officer-desk"),
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 600000, // In seconds
+  };
+}

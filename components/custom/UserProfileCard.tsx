@@ -28,7 +28,7 @@ function UserProfileCard({
       <div className="w-full p-6 text-left md:w-3/5 md:p-4 ">
         <p className="font-bold text-gray-700 lg:text-xl md:text-lg text-md">{fullName}</p>
         <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">{designation}</p>
-        <div className="flex justify-start mt-2 space-x-2">
+      {socialLinks &&  <div className="flex justify-start mt-2 space-x-2">
           {socialLinks?.facebook && (
             <a
               href={socialLinks.facebook}
@@ -61,7 +61,7 @@ function UserProfileCard({
               <BsInstagram size={22} />
             </a>
           )}
-        </div>
+        </div>}
       </div>
     </div>
   );

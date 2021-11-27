@@ -60,7 +60,6 @@ export async function getCampus(key: string) {
 
   let unresolvedpromises: any
   let staffs : UserType[] = [];
-  let events : EventType[] | null = [];
 
   unresolvedpromises = campus.staffs_ids?.map(async (element) => {
     const staff = (await usersDb.get(element)) as unknown as UserType | null;
@@ -70,20 +69,16 @@ export async function getCampus(key: string) {
     return staff
   })
 
-  const _events = await getEvents(key)
-  if (_events) events = _events
-  
+
 
   if (unresolvedpromises) await Promise.all(unresolvedpromises)
-  return {...campus, staffs, events};
+  return {...campus, staffs};
 }
 
 
-export async function getNssPage() {
-}
 
 export async function getEvents(page_id: string) {
-  const events = (await eventsDB.fetch({page_id})).items as unknown as EventType[] | null;
+  const events = (await eventsDB.fetch({"page_key" : page_id})).items as unknown as EventType[] | null;
   return events;
 }
 
