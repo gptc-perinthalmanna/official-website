@@ -50,7 +50,6 @@ export async function getStaticProps() {
   const page = (await getOther("who-is-who")) as PageType;
   let unresolvedpromises: any;
   let staffs: { [key: string]: UserType } = {};
-  console.log(page)
   page.committees.forEach((committee) => {
     unresolvedpromises = committee.staffs_ids.map(async (staff_id) => {
       if (staffs[staff_id]) return null;

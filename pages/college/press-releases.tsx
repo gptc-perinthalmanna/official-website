@@ -4,44 +4,17 @@ import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { H1 } from "../../components/ui/Heading";
+import { NewsMediaType } from "../../server/db";
+import { getAllNews } from "../../server/newsAndMedia";
 
-const _press = [
-  {
-    title: "D-Voc Admissions Started",
-    date: "2020-01-01",
-    author: {
-      name: "Principal",
-    },
-    author_id: "2klj3-23lk3j2-2jlkjoii-32liop",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, necessitatibus saepe tenetur alias repudiandae maiores. Ullam temporibus itaque ipsum, cupiditate officiis, sapiente neque mollitia unde, vitae aperiam quo adipisci repellendus!",
-  },
-  {
-    title: "Poly Admisson Spot Allotment III is scheduled.",
-    date: "21-Nov-2021",
-    author: {
-      name: "Principal",
-    },
-    author_id: "2klj3-23lk3j2-2jlkjoii-32liop",
-    description:
-      "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Aliquam, necessitatibus saepe tenetur alias repudiandae maiores. Ullam temporibus itaque ipsum, cupiditate officiis, sapiente neque mollitia unde, vitae aperiam quo adipisci repellendus!",
-  },
-];
-
-const BreifHistory: NextPage = () => (
+const CustomPage: NextPage<{ page: NewsMediaType[] }> = ({ page }) => (
   <Page title="Press Releases">
     <Container>
       <H1>Press Releases</H1>
       <Content>
         <Content.Left>
-          {_press.map((post) => (
-            <PostListItem
-              key={post.title}
-              title={post.title}
-              date={post.date}
-              username={post.author.name}
-              description={post.description}
-            />
+          {page.map((post) => (
+            <PostListItem {...post} key={post.title} />
           ))}
         </Content.Left>
       </Content>
@@ -49,4 +22,9 @@ const BreifHistory: NextPage = () => (
   </Page>
 );
 
-export default BreifHistory;
+export default CustomPage;
+
+export async function getStaticProps() {
+  const page = (await getAllNews()) as NewsMediaType[];
+  return { props: { page }, revalidate: 600000 };
+}
