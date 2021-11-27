@@ -1,5 +1,6 @@
 import { NextPage } from "next";
 import useSWR from "swr";
+
 import PdfCard from "../../components/custom/PdfCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -29,7 +30,7 @@ const FileContainer = () => {
 
 const CustomPage: NextPage = () => {
   return (
-    <Page title="Dowloads">
+    <Page title="Downloads">
       <Container>
         <PageTitle>Downloads</PageTitle>
         <Content>

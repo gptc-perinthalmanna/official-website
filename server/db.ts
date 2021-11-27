@@ -13,6 +13,7 @@ export const pressAndMediaDB = deta.Base("post_press_and_media");
 export const eventsDB = deta.Base("post_events");
 export const notificationsDB = deta.Base("post_notifications");
 export const deptFacilitiesDB = deta.Base("post_dept_facilities");
+export const newsAndMediaDB = deta.Base("post_news_and_media");
 
 export const filesDB = deta.Base("media_files");
 export const imagesDB = deta.Base("media_images");
@@ -20,6 +21,16 @@ export const imagesDB = deta.Base("media_images");
 export const otherDB = deta.Base("other_details");
 
 // Types Definitions
+
+export interface NewsMediaType {
+  key: string;
+  title: string;
+  author: string;
+  date: string;
+  description: string;
+  url?: string
+}
+
 
 export interface NotificationType {
   key: number;
