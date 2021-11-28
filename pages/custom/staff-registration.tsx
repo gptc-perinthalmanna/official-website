@@ -52,8 +52,10 @@ function Success(){
 export function AvatarUpload({user, nextStep}: {user: {[key:string]: any}, nextStep: () => void}) {
   const [image, setImage] = useState<File | null>(null);
   const [createObjectURL, setCreateObjectURL] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
 
   const uploadToServer = async () => {
+      setLoading(true);
     const body = new FormData();
     if (!image) return;
     body.append("file", image);
@@ -135,9 +137,11 @@ export function AvatarUpload({user, nextStep}: {user: {[key:string]: any}, nextS
         </div>
         <div className="mt-3 text-right md:col-span-5">
           <div className="inline-flex items-center">
+            {loading &&  <p className="mx-2 font-bold text-blue-600 animation animate-pulse">Loading...</p>}
             <input
               className="px-4 py-2 font-bold text-white bg-blue-500 rounded hover:bg-blue-700"
               type="submit"
+              disabled={loading}
               onClick={uploadToServer}
             />
           </div>
@@ -370,7 +374,7 @@ function Wrapper({
   subtitle: string;
 }) {
   return (
-    <div className="flex items-center justify-center min-h-screen p-6 bg-gray-100">
+    <div className="flex justify-center min-h-screen p-6 bg-gray-100">
       <div className="container max-w-screen-lg mx-auto">
         <div>
           <h2 className="text-xl font-semibold text-gray-600">
