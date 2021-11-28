@@ -36,11 +36,11 @@ export interface NotificationType {
   key: number;
   title: string;
   link?: string;
-  date: string;
+  createdAt: number;
   tags: string[];
   expired: boolean;
   deleted: boolean;
-  expiryDate: string;
+  expiryDate: number;
   category: string;
   author?: string;
 }

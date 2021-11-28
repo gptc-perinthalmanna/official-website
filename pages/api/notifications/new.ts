@@ -11,7 +11,7 @@ const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
   key: yup.string().default(() => (2e12 - new Date().getTime()).toString()),
   title: yup.string().min(3).required(),
   link: yup.string().url(),
-  date: yup.string().min(3).required(),
+  createdAt: yup.number().default(() => Date.now()),
   author: yup.string().min(3),
   tags: yup.array(yup.string().required()).required(),
   expired: yup.boolean().default(() => false),
