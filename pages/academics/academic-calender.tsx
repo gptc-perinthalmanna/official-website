@@ -1,32 +1,22 @@
+import { NextPage } from "next";
 import React from "react";
 import { AiOutlineFilePdf } from "react-icons/ai";
 import PdfCard from "../../components/custom/PdfCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
+import { FileType } from "../../server/db";
+import { getFile } from "../../server/files";
+import { getOther } from "../../server/other";
 
-const _ac = [
-  {
-    title: "Academic Calender S2",
-    url: "/pdf/Academic-Calendar-2021-S2.pdf",
-    description:
-      "Academic Calender for S2 students - 2021",
-  },
-  {
-    title: "Academic Calender S3",
-    url: "/pdf/Academic-Calendar-2021-S3.pdf",
-    description:
-      "Academic Calender for S3 students - 2021",
-  },
-  {
-    title: "Academic Calender S5",
-    url: "/pdf/Academic-Calendar-2021-S5.pdf",
-    description:
-      "Academic Calender for S5 students - 2021",
-  },
-];
+interface PageProps {
+  description: string;
+  files: string[];
+  fileItems?: FileType[];
+}
 
-export default function NextPage() {
+
+const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
   return (
     <Page title="Academic Calender">
       <Container>
@@ -35,14 +25,11 @@ export default function NextPage() {
             <h1 className="my-5 text-3xl font-bold text-center">
               Academic Calender
             </h1>
-            <p>
-              
-Academic calendars are systems by which you define the landmark dates that drive much of the day-to-day business at the academic institution. Each academic calendar contains cancel, withdrawal, and drop deadlines along with other landmark dates that vary, depending on the academic calendar type. 
-            </p>
+            <p>{page.description}</p>
             <div className="my-5">
               <div className="flex p-5 border-blue-700 flex-warp rounder-lg">
-                {_ac.map((ac) => (
-                 <PdfCard key={ac.title} {...ac} />
+                {page.fileItems?.map((ac) => (
+                  <PdfCard {...ac} key={ac.key} />
                 ))}
               </div>
             </div>
@@ -51,4 +38,21 @@ Academic calendars are systems by which you define the landmark dates that drive
       </Container>
     </Page>
   );
+};
+
+export default CustomPage;
+
+export async function getStaticProps() {
+  const page = (await getOther("page-academic-calenders")) as PageProps;
+  const files = page.files.map(async (file) => {
+    return (await getFile(file)) as FileType;
+  });
+  page.fileItems = await Promise.all(files);
+
+  return {
+    props: {
+      page,
+    },
+    revalidate: 600000,
+  };
 }
