@@ -1,20 +1,23 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as yup from "yup";
-import { EventType } from "../../../server/db";
+import { NotificationType } from "../../../server/db";
+import { createNotificiations } from "../../../server/notifications";
+
+// helper
 import { validation } from "../../../server/helper/validation";
-import { createEvent } from "../../../server/pages";
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
-  key: yup.string().default(function () {
-    return new Date().getTime().toString();
-  }),
+  key: yup.string().default(() => (2e12 - new Date().getTime()).toString()),
   title: yup.string().min(3).required(),
-  subtitle: yup.string().min(40),
-  tags: yup.array().of(yup.string()).min(1).required(),
-  image: yup.string().url().required(),
-  date: yup.string().required(),
-  type: yup.string(),
+  link: yup.string().url(),
+  date: yup.string().min(3).required(),
+  author: yup.string().min(3),
+  tags: yup.array(yup.string().required()).required(),
+  expired: yup.boolean().default(() => false),
+  deleted: yup.boolean().default(() => false),
+  expiryDate: yup.number().min(33),
+  category: yup.string().min(3),
 });
 
 export default async function handler(
@@ -30,11 +33,11 @@ export default async function handler(
       return res.status(400).json({ error: errors });
     }
 
-    const file: EventType = {
+    const notifications: NotificationType = {
       ...data,
-    } as unknown as EventType;
+    } as unknown as NotificationType;
 
-    await createEvent(file);
+    await createNotificiations(notifications);
 
     return res.status(200).json({
       message: "success",

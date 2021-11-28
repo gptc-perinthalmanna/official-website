@@ -1,24 +1,9 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as yup from "yup";
-import { FileType, NewsMediaType } from "../../../server/db";
-import { v4 as uuidv4 } from "uuid";
-import { createFile } from "../../../server/files";
+import { NewsMediaType } from "../../../server/db";
 import { createNews } from "../../../server/newsAndMedia";
-
-// helper
-async function validation<T = Record<string, any>>(
-  scheme: yup.SchemaOf<T>,
-  data: Record<string, any> | null
-) {
-  try {
-    const validatedData = await scheme.validate(data, { abortEarly: false });
-    return { isValid: true, errors: null, data: validatedData };
-  } catch (error: any) {
-    const { errors } = error;
-    return { isValid: false, errors, data: null };
-  }
-}
+import { validation } from "../../../server/helper/validation";
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
   key: yup.string().default(function () {

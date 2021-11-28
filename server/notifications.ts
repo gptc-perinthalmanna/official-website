@@ -5,5 +5,21 @@ export async function getAllNotifications() {
     { expired: false, deleted: false },
     { limit: 10 }
   );
-  return res.items as unknown as NotificationType[] | null;
+
+  let nots = res.items as unknown as NotificationType[] | null;
+  if (!nots) return null;
+
+  nots.map(async (not) => {
+    not.expired = parseInt(not.expiryDate) < Date.now();
+    if (not.expired) {
+      await notificationsDB.update({ expired: true }, not.key.toString());
+    }
+    return not;
+  });
+
+  return nots;
+}
+
+export async function createNotificiations(data: {}) {
+  return (await notificationsDB.put(data)) as unknown as NotificationType;
 }

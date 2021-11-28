@@ -1,16 +1,16 @@
+import Image from "next/image";
 import React, { Component } from "react";
-import { GrLocation } from "react-icons/gr";
 
 export class Footer extends Component {
   render() {
     return (
-      <footer className="bg-blue-900 py-3">
+      <footer className="py-3 bg-blue-900">
         <div className="container mx-auto">
-          <div className="flex pt-8 pb-6 flex-wrap">
+          <div className="flex flex-wrap pt-8 pb-6">
             <Box title="Contact Details">
-              <div> 
+              <div>
                 <div className="flex text-white">
-                <h4 className="font-bold">Address</h4>
+                  <h4 className="font-bold">Address</h4>
                 </div>
 
                 <p className="text-sm ">
@@ -20,7 +20,7 @@ export class Footer extends Component {
                 <div className="mt-3">
                   <h4 className="font-bold">Contact</h4>
                   <p className="text-sm">Office: 04933227253</p>
-                  <p className="text-sm"> Email. polypmna@gmail.com</p>
+                  <p className="text-sm">Email: polypmna@gmail.com</p>
                   <p className="text-sm">Principal: 98439849384</p>
                   <p className="text-sm" />
                 </div>
@@ -83,17 +83,19 @@ export class Footer extends Component {
               </div>
             </Box>
             <Box title="Magazine / Publications">
-              <div className="w-40">
-                <img
-                  src="https://i.pinimg.com/originals/7b/6b/fe/7b6bfee1923979593c6b19a5c71b2f18.jpg"
+              <div className="relative w-full">
+                <Image
+                  src="https://i.ibb.co/hLW4Wr1/7b6bfee1923979593c6b19a5c71b2f18.jpg"
                   alt="Magazine Image"
+                  width={200}
+                  height={260}
                 />
               </div>
             </Box>
           </div>
         </div>
-        <div className="flex container mx-auto flex-wrap justify-between items-center px-3 bg-blue text-sm">
-          <div className="text-white w-full md:w-1/2">
+        <div className="container flex flex-wrap items-center justify-between px-3 mx-auto text-sm bg-blue">
+          <div className="w-full text-white md:w-1/2">
             Copyright © 2021 Government Polytechnic College Perinthalmanna.
           </div>
           <div className="text-white">
@@ -121,8 +123,8 @@ function Box({
   title: string;
 }) {
   return (
-    <div className="w-full lg:w-1/4 md:w-2/4 px-2 pb-10 text-white">
-      <h3 className="font-bold text-xl mb-3">{title}</h3>
+    <div className="w-full px-2 pb-10 text-white lg:w-1/4 md:w-2/4">
+      <h3 className="mb-3 text-xl font-bold">{title}</h3>
       {children}
     </div>
   );

@@ -35,13 +35,14 @@ export interface NewsMediaType {
 export interface NotificationType {
   key: number;
   title: string;
-  link: string;
+  link?: string;
   date: string;
-  type: string;
+  tags: string[];
   expired: boolean;
   deleted: boolean;
   expiryDate: string;
   category: string;
+  author?: string;
 }
 
 export interface CampusPageType {

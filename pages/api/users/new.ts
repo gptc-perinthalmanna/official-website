@@ -5,21 +5,9 @@ import { v4 as uuidv4 } from "uuid";
 import { UserType } from "../../../server/db";
 import { createUser } from "../../../server/users";
 import bcrypt from "bcryptjs";
-// helper
-async function validation<T = Record<string, any>>(
-  scheme: yup.SchemaOf<T>,
-  data: Record<string, any> | null
-) {
-  try {
-    const validatedData = await scheme.validate(data, { abortEarly: false });
-    return { isValid: true, errors: null, data: validatedData };
-  } catch (error: any) {
-    const { errors } = error;
-    return { isValid: false, errors, data: null };
-  }
-}
+import { validation } from "../../../server/helper/validation";
 
-const userValidationSchema: yup.SchemaOf<UserType> = yup.object().shape({
+const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
   key: yup.string().default(function () {
     return uuidv4();
   }),
@@ -29,11 +17,11 @@ const userValidationSchema: yup.SchemaOf<UserType> = yup.object().shape({
   designation: yup.string().required(),
   role: yup.string().default(""),
   department: yup.string().required(),
-  createdAt: yup.string().default(function () {
-    return new Date().toISOString();
+  createdAt: yup.number().default(function () {
+    return Date.now();
   }),
-  updatedAt: yup.string().default(function () {
-    return new Date().toISOString();
+  updatedAt: yup.number().default(function () {
+    return Date.now();
   }),
   phone: yup.string().required(),
   address: yup.string().required(),

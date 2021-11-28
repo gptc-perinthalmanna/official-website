@@ -2,20 +2,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import * as yup from "yup";
 import { FacilityPageType } from "../../../../server/db";
+import { validation } from "../../../../server/helper/validation";
 import { createPage } from "../../../../server/pages";
-// helper
-async function validation<T = Record<string, any>>(
-  scheme: yup.SchemaOf<T>,
-  data: Record<string, any> | null
-) {
-  try {
-    const validatedData = await scheme.validate(data, { abortEarly: false });
-    return { isValid: true, errors: null, data: validatedData };
-  } catch (error: any) {
-    const { errors } = error;
-    return { isValid: false, errors, data: null };
-  }
-}
+
 
 const userValidationSchema: yup.SchemaOf<{}> = yup.object().shape({
  key: yup.string().required(),
