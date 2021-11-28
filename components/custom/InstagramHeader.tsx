@@ -18,6 +18,7 @@ function InstagramHeader() {
                     objectFit="cover"
                     alt="profile"
                     sizes="100%"
+                    placeholder="blur"
                   />
                 </div>
               </div>

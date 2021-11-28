@@ -1,8 +1,7 @@
 import formidable from "formidable";
-import fs from "fs/promises";
 import { NextApiRequest, NextApiResponse } from "next";
-import FormDataL from "form-data";
-import axios from "redaxios";
+import { ImageType } from "../../../server/db";
+import { createImage } from "../../../server/files";
 
 export const config = {
   api: {
@@ -24,36 +23,17 @@ const post = async (req: NextApiRequest, res: NextApiResponse) => {
 
 const saveFile = async (file: formidable.File | formidable.File[]) => {
   if (Array.isArray(file)) return;
-
-  const data = await fs.readFile(file.filepath);
-  const fileName = file.originalFilename
-    ? file.originalFilename
-    : "uploaded_image.jpg";
-
-  const formData = new FormDataL();
-  formData.append("image", data, {filename: fileName});
-
-
-    const res =  axios.post(
-      `https://api.imgbb.com/1/upload?key=${process.env.IMGBB_API_KEY}`,
-      formData,
-      {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      }
-    ).then((res) => {
-    console.log(res.data);
-    fs.unlink(file.filepath);
-    return res.data;}).catch((err) => {
-      console.log(err);
-      return err;
-    });
- 
-
-  //   fs.writeFileSync(`./public/uploads/${file.originalFilename}`, data);
-  //   await fs.unlinkSync(file.filepath);
-
+  const imgbbUploader = require("imgbb-uploader");
+  try {
+    const res = (await imgbbUploader(
+      process.env.IMGBB_API_KEY,
+      file.filepath
+    )) as ImageType;
+    return await createImage(res);
+  } catch (error) {
+    console.log(error);
+    return { message: "An error occured" };
+  }
 };
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {

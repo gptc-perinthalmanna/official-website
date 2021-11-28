@@ -19,12 +19,13 @@ function CoverImage({
         sizes="100%"
         alt={alt}
         objectFit="cover"
+        placeholder="blur"
       />
 
       {title && (
         <div className="absolute bottom-0 w-full flexjustify-center ">
           <div className="relative text-center">
-          <Image src="/logo.png" className="filter grayscale invert" alt="logo" width={100} height={100} />
+          <Image src="/logo.png" className="filter grayscale invert" alt="logo" width={100} height={100} placeholder="blur" />
           </div>
           <div className="flex justify-center w-full py-3 font-bold text-white bg-gray-900 bg-opacity-50 ">
             <p className="text-xl xl:text-4xl lg:text-3xl md:text-2xl">

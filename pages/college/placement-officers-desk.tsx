@@ -126,7 +126,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
     </div>
     <div className="px-4 py-5 mx-auto bg-gradient-to-r from-pink-600 to-pink-700">
       <div className="container mx-auto text-center text-white py-7">
-        <Image src={logoImage} className="filter grayscale invert" alt="Logo" />
+        <Image src={logoImage} className="filter grayscale invert" alt="Logo" placeholder="blur" />
         <h2 className="pb-5 text-3xl font-bold ">
           Career Guidance and Placement Cell
         </h2>

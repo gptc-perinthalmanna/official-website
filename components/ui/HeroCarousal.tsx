@@ -78,6 +78,7 @@ function LazyLoader({
   ) : (
     <div className="relative h-96">
       <ImageItem
+      placeholder="blur"
         alt="Carousal Image"
         objectFit="cover"
         layout="fill"

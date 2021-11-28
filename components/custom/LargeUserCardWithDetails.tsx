@@ -31,6 +31,7 @@ function LargeUserCardWithDetails({
           alt={fullName}
           height={250}
           width={250}
+          placeholder="blur"
         />
       </div>
       <div className="p-3">

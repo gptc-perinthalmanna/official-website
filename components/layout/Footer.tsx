@@ -89,6 +89,7 @@ export class Footer extends Component {
                   alt="Magazine Image"
                   width={200}
                   height={260}
+                  placeholder="blur"
                 />
               </div>
             </Box>
