@@ -35,6 +35,7 @@ function PhotoGallery({ images = _images }) {
               alt="Photo Libray"
               layout="fill"
               objectFit="cover"
+              placeholder="blur"
             />
           </div>
         </div>
