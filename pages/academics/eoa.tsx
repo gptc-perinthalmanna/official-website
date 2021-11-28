@@ -1,28 +1,22 @@
 import React from "react";
-import { AiOutlineFilePdf } from "react-icons/ai";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
-import Link from "next/link";
 import PdfCard from "../../components/custom/PdfCard";
 import { PageTitle } from "../../components/layout/PageTitle";
+import { NextPage } from "next";
+import { FileType } from "../../server/db";
+import { getOther } from "../../server/other";
+import { getFile } from "../../server/files";
 
-const _eoa = [
-  {
-    title: "EOA 2021-22",
-    url: "/pdf/EOA-Report-21-22.pdf",
-    description:
-      "Extention of Approval of AICTE for the extension of the duration of the programme from 2020-2021 to 2021-2022.",
-  },
-  {
-    title: "EOA 2020-21",
-    url: "/pdf/EOA-Report-20-21.pdf",
-    description:
-      "Extention of Approval of AICTE for the extension of the duration of the programme from 2020-2021 to 2021-2022.",
-  },
-];
+interface PageProps {
+  description: string;
+  files: string[];
+  fileItems?: FileType[];
+}
 
-export default function NextPage() {
+
+const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
   return (
     <Page title="AICTE Extention of Approval">
       <Container>
@@ -46,8 +40,8 @@ export default function NextPage() {
             </p>
             <div className="my-5">
               <div className="flex p-5 border-blue-700 flex-warp rounder-lg">
-                {_eoa.map((eoa) => (
-                  <PdfCard key={eoa.title} {...eoa} />
+                {page.fileItems?.map((eoa) => (
+                  <PdfCard  {...eoa} key={eoa.key} />
                 ))}
               </div>
             </div>
@@ -56,4 +50,21 @@ export default function NextPage() {
       </Container>
     </Page>
   );
+}
+export default CustomPage;
+
+
+export async function getStaticProps() {
+  const page = (await getOther("page-extention-of-approval")) as PageProps;
+  const files = page.files.map(async (file) => {
+    return (await getFile(file)) as FileType;
+  });
+  page.fileItems = await Promise.all(files);
+
+  return {
+    props: {
+      page,
+    },
+    revalidate: 600000,
+  };
 }
