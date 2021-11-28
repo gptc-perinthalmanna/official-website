@@ -60,11 +60,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
               <PageTitle>Staffs</PageTitle>
               <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
                 {page.staffs.map((staff) => (
-                  <UserProfileCard
-                    key={staff.name}
-                    fullName={staff.name}
-                    designation={staff.designation}
-                  />
+                  <UserProfileCard {...staff} key={staff.name} />
                 ))}
               </div>
             </div>
@@ -92,18 +88,17 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> = async ({
-  params,
-}) => {
-  if (!params || !params.id) {
-    return { props: { error: true } };
-  }
-  const page = await getFacilities(params.id);
-  console.log("Done!")
-  return {
-    props: {
-      page: page,
-    },
-    revalidate: 6000,
+export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
+  async ({ params }) => {
+    if (!params || !params.id) {
+      return { props: { error: true } };
+    }
+    const page = await getFacilities(params.id);
+    console.log("Done!");
+    return {
+      props: {
+        page: page,
+      },
+      revalidate: 6000,
+    };
   };
-};

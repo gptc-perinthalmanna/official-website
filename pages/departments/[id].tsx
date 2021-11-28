@@ -70,7 +70,7 @@ const _paths = [
   "electronics-engineering",
   "mechanical-engineering",
   "civil-engineering",
-  "electrical-engineering",
+  "electrical-and-electronics-engineering",
 ];
 
 // This function gets called at build time

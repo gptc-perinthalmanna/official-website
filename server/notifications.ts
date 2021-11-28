@@ -10,7 +10,7 @@ export async function getAllNotifications() {
   if (!nots) return null;
 
   nots.map(async (not) => {
-    not.expired = parseInt(not.expiryDate) < Date.now();
+    not.expired = (not.expiryDate) < Date.now();
     if (not.expired) {
       await notificationsDB.update({ expired: true }, not.key.toString());
     }

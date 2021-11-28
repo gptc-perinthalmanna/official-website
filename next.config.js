@@ -2,6 +2,9 @@
 module.exports = {
   reactStrictMode: true,
   images: {
-    domains: ['uoce.chimpgroup.com', 'images.unsplash.com', 'www.whatsappprofiledpimages.com', 'i.ibb.co'],
+    domains: ['i.ibb.co'],
   },
+  // env: {
+  //   DETA_PROJECT_ID: <DETA PROJECT KEY FOR LOCAL DEPLOYMENT>,
+  // },
 }

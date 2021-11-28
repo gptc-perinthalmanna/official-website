@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { RiAlarmWarningFill } from "react-icons/ri";
 import ImagePost from "../../components/custom/ImagePost";
 import UserProfileCard from "../../components/custom/UserProfileCard";
@@ -8,59 +8,38 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import PhotoGallery from "../../components/widgets/PhotoGallery";
+import { UserType } from "../../server/db";
+import { getFacilities } from "../../server/pages";
 
-const _staffs = [
-  {
-    name: "Prakasan P",
-    designation: "Head of Department",
-  },
-  {
-    name: "Jamsheer",
-    designation: "Lecturer in Electronics",
-  },
-  {
-    name: "Sheeba MH",
-    designation: "Lecturer in Electronics",
-  },
-];
+interface PageType {
+  title: string;
+  about: string;
+  cover: string;
+  staffs?: UserType[];
+  photos?: PhotoType[];
+}
 
 
-const CustomPage: NextPage = () => (
+interface PhotoType {
+  src: string;
+  alt: string;
+}
+
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
   <Page title="Advanced Library">
-    <CoverImage source="/images/library.jpg" title="Advanced College Library" />
+    <CoverImage source={page.cover} title="Advanced College Library" />
     <Container>
       <PageTitle>The Library</PageTitle>
       <Content>
         <Content.Left>
           <div>
-            <p>
-              Library can be considered a store – house of knowledge. In
-              dictionaries the word “library” has been defined as “a building or
-              room containing a collection of books”. A well-stocked library is
-              an positive feature to the college. A library has a librarian to
-              guide and attend to the readers. A library is a place where not
-              only books but also journals, magazines and newspapers are
-              well-stocked for the benefit of the readers. It helps the spread
-              of education. The library is a boon for poor students who cannot
-              afford to buy text books or other books of their interest. They
-              can borrow these books and read or study them at ease at home. A
-              library is thus a help to the society. The mission of the college
-              library is to facilitate creation of new knowledge through
-              acquisition, organisation and dissemination of knowledge resources
-              and provide value added services. It has an excellent collection
-              of books,journals, periodicals, CDs and non book materials in the
-              field of science and technology and general books etc.
-            </p>
+            <p> {page.about}  </p>
           </div>
           <div>
             <PageTitle>Staffs</PageTitle>
             <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-              {_staffs.map((staff) => (
-                <UserProfileCard
-                  key={staff.name}
-                  fullName={staff.name}
-                  designation={staff.designation}
-                />
+              {page.staffs?.map((staff) => (
+                <UserProfileCard {...staff} key={staff.key} />
               ))}
             </div>
           </div>
@@ -155,9 +134,7 @@ const CustomPage: NextPage = () => (
           <div>
             <PhotoGallery />
           </div>
-          <div>
-            <ImagePost image={"/images/library.jpg"} date={"12 Nov 2021"} title={"NSS Camp "} subtitle={"Conducted NSS Camps - In Nov"} />
-          </div>
+
         </Content.Right>
       </Content>
     </Container>
@@ -165,3 +142,18 @@ const CustomPage: NextPage = () => (
 );
 
 export default CustomPage;
+
+
+
+export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
+  async () => {
+    const page = await getFacilities('library');
+    console.log("Done!");
+    return {
+      props: {
+        page: page,
+      },
+      revalidate: 6000,
+    };
+  };
+

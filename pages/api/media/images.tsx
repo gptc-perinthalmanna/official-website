@@ -2,7 +2,7 @@ import formidable from "formidable";
 import fs from "fs/promises";
 import { NextApiRequest, NextApiResponse } from "next";
 import FormDataL from "form-data";
-import axios from "axios";
+import axios from "redaxios";
 
 export const config = {
   api: {
