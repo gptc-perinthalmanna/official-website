@@ -12,3 +12,4 @@ export async function createOther(other: {}) {
   const res = await otherDB.put(other);
   return res as unknown as OtherType | null;
 }
+
