@@ -33,9 +33,9 @@ export async function getFacilities(key: string) {
     const image = (await imagesDB.get(element)) as unknown as ImageType | null;
     if (image) {
       photos.push({
-        src: image.data.url,
-        alt: image.data.title,
-        thumbnail: image.data.thumb.url,
+        src: image.url,
+        alt: image.title,
+        thumbnail: image.thumb.url,
       });
     }
     return image
@@ -80,6 +80,11 @@ export async function getCampus(key: string) {
 export async function getEvents(page_id: string) {
   const events = (await eventsDB.fetch({"tags?contains" : page_id})).items as unknown as EventType[] | null;
   return events;
+}
+
+export async function getEvent(key: string) {
+  const event = (await eventsDB.get(key)) as unknown as EventType | null;
+  return event;
 }
 
 export async function getAllEvents() {

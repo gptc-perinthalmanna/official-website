@@ -20,3 +20,8 @@ export async function createImage(file: {}) {
   const res = await imagesDB.put(file);
   return res as unknown as ImageType | null;
 }
+
+export async function getImage(key: string) {
+  const res = await imagesDB.get(key);
+  return res as unknown as ImageType | null;
+}

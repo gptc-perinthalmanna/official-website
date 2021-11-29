@@ -94,7 +94,6 @@ export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
       return { props: { error: true } };
     }
     const page = await getFacilities(params.id);
-    console.log("Done!");
     return {
       props: {
         page: page,

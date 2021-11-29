@@ -2,6 +2,7 @@ import type { NextPage } from "next";
 import Head from "next/head";
 import { BsEyeFill } from "react-icons/bs";
 import { GiTargetPoster } from "react-icons/gi";
+import useSWR from "swr";
 import ImagePost from "../components/custom/ImagePost";
 import Container from "../components/layout/Container";
 import Content from "../components/layout/Content";
@@ -12,13 +13,21 @@ import TopBanner from "../components/layout/TopBanner";
 import NewsTicker from "../components/NewsTicker";
 import EventCarousel from "../components/ui/EventCarousal";
 import HeroCarousel from "../components/ui/HeroCarousal";
+import { fetcher } from "../server/calls";
+import { EventType, ImageType } from "../server/db";
+import { getImage } from "../server/files";
+import { getOther } from "../server/other";
 
-const Home: NextPage = () => {
+const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
+  const event = useSWR<EventType>("/api/events/highlighted", fetcher);
   return (
     <div>
       <Head>
         <title>Govt Polytechnic College, Perinthalmanna</title>
-        <meta name="description" content="Government Polytechnic College Perinthalmanna" />
+        <meta
+          name="description"
+          content="Government Polytechnic College Perinthalmanna"
+        />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
@@ -26,7 +35,7 @@ const Home: NextPage = () => {
       <LogoBanner />
       <NavBar />
       <div className="w-full h-90">
-        <HeroCarousel />
+        <HeroCarousel images={heroImgs} />
       </div>
       <NewsTicker />
 
@@ -72,13 +81,15 @@ const Home: NextPage = () => {
             <h1 className="my-3 text-2xl font-bold text-gray-700">Events</h1>
 
             <div className="flex h-full">
-              <ImagePost
-                fullHeight
-                image="https://i.ibb.co/Lgsk2QV/Home-About-Us.jpg"
-                date="12 Oct 2021"
-                title="Meet up 2021"
-                subtitle="Electronics 2014 batch is conducted a meetup in Electroncis"
-              />
+              {event.data && (
+                <ImagePost
+                  fullHeight
+                  image={event.data?.image}
+                  date={event.data?.date}
+                  title={event.data?.title}
+                  subtitle={event.data?.subtitle}
+                />
+              )}
             </div>
           </div>
         </div>
@@ -87,8 +98,7 @@ const Home: NextPage = () => {
       <div
         className="container mx-auto bg-bottom bg-no-repeat bg-cover"
         style={{
-          backgroundImage:
-            "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
+          backgroundImage: "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
         }}
       >
         <div className="flex justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
@@ -98,9 +108,8 @@ const Home: NextPage = () => {
             </div>
             <h1 className="text-2xl font-bold text-white"> Vision </h1>
             <p className="text-sm text-white">
-              {" "}
               To be a centre of excellence to mould technically competent
-              engineers for industry expertise and social development.{" "}
+              engineers for industry expertise and social development.
             </p>
           </div>
           <div className="w-2/3 py-16 text-center">
@@ -119,15 +128,15 @@ const Home: NextPage = () => {
           </div>
         </div>
       </div>
-<Container>
-      <Content>
-        <Content.FullWidth>
-          <h1 className="my-3 text-2xl font-bold text-gray-700">
-            Recent Events
-          </h1>
-          <EventCarousel fetchAll />
-        </Content.FullWidth>
-      </Content>
+      <Container>
+        <Content>
+          <Content.FullWidth>
+            <h1 className="my-3 text-2xl font-bold text-gray-700">
+              Recent Events
+            </h1>
+            <EventCarousel fetchAll />
+          </Content.FullWidth>
+        </Content>
       </Container>
       <div className="my-3" />
       <Footer />
@@ -136,3 +145,26 @@ const Home: NextPage = () => {
 };
 
 export default Home;
+
+export async function getStaticProps() {
+  const _images = (await getOther("hero-images")) as {images: string[]};
+  let heroImgs: ImageType[] = [];
+  let unresolvedpromises: any;
+
+  unresolvedpromises = _images.images.map(async (id) => {
+    const img = await getImage(id);
+    if (img) {
+      heroImgs.push(img);
+    }
+  });
+  if (unresolvedpromises) await Promise.all(unresolvedpromises);
+  return {
+    props: {
+      heroImgs,
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 600000, // In seconds
+  };
+}

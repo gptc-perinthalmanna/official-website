@@ -28,9 +28,8 @@ export interface NewsMediaType {
   author: string;
   date: string;
   description: string;
-  url?: string
+  url?: string;
 }
-
 
 export interface NotificationType {
   key: number;
@@ -85,31 +84,31 @@ export interface FacilityPageType {
 
 export interface ImageType {
   key: string;
-  data: {
-    id: string;
-    title: string;
-    url_viewer: string;
+
+  id: string;
+  title: string;
+  url_viewer: string;
+  url: string;
+  display_url: string;
+  size: string;
+  time: string;
+  expiration: string;
+  image: {
+    filename: string;
+    name: string;
+    mime: string;
+    extension: string;
     url: string;
-    display_url: string;
-    size: string;
-    time: string;
-    expiration: string;
-    image: {
-      filename: string;
-      name: string;
-      mime: string;
-      extension: string;
-      url: string;
-    };
-    thumb: {
-      filename: string;
-      name: string;
-      mime: string;
-      extension: string;
-      url: string;
-    };
-    delete_url: string;
   };
+  thumb: {
+    filename: string;
+    name: string;
+    mime: string;
+    extension: string;
+    url: string;
+  };
+  delete_url: string;
+
   success: boolean;
   status: number;
 }
