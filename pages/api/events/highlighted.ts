@@ -2,15 +2,15 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { EventType } from "../../../server/db";
 import { getOther } from "../../../server/other";
-import { getEvents } from "../../../server/pages";
+import { getEvent } from "../../../server/pages";
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<EventType[] | { error: string }>
+  res: NextApiResponse<EventType | { error: string }>
 ) {
   if (req.method === "GET") {
     const highlightedEvent = await getOther("highlighted-event");
-    const event = await getEvents(highlightedEvent?.event_id);
+    const event = await getEvent(highlightedEvent?.event_id);
 
     if (event) {
       res.status(200).json(event);
@@ -20,7 +20,7 @@ export default async function handler(
   }
 }
 
-function error(res: NextApiResponse<EventType[] | { error: string }>) {
+function error(res: NextApiResponse<EventType | { error: string }>) {
   res.status(404).json({
     error: "Event not found",
   });

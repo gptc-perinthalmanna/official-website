@@ -272,6 +272,8 @@ export function Form({
             <option value=" Civil Dept"> Civil Dept</option>
             <option value=" General Dept"> General Dept</option>
             <option value=" Office Section"> Office Section</option>
+            <option value="General Workshop">General Workshop</option>
+
           </select>
           <ErrorMessage
             errors={errors}
