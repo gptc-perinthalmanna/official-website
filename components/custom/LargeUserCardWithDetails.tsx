@@ -32,6 +32,7 @@ function LargeUserCardWithDetails({
           height={250}
           width={250}
           placeholder="blur"
+          blurDataURL={process.env.NODE_ENV === "development" ? avatar : undefined}
         />
       </div>
       <div className="p-3">
