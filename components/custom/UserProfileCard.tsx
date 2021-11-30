@@ -26,7 +26,7 @@ function UserProfileCard({
         />
       </div>
       <div className="w-full p-6 text-left md:w-3/5 md:p-4 ">
-        <p className="font-bold text-gray-700 lg:text-xl md:text-lg text-md">{name}</p>
+        <p className="font-bold text-gray-700 capitalize lg:text-xl md:text-lg text-md">{name}</p>
         <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">{designation}</p>
       {socialLinks &&  <div className="flex justify-start mt-2 space-x-2">
           {socialLinks?.facebook && (
