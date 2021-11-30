@@ -9,6 +9,7 @@ import {
   FaUniversity,
   FaChalkboardTeacher,
   FaClinicMedical,
+  FaRegBuilding,
 } from "react-icons/fa";
 import {
   MdOutlineScreenSearchDesktop,
@@ -17,6 +18,7 @@ import {
   MdHealthAndSafety,
   MdHistoryEdu,
   MdSignalWifiStatusbarConnectedNoInternet4,
+  MdOutlineSyncProblem,
 } from "react-icons/md";
 import {
   RiDownloadCloud2Line,
@@ -61,6 +63,8 @@ import {
   GrWorkshop,
   GrCompliance,
   GrRestroomWomen,
+  GrUserExpert,
+  GrUserManager,
 } from "react-icons/gr";
 import { IoDocumentAttach } from "react-icons/io5";
 import { AiOutlineVideoCamera } from "react-icons/ai";
@@ -204,7 +208,6 @@ const _menu: MenuItem[] = [
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
         link: "/college/breif-history",
       },
-
       {
         name: "Academic Calendar",
         icon: BsFillCalendarMonthFill,
@@ -318,11 +321,11 @@ const _menu: MenuItem[] = [
         link: "/facilities/civil-block",
       },
       {
-        name: "Medical Facility",
-        icon: FaClinicMedical,
+        name: "Electrical Block",
+        icon: FaRegBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/facilities/medical-facility",
+        link: "/facilities/electrical-block",
       },
     ],
   },
@@ -402,11 +405,11 @@ const _menu: MenuItem[] = [
         link: "/campus/sholar-support-programme",
       },
       {
-        name: "Enterpenership Development Club",
-        icon: FaUserTie,
+        name: "Internal Complaints Cell",
+        icon: MdOutlineSyncProblem,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/campus/national-service-scheme",
+        link: "/campus/internal-complaint-committee",
       },
       {
         name: "Anti Ragging Committee",
@@ -414,6 +417,20 @@ const _menu: MenuItem[] = [
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
         link: "/campus/anti-ragging-committe",
+      },
+      {
+        name: "SC/ST Committee",
+        icon: GrUserExpert,
+        description:
+          "Here we teaches and manages about the fastest growing techs in the world",
+        link: "/campus/sc-st-committee",
+      },
+      {
+        name: "Student Grievance Committee",
+        icon: GrUserManager,
+        description:
+          "Here we teaches and manages about the fastest growing techs in the world",
+        link: "/campus/student-grievance-redressal-committee",
       },
     ],
   },

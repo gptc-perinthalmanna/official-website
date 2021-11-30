@@ -36,7 +36,7 @@ interface PhotoType {
 }
 
 const _paths = [
-  "greivance-redressal-committee",
+  "grievance-redressal-committee",
   "placement-cell",
   "parents-teachers-association",
   "staff-club",
@@ -46,6 +46,8 @@ const _paths = [
   "sholar-support-programme",
   "students-union",
   "alumini",
+  "internal-complaint-committee",
+  "student-grievance-redressal-committee",
 ];
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
