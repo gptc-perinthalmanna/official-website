@@ -21,7 +21,9 @@ interface PageType {
   staffs: { [key: string]: UserType };
 }
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
+  
+  return(
   <Page title="Who is who">
     <Container>
       <PageTitle>Whos Who</PageTitle>
@@ -35,7 +37,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
                 </h2>
                 <div className="grid grid-cols-2 gap-4 mt-3 lg:grid-cols-3 2xl:grid-cols-4">
                   {detail.staffs_ids.map((staff) => (
-                    <UserProfileCard  {...page.staffs[staff.key]} designation={staff.position} key={page.staffs[staff.key].key} />
+                    <UserProfileCard  {...page.staffs[staff.key]} designation={staff.position} key={staff.key} />
                   ))}
                 </div>
               </div>
@@ -45,7 +47,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
       </Content>
     </Container>
   </Page>
-);
+)};
 
 export default CustomPage;
 

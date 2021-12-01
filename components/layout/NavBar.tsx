@@ -157,28 +157,28 @@ const _menu: MenuItem[] = [
         icon: GiCircuitry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/departments/electronics",
+        link: "/departments/electronics-engineering",
       },
       {
         name: "Civil Department",
         icon: BsBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/college/breif-history",
+        link: "/departments/civil-engineering",
       },
       {
         name: "Electrical Department",
         icon: RiWirelessChargingFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/college/breif-history",
+        link: "/departments/electrical-and-electronics-engineering",
       },
       {
         name: "Mechanical Department",
         icon: GiGearHammer,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/college/breif-history",
+        link: "/departments/mechanical-engineering",
       },
     ],
   },

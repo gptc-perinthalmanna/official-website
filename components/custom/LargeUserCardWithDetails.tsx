@@ -4,7 +4,7 @@ import SocialIcon from "../ui/SocialIcon";
 
 function LargeUserCardWithDetails({
   avatar,
-  fullName,
+  name,
   designation,
   subTitle,
   email,
@@ -13,8 +13,8 @@ function LargeUserCardWithDetails({
   address,
   ...props
 }: {
-  avatar: string;
-  fullName: string;
+  avatar?: string;
+  name: string;
   designation: string;
   subTitle: string;
   email: string;
@@ -22,20 +22,23 @@ function LargeUserCardWithDetails({
   address: string;
   socialLinks: { [key: string]: string };
 }) {
+
+  const photo = avatar ? avatar : "/images/avatar-placeholder.png";
   return (
     <div className="flex bg-gray-100 border-2 rounded-lg " {...props}>
       <div className="max-w-full p-3">
         <Image
           className="rounded-lg"
-          src={avatar}
-          alt={fullName}
+          src={photo}
+          alt={name}
           height={250}
           width={250}
           placeholder="blur"
+          blurDataURL={process.env.NODE_ENV === "development" ? photo : undefined}
         />
       </div>
       <div className="p-3">
-        <h2 className="text-3xl font-light">{fullName}</h2>
+        <h2 className="text-3xl font-light">{name}</h2>
         <h3 className="text-lg font-bold text-gray-800 uppercase ">
         {subTitle}
         </h3>
@@ -63,7 +66,7 @@ function LargeUserCardWithDetails({
               <SocialIcon type="linkedin" url={socialLinks.linkedin} />
             )}
             {socialLinks.whatsapp && (
-              <SocialIcon type="whatsapp" url={socialLinks.whatsapp} />
+              <SocialIcon type="whatsapp" url={`https://wa.me/+91${socialLinks.whatsapp}?text=Hello!%20I%20found%20your%20number%20from%20the%20Official%20Website%20of%20GPTC%20Perinthalmanna`} />
             )}
           </div>
         )}
