@@ -12,7 +12,7 @@ function TopBanner() {
         <div className="flex flex-wrap justify-center">
           <a href="https://gpcperinthalmanna.infrastruct.in/" rel="noreferrer" target="_blank" className="mx-2">Moodle LMS</a>
           <Link href="/archives/downloads"><a className="mx-2">Downloads</a></Link>
-          <a className="mx-2">Privacy Policy</a>
+          <Link href="/archives/privacy-policy"><a className="mx-2">Privacy Policy</a></Link>
           <Link href="/custom/photo-uploader">
           <a className="mx-2">Photo Uploader</a></Link>
         </div>
