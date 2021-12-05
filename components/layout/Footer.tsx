@@ -56,28 +56,29 @@ export class Footer extends Component {
                 </ul>
               </div>
             </Box>
-            <Box title="Important Links">
+            <Box title="Departments/Sections">
               <div>
                 <ul>
                   <li className={liClasses}>
-                    <span className="font-bold">AICTE</span> - All india council
-                    for Technical Education
+                    Department of <span className="font-bold">Electroncis</span> Engineering
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">SBTE</span> - State Board of
-                    Technical Education
+                   Department of  <span className="font-bold">Mechanical</span> Engineering
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">SITTR</span> - State Institute
-                    of Technical Teachers Training &amp; Research
+                    Department of <span className="font-bold">Electrical and Electronics</span> Engineering
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">DTE Kerala</span> - Department
-                    of Technical Education Kerala
+                    Department of <span className="font-bold">Civil</span> Engineering
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">Poly Admision</span> - Single
-                    window Polytechnic admission portal
+                    <span className="font-bold">General</span> Department
+                  </li>
+                  <li className={liClasses}>
+                    <span className="font-bold">General</span> Workshop
+                  </li>
+                  <li className={liClasses}>
+                    <span className="font-bold">Office</span> Section
                   </li>
                 </ul>
               </div>
