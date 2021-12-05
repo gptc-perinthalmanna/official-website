@@ -1,5 +1,6 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import Image from "next/image";
 import { BsEyeFill } from "react-icons/bs";
 import { GiTargetPoster } from "react-icons/gi";
 import useSWR from "swr";
@@ -138,6 +139,51 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </Content.FullWidth>
         </Content>
       </Container>
+      <Container>
+        <div className="flex flex-col flex-wrap lg:flex-row">
+          <div
+            className="flex-grow-0 w-full m-2 transition-opacity duration-300 ease-in border-2 rounded-md cursor-pointer lg:w-108 hover:opacity-70 "
+            style={{ backgroundColor: "#dde4ff" }}
+          >
+            <div className="relative w-full h-80">
+              <Image
+                src="/images/placement-cover.png"
+                layout="fill"
+                objectFit="contain"
+                alt="Decorative"
+                objectPosition={`100% 50%`}
+              />
+            </div>
+          </div>
+          <div className="flex flex-1 w-full m-2 bg-gray-100 border-2 rounded-md ">
+            <div className="p-3">
+              <h3 className="mb-2 text-2xl font-bold">
+                {"Principal's Message"}
+              </h3>
+              <p>
+                The college is responsible and competent for the development of
+                technical education and has tried to retain its glory by
+                implementing schemes to achieve academic excellence and
+                improving administrative performance. Our various programmes and
+                initiatives includes formation of various academic committees,
+                prompt utilization of government funds, enhancement of
+                infrastructure and other facilities and various activities to
+                boost the academic performance of students and staff.
+              </p>
+              <p className="mt-2 font-semibold text-right ">- Pradeep M</p>
+              <p className="text-sm text-right ">Principal</p>
+            </div>
+            <div className="relative hidden w-full md:block h-80">
+              <Image
+                src="/images/principal.jpg"
+                layout="fill"
+                objectFit="cover"
+                alt="Principal's Image"
+              />
+            </div>
+          </div>
+        </div>
+      </Container>
       <div className="my-3" />
       <Footer />
     </div>
@@ -147,7 +193,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
 export default Home;
 
 export async function getStaticProps() {
-  const _images = (await getOther("hero-images")) as {images: string[]};
+  const _images = (await getOther("hero-images")) as { images: string[] };
   let heroImgs: ImageType[] = [];
   let unresolvedpromises: any;
 
