@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ChangeEventHandler, MouseEventHandler, useState } from "react";
+import { ChangeEventHandler, useState } from "react";
 import Image from "next/image";
 import { ImageType } from "../../server/db";
 
