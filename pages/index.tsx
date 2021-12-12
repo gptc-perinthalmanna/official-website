@@ -21,39 +21,36 @@ import { EventType, ImageType } from "../server/db";
 import { getImage } from "../server/files";
 import { getOther } from "../server/other";
 
-
 const _mou = [
   {
     url: "https://i.ibb.co/HGzKjRh/6521bae5a866.png",
-    alt: "Softbuy Logo"
+    alt: "Softbuy Logo",
   },
   {
     url: "https://i.ibb.co/Y8Vf0g1/847aa643eddd.png",
-    alt: "2 Logo"
+    alt: "2 Logo",
   },
   {
     url: "https://i.ibb.co/JjfcGTh/b6b24855a32e.png",
-    alt: "3 Logo"
+    alt: "3 Logo",
   },
   {
     url: "https://i.ibb.co/rHdKs84/fa0507cac7e9.png",
-    alt: "4 Logo"
+    alt: "4 Logo",
   },
   {
     url: "https://i.ibb.co/tD3gWYc/5cd4571f1662.png",
-    alt: "5 Logo"
-  },  
+    alt: "5 Logo",
+  },
   {
     url: "https://i.ibb.co/hDJ91hZ/c888da1a8884.png",
-    alt: "6 Logo"
+    alt: "6 Logo",
   },
   {
     url: "https://i.ibb.co/cvwLNSy/995121a70aed.png",
-    alt: "7 Logo"
+    alt: "7 Logo",
   },
-]
-
-
+];
 
 const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
   const event = useSWR<EventType>("/api/events/highlighted", fetcher);
@@ -130,6 +127,8 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
         </div>
       </div>
 
+      {/* Misson and Vision */}
+
       <div
         className="container mx-auto bg-bottom bg-no-repeat bg-cover"
         style={{
@@ -163,16 +162,9 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </div>
         </div>
       </div>
-      <Container>
-        <Content>
-          <Content.FullWidth>
-            <h1 className="my-3 text-2xl font-bold text-gray-700">
-              Recent Events
-            </h1>
-            <EventCarousel fetchAll />
-          </Content.FullWidth>
-        </Content>
-      </Container>
+
+      {/* Principals message and Placement Cell */}
+
       <Container>
         <div className="flex flex-col flex-wrap lg:flex-row">
           <div
@@ -223,6 +215,21 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
         </div>
       </Container>
 
+      {/* Previous Events  */}
+
+      <Container>
+        <Content>
+          <Content.FullWidth>
+            <h1 className="my-3 text-2xl font-bold text-gray-700">
+              Recent Events
+            </h1>
+            <EventCarousel fetchAll />
+          </Content.FullWidth>
+        </Content>
+      </Container>
+
+      {/* Mou Signed with  */}
+
       <Container>
         <div>
           <h1 className="my-3 text-2xl font-bold text-gray-700">
@@ -230,8 +237,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </h1>
           <div className="">
             <LogoCarousal images={_mou} />
-            <div>
-            </div>
+            <div></div>
           </div>
         </div>
       </Container>
