@@ -13,7 +13,7 @@ function InstagramHeader() {
                 <div className="relative w-20 h-20 rounded-full md:w-40 md:h-40">
                   <Image
                     className=" md:w-40 md:h-40"
-                    src="/images/college/nss-logo.png"
+                    src="https://i.ibb.co/gjQJmx9/7413ba8406f5.png"
                     layout="fill"
                     objectFit="cover"
                     alt="profile"

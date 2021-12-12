@@ -46,6 +46,8 @@ const _paths = [
   "sholar-support-programme",
   "students-union",
   "alumini",
+  "internal-complaint-committee",
+  "student-grievance-redressal-committee",
 ];
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {

@@ -2,19 +2,14 @@ import ImageItem from "next/image";
 import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
+import { ImageType } from "../../server/db";
 
-const _images = [
-  "/images/hero/1.jpg",
-  "/images/hero/2.jpg",
-  "/images/hero/3.jpg",
-  "/images/hero/4.jpg",
-];
 
-const HeroCarousel = () => {
+const HeroCarousel = ({images}:{images: ImageType[]}) => {
   const [, setTimestamp] = useState(0);
   const onLoad = () => setTimestamp(Date.now());
-  const items = _images.map((img, i) => (
-    <LazyLoader key={i} src={img} onLoad={onLoad} delay={i * 2000} />
+  const items = images.map((img, i) => (
+    <LazyLoader key={i} img={img} onLoad={onLoad} delay={i * 2000} />
   ));
 
   return (
@@ -39,11 +34,11 @@ const HeroCarousel = () => {
 export default HeroCarousel;
 
 function LazyLoader({
-  src,
+  img,
   onLoad,
   delay,
 }: {
-  src: string;
+  img: ImageType;
   onLoad: () => void;
   delay: number;
 }) {
@@ -54,7 +49,7 @@ function LazyLoader({
   function loadImage() {
     const image = new Image();
 
-    image.src = src;
+    image.src = img.url;
     image.onload = () => {
       setLoading(false);
       onLoad();
@@ -78,10 +73,12 @@ function LazyLoader({
   ) : (
     <div className="relative h-96">
       <ImageItem
+      placeholder="blur"
         alt="Carousal Image"
         objectFit="cover"
         layout="fill"
-        src={src}
+        src={img.url}
+        blurDataURL={img.thumb.url}
       />
     </div>
   );

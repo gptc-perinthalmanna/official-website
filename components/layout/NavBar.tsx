@@ -9,6 +9,7 @@ import {
   FaUniversity,
   FaChalkboardTeacher,
   FaClinicMedical,
+  FaRegBuilding,
 } from "react-icons/fa";
 import {
   MdOutlineScreenSearchDesktop,
@@ -17,6 +18,7 @@ import {
   MdHealthAndSafety,
   MdHistoryEdu,
   MdSignalWifiStatusbarConnectedNoInternet4,
+  MdOutlineSyncProblem,
 } from "react-icons/md";
 import {
   RiDownloadCloud2Line,
@@ -61,10 +63,12 @@ import {
   GrWorkshop,
   GrCompliance,
   GrRestroomWomen,
+  GrUserExpert,
+  GrUserManager,
 } from "react-icons/gr";
 import { IoDocumentAttach } from "react-icons/io5";
 import { AiOutlineVideoCamera } from "react-icons/ai";
-import Link from 'next/link'
+import Link from "next/link";
 import { IconType } from "react-icons";
 
 type MenuItem = {
@@ -87,7 +91,7 @@ const _menu: MenuItem[] = [
     icon: BiHomeSmile,
     link: "/",
   },
- // College 
+  // College
   {
     name: "College",
     icon: FaUniversity,
@@ -97,53 +101,53 @@ const _menu: MenuItem[] = [
         icon: MdHistoryEdu,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/college/breif-history",
       },
       {
         name: "Principal's Desk",
         icon: GiDesk,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/college/breif-history",
       },
       {
         name: "Placement Officer's Desk",
         icon: GiRoundTable,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/placement-officers-desk"
+        link: "/college/placement-officers-desk",
       },
       {
         name: "Who's Who",
         icon: BsPatchQuestion,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/whos-who"
+        link: "/college/whos-who",
       },
       {
         name: "Industrial Relationships",
         icon: FaHandshake,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/college/breif-history",
       },
       {
         name: "Press and Media",
         icon: AiOutlineVideoCamera,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/press-releases"
+        link: "/college/press-releases",
       },
       {
         name: "Right To Information",
         icon: HiInformationCircle,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/right-to-information"
+        link: "/college/right-to-information",
       },
     ],
   },
- // Departments
+  // Departments
   {
     name: "Departments",
     icon: BiGitBranch,
@@ -153,32 +157,32 @@ const _menu: MenuItem[] = [
         icon: GiCircuitry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/departments/electronics"
+        link: "/departments/electronics-engineering",
       },
       {
         name: "Civil Department",
         icon: BsBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/departments/civil-engineering",
       },
       {
         name: "Electrical Department",
         icon: RiWirelessChargingFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/departments/electrical-and-electronics-engineering",
       },
       {
         name: "Mechanical Department",
         icon: GiGearHammer,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/college/breif-history"
+        link: "/departments/mechanical-engineering",
       },
     ],
   },
- // Academics
+  // Academics
   {
     name: "Academics",
     icon: FaChalkboardTeacher,
@@ -188,55 +192,53 @@ const _menu: MenuItem[] = [
         icon: IoDocumentAttach,
         description:
           "View the details including Fees Charged, Reservation Policy, Admission Policy and Document Retention policy approved by State Govt.",
-          link: "/academics/prospectus"
+        link: "/academics/prospectus",
       },
       {
         name: "Govt Institute for Fashion Designing",
         icon: GiAmpleDress,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+        link: "/college/breif-history",
       },
       {
         name: "Community Development Through Polytechincs",
         icon: FaHandshake,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/college/breif-history"
+        link: "/college/breif-history",
       },
-   
-
       {
         name: "Academic Calendar",
         icon: BsFillCalendarMonthFill,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/academics/academic-calender"
+        link: "/academics/academic-calender",
       },
       {
         name: "Continuing Education Cell",
         icon: GrWorkshop,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/academics/ce-cell"
+        link: "/academics/ce-cell",
       },
       {
         name: "Moodle LMS",
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/academics/moodle"
+        link: "/academics/moodle",
       },
       {
         name: "Extention of Approval",
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/academics/eoa"
+        link: "/academics/eoa",
       },
     ],
   },
- // Facilities
+  // Facilities
   {
     name: "Facilities",
     icon: MdOutlineGppGood,
@@ -246,88 +248,88 @@ const _menu: MenuItem[] = [
         icon: GiArchiveResearch,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/library"
+        link: "/facilities/library",
       },
       {
         name: "Health Centre",
         icon: MdHealthAndSafety,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/health-centre"
+        link: "/facilities/health-centre",
       },
       {
         name: "Finishing School",
         icon: GiFinishLine,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/finishing-school"
+        link: "/facilities/finishing-school",
       },
       {
         name: "Language Lab",
         icon: HiOutlineSpeakerphone,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/language-lab"
+        link: "/facilities/language-lab",
       },
       {
         name: "Co-operative Society",
         icon: SiHandshake,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/co-operative-society"
+        link: "/facilities/co-operative-society",
       },
       {
         name: "Internet Common Facility Centre",
         icon: MdSignalWifiStatusbarConnectedNoInternet4,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/internet-common-facility-centre"
+        link: "/facilities/internet-common-facility-centre",
       },
       {
         name: "Womens Hostel",
         icon: GrRestroomWomen,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/womens-hostel"
+        link: "/facilities/womens-hostel",
       },
       {
         name: "Staff Quarters",
         icon: FaChalkboardTeacher,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/staff-quarters"
+        link: "/facilities/staff-quarters",
       },
       {
         name: "Auditorium",
         icon: SiGoogleclassroom,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/auditorium"
+        link: "/facilities/auditorium",
       },
       {
         name: "Electronics Block",
         icon: HiOutlineOfficeBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/electronics-block"
+        link: "/facilities/electronics-block",
       },
       {
         name: "Civil Block",
         icon: RiBuilding2Line,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/civil-block"
+        link: "/facilities/civil-block",
       },
       {
-        name: "Medical Facility",
-        icon: FaClinicMedical,
+        name: "Electrical Block",
+        icon: FaRegBuilding,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/facilities/medical-facility"
+        link: "/facilities/electrical-block",
       },
     ],
   },
-  // Campus 
+  // Campus
   {
     name: "Campus",
     icon: RiBuildingLine,
@@ -337,84 +339,98 @@ const _menu: MenuItem[] = [
         icon: FaUsers,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+        link: "/campus/national-service-scheme",
       },
       {
         name: "National Service Scheme",
         icon: RiServiceFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+        link: "/campus/national-service-scheme",
       },
       {
         name: "Innovation Enterpernership Develepment Centre",
         icon: FaIndustry,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/innovation-entrepreneurship-development-club"
+        link: "/campus/innovation-entrepreneurship-development-club",
       },
       {
         name: "Boomithrasena Club",
         icon: GiGroundSprout,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/boomithrasena-club"
+        link: "/campus/boomithrasena-club",
       },
       {
         name: "Staff Club",
         icon: GrUserWorker,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/staff-club"
+        link: "/campus/staff-club",
       },
       {
         name: "Parents Teachers Association",
         icon: RiParentFill,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/parents-teachers-association"
+        link: "/campus/parents-teachers-association",
       },
       {
         name: "Greivence Redressal Committee",
         icon: GrCompliance,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/greivance-redressal-committee"
+        link: "/campus/greivance-redressal-committee",
       },
       {
         name: "Alumini",
         icon: GiSchoolOfFish,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+        link: "/campus/national-service-scheme",
       },
       {
         name: "Placement Cell",
         icon: MdWork,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/placement-cell"
+        link: "/campus/placement-cell",
       },
       {
         name: "Scholar Support Programme",
         icon: HiSupport,
         description:
           "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-          link: "/campus/sholar-support-programme"
-      },   
+        link: "/campus/sholar-support-programme",
+      },
       {
-        name: "Enterpenership Development Club",
-        icon: FaUserTie,
+        name: "Internal Complaints Cell",
+        icon: MdOutlineSyncProblem,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/national-service-scheme"
+        link: "/campus/internal-complaint-committee",
       },
       {
         name: "Anti Ragging Committee",
         icon: HiBan,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-          link: "/campus/anti-ragging-committe"
+        link: "/campus/anti-ragging-committe",
+      },
+      {
+        name: "SC/ST Committee",
+        icon: GrUserExpert,
+        description:
+          "Here we teaches and manages about the fastest growing techs in the world",
+        link: "/campus/sc-st-committee",
+      },
+      {
+        name: "Student Grievance Committee",
+        icon: GrUserManager,
+        description:
+          "Here we teaches and manages about the fastest growing techs in the world",
+        link: "/campus/student-grievance-redressal-committee",
       },
     ],
   },
@@ -428,7 +444,7 @@ const _menu: MenuItem[] = [
         icon: RiDownloadCloud2Line,
         description:
           "Downloadable contents related to the college and departments.",
-          link: "/archives/downloads"
+        link: "/archives/downloads",
       },
 
       {
@@ -436,28 +452,28 @@ const _menu: MenuItem[] = [
         icon: BsFillFileMedicalFill,
         description:
           "Government orders and Circulars regarding the college, staffs, students etc.",
-          link: "/archives/go-circulars"
+        link: "/archives/go-circulars",
       },
       {
         name: "College Archives",
         icon: FaArchive,
         description:
           "Old files and Archived contents that are not using / valid now.",
-          link: "/archives/archives"
+        link: "/archives/archives",
       },
       {
         name: "Previous Question Papers",
         icon: BsFillPatchQuestionFill,
         description:
           "Previous Diploma semester final examination question papers in dowloadable pdf format. ",
-          link: "/campus/national-service-scheme"
+        link: "/campus/national-service-scheme",
       },
       {
         name: "Design Files",
         icon: SiAdobeindesign,
         description:
           "Files and templates used to design the contents and posters regarding the college.",
-          link: "/archives/design-files"
+        link: "/archives/design-files",
       },
     ],
   },
@@ -473,7 +489,6 @@ function NavBar() {
           <div className="flex items-center justify-between">
             <div className="flex flex-row flex-wrap items-center lg:mx-8">
               {_menu.map((item, index) => (
-                
                 <NavItem
                   key={item.name}
                   icon={item.icon}
@@ -482,6 +497,13 @@ function NavBar() {
                     if (item.children) {
                       setSelectedMenu(item.children);
                     } else {
+                      setSelectedMenu(null);
+                    }
+                  }}
+                  onClick={() => {
+                    if (!selectedMenu) {
+                      if (item.children) setSelectedMenu(item.children);
+                    }else{
                       setSelectedMenu(null);
                     }
                   }}
@@ -512,22 +534,19 @@ function NavBar() {
                 const Icon = item.icon;
                 return (
                   <Link href={item.link} key={item.name}>
-                  <a
-                   
-                    className="flex items-center max-w-xs p-2 transition-all duration-300 ease-in-out rounded-lg cursor-pointer ring-pink-100 hover:ring-2 hover:bg-white"
-                  >
-                    <div className="mr-2 text-gray-700">
-                      <Icon size={40} />
-                    </div>
-                    <div>
-                      <div className="font-bold text-gray-700 text-md">
-                        {item.name}
+                    <a className="flex items-center max-w-xs p-2 transition-all duration-300 ease-in-out rounded-lg cursor-pointer ring-pink-100 hover:ring-2 hover:bg-white">
+                      <div className="mr-2 text-gray-700">
+                        <Icon size={40} />
                       </div>
-                      <p className="text-xs text-gray-600">
-                        {item.description}
-                      </p>
-                    </div>
-                  </a>
+                      <div>
+                        <div className="font-bold text-gray-700 text-md">
+                          {item.name}
+                        </div>
+                        <p className="text-xs text-gray-600">
+                          {item.description}
+                        </p>
+                      </div>
+                    </a>
                   </Link>
                 );
               })}
@@ -550,26 +569,31 @@ function NavItem({
   icon: IconType;
   link?: string;
   onMouseEnter?: () => void;
+  onClick?: () => void;
 }): React.ReactElement<HTMLDivElement> {
   const Icon = icon;
 
-
   return (
     <Linked link={link}>
-    <a
-      className="flex items-center justify-around px-2 py-5 mx-2 text-sm font-medium text-gray-100 transition-colors duration-200 transform cursor-pointer hover:text-gray-200 dark:text-gray-200 hover:bg-pink-800"
-      {...props}
-    >
-      <Icon /> <p className="ml-2">{children}</p>
-    </a>
+      <a
+        className="flex items-center justify-around px-2 py-5 mx-2 text-sm font-medium text-gray-100 transition-colors duration-200 transform cursor-pointer hover:text-gray-200 dark:text-gray-200 hover:bg-pink-800"
+        {...props}
+      >
+        <Icon /> <p className="ml-2">{children}</p>
+      </a>
     </Linked>
   );
 }
 
-
-function Linked({children, link}: {children: React.ReactNode; link?: string}){
+function Linked({
+  children,
+  link,
+}: {
+  children: React.ReactNode;
+  link?: string;
+}) {
   if (link) {
-    return (<Link href={link}>{children}</Link>)
-  } 
-  return <>{children}</>
+    return <Link href={link}>{children}</Link>;
+  }
+  return <>{children}</>;
 }

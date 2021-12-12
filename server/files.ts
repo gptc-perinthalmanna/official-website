@@ -1,4 +1,4 @@
-import { filesDB, FileType } from "./db";
+import { filesDB, FileType, imagesDB, ImageType } from "./db";
 
 export async function getFile(key: string) {
   const res = await filesDB.get(key);

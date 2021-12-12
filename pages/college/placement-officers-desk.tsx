@@ -1,9 +1,7 @@
 import { NextPage } from "next";
 import { BiHistory, BiMapPin } from "react-icons/bi";
-import { BsFacebook, BsLinkedin, BsTelegram } from "react-icons/bs";
 import { FaAward, FaUserGraduate, FaUserTie } from "react-icons/fa";
 import { GiTreasureMap } from "react-icons/gi";
-import { IoLogoWhatsapp } from "react-icons/io5";
 import { RiBuilding2Line } from "react-icons/ri";
 import { SiGofundme } from "react-icons/si";
 import Page from "../../components/layout/Page";
@@ -14,6 +12,8 @@ import ContactForm from "../../components/custom/ContactForm";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 import RibbonCard from "../../components/custom/RibbonCard";
 import { getOther } from "../../server/other";
+import { UserType } from "../../server/db";
+import { getUser } from "../../server/users";
 
 const _features = [
   {
@@ -59,20 +59,13 @@ const _features = [
 ];
 
 interface PageType {
-  placementOfficer: PlacementOfficer;
+  placementOfficer: UserType;
+  placementOfficer_id: string;
   misssion: string;
   description: string;
 }
 
-interface PlacementOfficer {
-  avatar: string;
-  fullName: string;
-  subTitle: string;
-  email: string;
-  phone: string;
-  address: string;
-  socialLinks: { [key: string]: string };
-}
+
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
   <Page title="Placement Officers Desk in GPC Perinthalmanna">
@@ -82,16 +75,14 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
     <div className="container flex flex-wrap mx-auto mt-4">
       <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
         <LargeUserCardWithDetails
-          designation={"Placement Officer"}
           {...page.placementOfficer}
-        />
+          subTitle={"Placement Officer"}
+          />
       </div>
       <div className="h-auto lg:w-1/3">
         <RibbonCard>
           <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
-          <p className="text-gray-100">
-            {page.misssion}
-          </p>
+          <p className="text-gray-100">{page.misssion}</p>
         </RibbonCard>
       </div>
     </div>
@@ -126,13 +117,16 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
     </div>
     <div className="px-4 py-5 mx-auto bg-gradient-to-r from-pink-600 to-pink-700">
       <div className="container mx-auto text-center text-white py-7">
-        <Image src={logoImage} className="filter grayscale invert" alt="Logo" />
+        <div className="filter grayscale invert"><Image
+          src={logoImage}
+          className="filter grayscale invert"
+          alt="Logo"
+          placeholder="blur"
+        /></div>
         <h2 className="pb-5 text-3xl font-bold ">
           Career Guidance and Placement Cell
         </h2>
-        <p className="p-3 text-xl font-thin leading-9">
-          {page.description}
-        </p>
+        <p className="p-3 text-xl font-thin leading-9">{page.description}</p>
       </div>
     </div>
 
@@ -146,11 +140,13 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
 
 export default CustomPage;
 
-
 export async function getStaticProps() {
+  let page = (await getOther("page-placement-officer-desk")) as PageType;
+  page.placementOfficer = await getUser(page.placementOfficer_id) as UserType;
+  console.log(page)
   return {
     props: {
-      page: await getOther("page-placement-officer-desk"),
+      page,
     },
     // Next.js will attempt to re-generate the page:
     // - When a request comes in

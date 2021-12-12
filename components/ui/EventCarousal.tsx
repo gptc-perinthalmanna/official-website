@@ -4,6 +4,7 @@ import "react-alice-carousel/lib/alice-carousel.css";
 import ImagePost from "../custom/ImagePost";
 import useSWR from "swr";
 import { fetcher } from "../../server/calls";
+import { FcHighPriority } from "react-icons/fc";
 
 const responsive = {
   0: { items: 1 },
@@ -44,6 +45,13 @@ const EventCarousel = ({
         <div className="bg-gray-200 h-52 sm:h-full sm:w-full rounded-xl animate-pulse"></div>
       </div>
     );
+
+    if(data.length === 0)
+      return (
+        <div className="p-2 select-none sm:p-4 sm:h-22 rounded-2xl">
+          <div className="flex flex-row items-center justify-center h-32 bg-gray-50 sm:h-22 sm:w-full rounded-xl"> <p className="flex items-center text-xl "> <FcHighPriority className="mr-2" /> No events found.</p></div>
+        </div>
+      )
 
   const _items = data?.map((event) => (
     <div key={event.title} className="pr-4">

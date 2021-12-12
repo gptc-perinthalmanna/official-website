@@ -4,6 +4,7 @@ module.exports = {
   content: [
     './pages/**/*.tsx',
     './components/**/*.tsx',
+    './common/*.ts',
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
@@ -27,12 +28,17 @@ module.exports = {
       rose: colors.rose,
     },
     extend: {
-      
+      spacing: {
+        
+        '108': '27rem',
+      }
     },
   },
   
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
 }

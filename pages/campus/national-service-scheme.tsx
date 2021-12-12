@@ -14,24 +14,17 @@ import EventCarousel from "../../components/ui/EventCarousal";
 import { fetcher } from "../../server/calls";
 import { usersDb, UserType } from "../../server/db";
 import { getOther } from "../../server/other";
+import { getUser } from "../../server/users";
 
 interface PageType {
-  programOfficer: ProgramOfficer;
+  programOfficer: UserType;
   misssion: string;
   about: string;
+  programOfficer_id: string;
   volenteerSecreteries_ids: string[];
   vss: UserType[];
 }
 
-interface ProgramOfficer {
-  avatar: string;
-  fullName: string;
-  designation: string;
-  email: string;
-  phone: string;
-  address: string;
-  socialLinks: { [key: string]: string };
-}
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
   return (
@@ -98,11 +91,12 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
 export default CustomPage;
 
 export async function getStaticProps() {
-  const page = (await getOther("page-national-service-scheme")) as PageType;
+  let page = (await getOther("page-national-service-scheme")) as PageType;
+  page.programOfficer = (await getUser(page.programOfficer_id)) as UserType;
   let unresolvedpromises: any;
   let staffs: UserType[] = [];
   unresolvedpromises = page.volenteerSecreteries_ids?.map(async (element) => {
-    const staff = (await usersDb.get(element)) as unknown as UserType | null;
+    const staff = await getUser(element);
     if (staff) {
       staffs.push(staff);
     }

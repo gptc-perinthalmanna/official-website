@@ -21,8 +21,7 @@ interface UserType {
 }
 
 
-
-export async function getUser(key: string){
-    const user = await usersDb.get(key);
-    return user as unknown as UserType | null;
+export async function getUser(key: string) {
+  const user = await usersDb.get(key);
+  return user as unknown as UserType | null;
 }

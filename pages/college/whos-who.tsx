@@ -18,7 +18,9 @@ interface PageType {
   staffs: { [key: string]: UserType };
 }
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
+  
+  return(
   <Page title="Who is who">
     <Container>
       <PageTitle>Whos Who</PageTitle>
@@ -47,7 +49,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
       </Content>
     </Container>
   </Page>
-);
+)};
 
 export default CustomPage;
 

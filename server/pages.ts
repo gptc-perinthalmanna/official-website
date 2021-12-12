@@ -65,6 +65,11 @@ export async function getEvents(page_id: string) {
   return (await eventsDB.fetch({"tags?contains" : page_id})).items as unknown as EventType[] | null;
 }
 
+export async function getEvent(key: string) {
+  const event = (await eventsDB.get(key)) as unknown as EventType | null;
+  return event;
+}
+
 export async function getAllEvents() {
   return (await eventsDB.fetch({}, {limit: 10})).items as unknown as EventType[] | null;
 }

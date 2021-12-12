@@ -56,7 +56,7 @@ const CustomPage: NextPage<{ page: DeptPageType }> = ({ page }) => (
           )}
         </Content.Left>
         <Content.FullWidth>
-          <PageTitle> Previous Events </PageTitle>
+          <PageTitle>Events </PageTitle>
           <EventCarousel id={page.key} />
         </Content.FullWidth>
       </Content>
