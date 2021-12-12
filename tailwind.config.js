@@ -4,7 +4,7 @@ module.exports = {
   content: [
     './pages/**/*.tsx',
     './components/**/*.tsx',
-    './common/*.ts',
+    './common/*.tsx',
   ],
   darkMode: 'media', // or 'media' or 'class'
   theme: {
