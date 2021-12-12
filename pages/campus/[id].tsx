@@ -36,7 +36,7 @@ interface PhotoType {
 }
 
 const _paths = [
-  "greivance-redressal-committee",
+  "grievance-redressal-committee",
   "placement-cell",
   "parents-teachers-association",
   "staff-club",

@@ -33,10 +33,3 @@ export async function getDepartments(key: string) {
 
   return { ...department, staffs, facilities };
 }
-
-export async function createDepartmentPage(data: any) {
-  const facility = (await departmentsDB.put(
-    data
-  )) as unknown as DepartmentFacilityType | null;
-  return facility;
-}

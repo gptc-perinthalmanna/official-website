@@ -10,7 +10,7 @@ import { getUser } from "../../server/users";
 
 interface Committee {
   title: string;
-  staffs_ids: string[];
+  staffs_ids: { key: string; position: string }[];
 }
 
 interface PageType {
@@ -31,9 +31,14 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
                   {detail.title}
                 </h2>
                 <div className="grid grid-cols-2 gap-4 mt-3 lg:grid-cols-3 2xl:grid-cols-4">
-                  {detail.staffs_ids.map((staff) => (
-                    <UserProfileCard  {...page.staffs[staff]} key={page.staffs[staff].key} />
-                  ))}
+                  {detail.staffs_ids.map((staff) => {
+                    if(!page.staffs[staff.key]) return null;
+                    return(
+                    <UserProfileCard
+                      {...page.staffs[staff.key]}
+                      key={page.staffs[staff.key].key}
+                    />
+                  )})}
                 </div>
               </div>
             ))}
@@ -52,17 +57,26 @@ export async function getStaticProps() {
   let staffs: { [key: string]: UserType } = {};
   page.committees.forEach((committee) => {
     unresolvedpromises = committee.staffs_ids.map(async (staff_id) => {
-      if (staffs[staff_id]) return null;
-      const user = await getUser(staff_id);
-      if (user) {
-        staffs[user.key] = user;
+      if (!("key" in staff_id)) return null;
+      if (staffs[staff_id.key]) return null;
+      try {
+        const user = await getUser(staff_id.key);
+        if (user) {
+          staffs[user?.key] = user;
+          return user;
+        }
+      } catch (error) {
+        console.log(staff_id);
+        console.log(error);
+        return null;
       }
-      return user;
+
+      return null;
     });
   });
 
   if (unresolvedpromises) await Promise.all(unresolvedpromises);
-  
+
   return {
     props: {
       page: { ...page, staffs },

@@ -8,11 +8,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "deta": "^1.0.1",
-    "form-data": "^4.0.0",
-    "formidable": "^2.0.1",
-    "next": "12.0.4",
+    "next": "12.0.7",
     "nextjs-redirect": "^5.0.2",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
@@ -21,24 +18,19 @@
     "react-icons": "^4.3.1",
     "react-pdf": "^5.5.0",
     "redaxios": "^0.4.1",
-    "swr": "^1.0.1",
-    "uuid": "^8.3.2",
-    "yup": "^0.32.11"
+    "swr": "^1.1.1"
   },
   "devDependencies": {
-    "@types/bcryptjs": "^2.4.2",
-    "@types/formidable": "^2.0.0",
-    "@types/node": "16.11.9",
+    "@types/node": "16.11.12",
     "@types/nprogress": "^0.2.0",
-    "@types/react": "17.0.35",
+    "@types/react": "17.0.37",
     "@types/react-pdf": "^5.0.9",
-    "@types/uuid": "^8.3.3",
     "autoprefixer": "^10.4.0",
-    "eslint": "7.32.0",
-    "eslint-config-next": "12.0.4",
-    "postcss": "^8.3.11",
-    "tailwindcss": "^2.2.19",
-    "typescript": "4.5.2",
+    "eslint": "8.4.1",
+    "eslint-config-next": "12.0.7",
+    "postcss": "^8.4.4",
+    "tailwindcss": "^3.0.1",
+    "typescript": "4.5.3",
     "webpack-cli": "^4.9.1"
   }
 }

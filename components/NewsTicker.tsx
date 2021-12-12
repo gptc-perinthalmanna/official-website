@@ -6,7 +6,7 @@ import { NotificationType } from "../server/db";
 
 function NewsTicker() {
   const { data, error } = useSWR<NotificationType[]>(
-    "/api/notifications/all",
+    process.env.NEXT_PUBLIC_WEB_ADMIN_URL + "/notifications/all",
     fetcher
   );
   const [index, setIndex] = useState(0);

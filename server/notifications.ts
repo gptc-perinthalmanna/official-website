@@ -20,6 +20,3 @@ export async function getAllNotifications() {
   return nots;
 }
 
-export async function createNotificiations(data: {}) {
-  return (await notificationsDB.put(data)) as unknown as NotificationType;
-}

@@ -148,7 +148,6 @@ export default CustomPage;
 export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
   async () => {
     const page = await getFacilities('library');
-    console.log("Done!");
     return {
       props: {
         page: page,
