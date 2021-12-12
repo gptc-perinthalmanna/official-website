@@ -4,6 +4,7 @@ module.exports = {
   purge: [
     './pages/**/*.tsx',
     './components/**/*.tsx',
+    './common/*.ts',
   ],
   darkMode: false, // or 'media' or 'class'
   theme: {
@@ -27,7 +28,10 @@ module.exports = {
       rose: colors.rose,
     },
     extend: {
-      
+      spacing: {
+        
+        '108': '27rem',
+      }
     },
   },
   

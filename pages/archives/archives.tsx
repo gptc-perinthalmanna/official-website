@@ -11,7 +11,7 @@ import { FileType } from "../../server/db";
 
 const FileContainer = () => {
   const { data, error } = useSWR<FileType[]>(
-    "/api/files/tag/downloads",
+    process.env.WEB_ADMIN_URL + "/files/tag/downloads",
     fetcher
   );
 
