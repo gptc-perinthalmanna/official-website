@@ -28,7 +28,7 @@ const EventCarousel = ({
   fetchAll?: boolean;
 }) => {
   const _id = fetchAll ? "all" : id;
-  const { data, error } = useSWR<Event[]>(process.env.NEXT_PUBLIC_WEB_ADMIN_URL + "/events/" + _id, fetcher);
+  const { data, error } = useSWR<Event[]>("/api/events/" + _id, fetcher);
 
   if (error)
     return (

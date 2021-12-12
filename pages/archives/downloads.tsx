@@ -12,7 +12,7 @@ import { FileType } from "../../server/db";
 
 const FileContainer = () => {
   const { data, error } = useSWR<FileType[]>(
-    process.env.NEXT_PUBLIC_WEB_ADMIN_URL + "/files/tag/downloads",
+    "/api/files/tag/downloads",
     fetcher
   );
 

@@ -23,7 +23,7 @@ const CustomPage: NextPage = () => {
 
 function NewsList() {
   const { data, error } = useSWR<NewsMediaType[]>(
-    process.env.NEXT_PUBLIC_WEB_ADMIN_URL + "/news-and-media/all",
+    "/api/news-and-media/all",
     fetcher
   );
 
