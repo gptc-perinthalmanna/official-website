@@ -53,7 +53,7 @@ const _mou = [
 ];
 
 const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
-  const event = useSWR<EventType>("/api/events/highlighted", fetcher);
+  const event = useSWR<EventType>(process.env.WEB_ADMIN_URL + "/events/highlighted", fetcher);
   return (
     <div>
       <Head>

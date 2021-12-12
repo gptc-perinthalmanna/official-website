@@ -59,7 +59,7 @@ export function AvatarUpload({user, nextStep}: {user: {[key:string]: any}, nextS
     const body = new FormData();
     if (!image) return;
     body.append("file", image);
-    const response = await fetch("/api/media/upload", {
+    const response = await fetch(process.env.WEB_ADMIN_URL + "/media/upload", {
       method: "POST",
       body,
     });
@@ -181,7 +181,7 @@ export function Form({
       },
     };
     console.log(toSubmit);
-    const res = await axios.post("/api/users/new", toSubmit);
+    const res = await axios.post(process.env.WEB_ADMIN_URL + "/users/new", toSubmit);
     if (res.status === 200) {
         console.log("Success");
       setUser(res.data.data);
