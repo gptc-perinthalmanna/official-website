@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BiHomeSmile, BiGitBranch } from "react-icons/bi";
+import { BiHomeSmile, BiGitBranch, BiBook } from "react-icons/bi";
 import {
   FaHandshake,
   FaArchive,
@@ -50,6 +50,7 @@ import {
   BsFillFileMedicalFill,
   BsBuilding,
   BsPatchQuestion,
+  BsPatchCheck,
 } from "react-icons/bs";
 import {
   HiSupport,
@@ -65,6 +66,7 @@ import {
   GrRestroomWomen,
   GrUserExpert,
   GrUserManager,
+  GrSync,
 } from "react-icons/gr";
 import { IoDocumentAttach } from "react-icons/io5";
 import { AiOutlineSolution, AiOutlineVideoCamera } from "react-icons/ai";
@@ -150,6 +152,13 @@ const _menu: MenuItem[] = [
         icon: AiOutlineSolution,
         description:
           "Its an online platform avaliable to students, staff, parents, and other stakeholders to lodge grievances.",
+        link: "/college/grs",
+      },
+      {
+        name: "AICTE Mandatory Disclosure",
+        icon: BiBook,
+        description:
+          "Mandatory disclosure as specified in the AICTE guidelines.",
         link: "/college/grs",
       },
     ],
@@ -238,13 +247,14 @@ const _menu: MenuItem[] = [
       },
       {
         name: "AICTE Approval",
-        icon: MdOutlineScreenSearchDesktop,
+        icon: BsPatchCheck,
         description:
           "This comprises AICTE Extension of approvals obtained in past academic years.",
         link: "/academics/eoa",
-      },{
+      },
+      {
         name: "AICTE Feedback system",
-        icon: MdOutlineScreenSearchDesktop,
+        icon: GrSync,
         description:
           "Feedback facility of students and Faculty available in AICTE Web-Portal.",
         link: "/academics/aicte-feedback-system",
@@ -516,7 +526,7 @@ function NavBar() {
                   onClick={() => {
                     if (!selectedMenu) {
                       if (item.children) setSelectedMenu(item.children);
-                    }else{
+                    } else {
                       setSelectedMenu(null);
                     }
                   }}
