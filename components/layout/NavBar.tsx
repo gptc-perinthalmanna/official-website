@@ -230,10 +230,16 @@ const _menu: MenuItem[] = [
         link: "/academics/moodle",
       },
       {
-        name: "Extention of Approval",
+        name: "AICTE Approval",
         icon: MdOutlineScreenSearchDesktop,
         description:
-          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
+          "This comprises AICTE Extension of approvals obtained in past academic years.",
+        link: "/academics/eoa",
+      },{
+        name: "AICTE Feedback system",
+        icon: MdOutlineScreenSearchDesktop,
+        description:
+          "Feedback facility of students and Faculty available in AICTE Web-Portal.",
         link: "/academics/eoa",
       },
     ],

@@ -8,15 +8,19 @@ import { NextPage } from "next";
 import { FileType } from "../../server/db";
 import { getOther } from "../../server/other";
 import { getFile } from "../../server/files";
+import useSWR from "swr";
+import { fetcher } from "../../server/calls";
 
 interface PageProps {
   description: string;
-  files: string[];
-  fileItems?: FileType[];
 }
 
 
 const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
+  const { data } = useSWR<FileType[]>(
+    "/api/files/tag/extension-of-approval",
+    fetcher
+  );
   return (
     <Page title="AICTE Extention of Approval">
       <Container>
@@ -40,7 +44,7 @@ const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
             </p>
             <div className="my-5">
               <div className="flex p-5 border-blue-700 flex-warp rounder-lg">
-                {page.fileItems?.map((eoa) => (
+                {data && data?.map((eoa) => (
                   <PdfCard  {...eoa} key={eoa.key} />
                 ))}
               </div>
@@ -56,10 +60,6 @@ export default CustomPage;
 
 export async function getStaticProps() {
   const page = (await getOther("page-extention-of-approval")) as PageProps;
-  const files = page.files.map(async (file) => {
-    return (await getFile(file)) as FileType;
-  });
-  page.fileItems = await Promise.all(files);
 
   return {
     props: {
