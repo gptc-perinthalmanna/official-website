@@ -159,7 +159,7 @@ const _menu: MenuItem[] = [
         icon: BiBook,
         description:
           "Mandatory disclosure as specified in the AICTE guidelines.",
-        link: "/college/grs",
+        link: "/college/aicte-mandatory-disclosure",
       },
     ],
   },
