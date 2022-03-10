@@ -146,7 +146,7 @@ const _menu: MenuItem[] = [
         link: "/college/right-to-information",
       },
       {
-        name: "Online Grievance Redressal System",
+        name: "Online Grievance Redressal",
         icon: AiOutlineSolution,
         description:
           "Its an online platform avaliable to students, staff, parents, and other stakeholders to lodge grievances.",
@@ -247,7 +247,7 @@ const _menu: MenuItem[] = [
         icon: MdOutlineScreenSearchDesktop,
         description:
           "Feedback facility of students and Faculty available in AICTE Web-Portal.",
-        link: "/academics/eoa",
+        link: "/academics/aicte-feedback-system",
       },
     ],
   },
