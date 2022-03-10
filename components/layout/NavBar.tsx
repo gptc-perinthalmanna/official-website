@@ -67,7 +67,7 @@ import {
   GrUserManager,
 } from "react-icons/gr";
 import { IoDocumentAttach } from "react-icons/io5";
-import { AiOutlineVideoCamera } from "react-icons/ai";
+import { AiOutlineSolution, AiOutlineVideoCamera } from "react-icons/ai";
 import Link from "next/link";
 import { IconType } from "react-icons";
 
@@ -144,6 +144,13 @@ const _menu: MenuItem[] = [
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
         link: "/college/right-to-information",
+      },
+      {
+        name: "Online Grievance Redressal System",
+        icon: AiOutlineSolution,
+        description:
+          "Its an online platform avaliable to students, staff, parents, and other stakeholders to lodge grievances.",
+        link: "/college/grs",
       },
     ],
   },
