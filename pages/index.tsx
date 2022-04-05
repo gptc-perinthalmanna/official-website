@@ -27,28 +27,16 @@ const _mou = [
     alt: "Softbuy Logo",
   },
   {
-    url: "https://i.ibb.co/Y8Vf0g1/847aa643eddd.png",
-    alt: "2 Logo",
+    url: "https://i.ibb.co/7NVM1J2/9ab2c68fd614.png",
+    alt: "ICTA Kerala Logo",
   },
   {
-    url: "https://i.ibb.co/JjfcGTh/b6b24855a32e.png",
-    alt: "3 Logo",
+    url: "https://i.ibb.co/yq9WLjv/85ed7eb5ac65.png",
+    alt: "Coronus steel Logo",
   },
   {
-    url: "https://i.ibb.co/rHdKs84/fa0507cac7e9.png",
-    alt: "4 Logo",
-  },
-  {
-    url: "https://i.ibb.co/tD3gWYc/5cd4571f1662.png",
-    alt: "5 Logo",
-  },
-  {
-    url: "https://i.ibb.co/hDJ91hZ/c888da1a8884.png",
-    alt: "6 Logo",
-  },
-  {
-    url: "https://i.ibb.co/cvwLNSy/995121a70aed.png",
-    alt: "7 Logo",
+    url: "https://i.ibb.co/WKG4T9k/27ec7d588449.png",
+    alt: "Universal Implements Logo",
   },
 ];
 
@@ -200,7 +188,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                 infrastructure and other facilities and various activities to
                 boost the academic performance of students and staff.
               </p>
-              <p className="mt-2 font-semibold text-right ">- Pradeep M</p>
+              <p className="mt-2 font-semibold text-right ">- Dr Pradeep M</p>
               <p className="text-sm text-right ">Principal</p>
             </div>
             <div className="relative hidden w-full md:block h-80">
@@ -233,8 +221,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       <Container>
       <Content>
         <Content.Half>
-
-      
           <h1 className="my-3 text-2xl font-bold text-gray-700">
             MOU | Partners
           </h1>
@@ -242,7 +228,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             <LogoCarousal images={_mou} />
             <div></div>
           </div>
-       
         </Content.Half>
         </Content>
       </Container>
