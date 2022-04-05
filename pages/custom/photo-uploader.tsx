@@ -20,7 +20,7 @@ const PrivatePage: NextPage = (props) => {
     const body = new FormData();
     if (!image) return;
     body.append("file", image);
-    const response = await fetch(process.env.WEB_ADMIN_URL + "/media/upload", {
+    const response = await fetch(process.env.NEXT_PUBLIC_WEB_ADMIN_URL + "/media/upload", {
       method: "POST",
       body,
     });

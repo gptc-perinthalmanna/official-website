@@ -231,7 +231,10 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       {/* Mou Signed with  */}
 
       <Container>
-        <div>
+      <Content>
+        <Content.Half>
+
+      
           <h1 className="my-3 text-2xl font-bold text-gray-700">
             MOU | Partners
           </h1>
@@ -239,7 +242,9 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             <LogoCarousal images={_mou} />
             <div></div>
           </div>
-        </div>
+       
+        </Content.Half>
+        </Content>
       </Container>
 
       <div className="my-3" />
