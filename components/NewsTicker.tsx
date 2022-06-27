@@ -29,6 +29,7 @@ function NewsTicker() {
       title={data[index]?.title}
       date={date && date.toISOString().substring(0, 10)}
       isNew={date.getTime() > Date.now() - 1000 * 60 * 60 * 24} 
+      link={data[index]?.link}
     />
   );
 }
@@ -39,24 +40,26 @@ function Wrapper({
   title,
   date,
   isNew,
+  link,
 }: {
   title: string;
   date?: string;
   isNew?: boolean;
+  link?: string
 }) {
   return (
     <div className="flex items-center mx-auto mt-3 bg-gray-200 lg:container">
       <div className="h-full px-3 py-3 text-sm font-bold uppercase bg-blue-800 text-gray-50">
         LATEST NEWS
       </div>
-      <p className="h-full px-3 text-xs bg-gray-200">{title}</p>
+      <p onClick={() => window.open(link, "_blank")} className="h-full cursor-pointer px-3 text-xs bg-gray-200">{title}</p>
       {date && (
-        <div className="flex-shrink-0 mx-1 text-xs font-bold text-gray-500">
+        <div onClick={() => window.open(link, "_blank")} className="flex-shrink-0 mx-1 text-xs font-bold text-gray-500">
           {date}
         </div>
       )}
       {isNew && (
-        <div className="mr-2 text-xs font-semibold text-red-600">New!</div>
+        <div onClick={() => window.open(link, "_blank")} className="mr-2 text-xs font-semibold text-red-600">New!</div>
       )}
     </div>
   );
