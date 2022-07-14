@@ -65,8 +65,6 @@ interface PageType {
   description: string;
 }
 
-
-
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
   <Page title="Placement Officers Desk in GPC Perinthalmanna">
     <div className="container mx-auto">
@@ -77,7 +75,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
         <LargeUserCardWithDetails
           {...page.placementOfficer}
           subTitle={"Placement Officer"}
-          />
+        />
       </div>
       <div className="h-auto lg:w-1/3">
         <RibbonCard>
@@ -117,16 +115,18 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
     </div>
     <div className="px-4 py-5 mx-auto bg-gradient-to-r from-pink-600 to-pink-700">
       <div className="container mx-auto text-center text-white py-7">
-        <div className="filter grayscale invert"><Image
-          src={logoImage}
-          className="filter grayscale invert"
-          alt="Logo"
-          placeholder="blur"
-        /></div>
+        <div className="filter grayscale invert">
+          <Image
+            src={logoImage}
+            className="filter grayscale invert"
+            alt="Logo"
+            placeholder="blur"
+          />
+        </div>
         <h2 className="pb-5 text-3xl font-bold ">
           Career Guidance and Placement Cell
         </h2>
-        <p className="p-3 text-xl font-thin leading-9">{page.description}</p>
+        <p className="p-3 text-xl font-medium leading-9">{page.description}</p>
       </div>
     </div>
 
@@ -142,8 +142,8 @@ export default CustomPage;
 
 export async function getStaticProps() {
   let page = (await getOther("page-placement-officer-desk")) as PageType;
-  page.placementOfficer = await getUser(page.placementOfficer_id) as UserType;
-  console.log(page)
+  page.placementOfficer = (await getUser(page.placementOfficer_id)) as UserType;
+  console.log(page);
   return {
     props: {
       page,
