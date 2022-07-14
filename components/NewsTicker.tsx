@@ -21,7 +21,6 @@ function NewsTicker() {
 
   if (!data) return <Wrapper title="Loading..." />;
   const currentData = data[index];
-  console.log(data);
   if (data.length === 0) return <Wrapper title="No notifications." />;
 
   const date = data[index]?.createdAt
