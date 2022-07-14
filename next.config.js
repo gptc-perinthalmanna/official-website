@@ -1,18 +1,18 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
   reactStrictMode: true,
+  swcMinify: true,
   images: {
-    domains: ['i.ibb.co'],
+    domains: ["i.ibb.co"],
   },
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'https://admin-gptc-pmna.vercel.app/api/public/:path*',
+        source: "/api/:path*",
+        destination: "https://admin-gptc-pmna.vercel.app/api/public/:path*",
       },
-    ]
+    ];
   },
-  // env: {
-  //   DETA_PROJECT_ID: "",
-  // },
-}
+};
+
+module.exports = nextConfig;
