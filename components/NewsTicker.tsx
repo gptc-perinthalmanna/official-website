@@ -51,13 +51,13 @@ function Wrapper({
   link?: string;
 }) {
   return (
-    <div className="flex items-center mx-auto mt-3 bg-yellow-200 lg:container">
+    <div className="flex items-center mx-auto mt-3 bg-gradient-to-r from-amber-200 to-yellow-100 lg:container">
       <div className="h-full px-3 py-3 text-sm font-bold uppercase bg-blue-800 text-gray-50">
         LATEST NEWS
       </div>
       <p
         onClick={() => window.open(link, "_blank")}
-        className="h-full cursor-pointer px-3 text-sm font-bold bg-yellow-200"
+        className="h-full cursor-pointer px-3 text-sm font-bold "
       >
         {title}
       </p>
