@@ -91,9 +91,11 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                   present is praiseworthy, so the future has to be envisioned in
                   the light of the glorious past and the meritorious present
                 </p>
-                <div className="pt-4 text-sm text-gray-500 cursor-pointer hover:text-gray-600">
-                  - Know More
-                </div>
+                <Link href={"/college/breif-history"}>
+                  <a className="pt-4 text-sm text-gray-500 cursor-pointer hover:text-gray-600">
+                    - Know More
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -219,16 +221,16 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       {/* Mou Signed with  */}
 
       <Container>
-      <Content>
-        <Content.Half>
-          <h1 className="my-3 text-2xl font-bold text-gray-700">
-            MOU | Partners
-          </h1>
-          <div className="">
-            <LogoCarousal images={_mou} />
-            <div></div>
-          </div>
-        </Content.Half>
+        <Content>
+          <Content.Half>
+            <h1 className="my-3 text-2xl font-bold text-gray-700">
+              MOU | Partners
+            </h1>
+            <div className="">
+              <LogoCarousal images={_mou} />
+              <div></div>
+            </div>
+          </Content.Half>
         </Content>
       </Container>
 
