@@ -5,10 +5,8 @@ import {
   FaArchive,
   FaIndustry,
   FaUsers,
-  FaUserTie,
   FaUniversity,
   FaChalkboardTeacher,
-  FaClinicMedical,
   FaRegBuilding,
 } from "react-icons/fa";
 import {
@@ -511,7 +509,7 @@ function NavBar() {
         <div className="px-0 mx-auto xl:container xl:px-6">
           <div className="flex items-center justify-between">
             <div className="flex flex-row flex-wrap items-center lg:mx-8">
-              {_menu.map((item, index) => (
+              {_menu.map((item) => (
                 <NavItem
                   key={item.name}
                   icon={item.icon}
@@ -553,7 +551,7 @@ function NavBar() {
         >
           <div className="flex flex-wrap justify-start">
             {selectedMenu &&
-              selectedMenu.map((item, index) => {
+              selectedMenu.map((item) => {
                 const Icon = item.icon;
                 return (
                   <Link href={item.link} key={item.name}>

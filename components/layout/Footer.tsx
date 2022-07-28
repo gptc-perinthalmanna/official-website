@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 export function Footer() {
@@ -95,30 +96,62 @@ export function Footer() {
             <div>
               <ul>
                 <li className={liClasses}>
-                  Department of <span className="font-bold">Electroncis</span>{" "}
-                  Engineering
+                  <Link href={"/departments/electronics-engineering"}>
+                    <a>
+                      Department of{" "}
+                      <span className="font-bold">Electroncis</span> Engineering
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  Department of <span className="font-bold">Mechanical</span>{" "}
-                  Engineering
+                  <Link href={"/departments/mechanical-engineering"}>
+                    <a>
+                      Department of{" "}
+                      <span className="font-bold">Mechanical</span> Engineering{" "}
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  Department of{" "}
-                  <span className="font-bold">Electrical and Electronics</span>{" "}
-                  Engineering
+                  <Link
+                    href={"/departments/electrical-and-electronics-engineering"}
+                  >
+                    <a>
+                      Department of{" "}
+                      <span className="font-bold">
+                        Electrical and Electronics
+                      </span>{" "}
+                      Engineering{" "}
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  Department of <span className="font-bold">Civil</span>{" "}
-                  Engineering
+                  <Link href={"/departments/civil-engineering"}>
+                    <a>
+                      Department of <span className="font-bold">Civil</span>{" "}
+                      Engineering{" "}
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  <span className="font-bold">General</span> Department
+                  <Link href={"/departments/electronics-engineering"}>
+                    <a>
+                      <span className="font-bold">General</span> Department{" "}
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  <span className="font-bold">General</span> Workshop
+                  <Link href={"/departments/electronics-engineering"}>
+                    <a>
+                      <span className="font-bold">General</span> Workshop{" "}
+                    </a>
+                  </Link>
                 </li>
                 <li className={liClasses}>
-                  <span className="font-bold">Office</span> Section
+                  <Link href={"/departments/electronics-engineering"}>
+                    <a>
+                      <span className="font-bold">Office</span> Section{" "}
+                    </a>
+                  </Link>
                 </li>
               </ul>
             </div>
