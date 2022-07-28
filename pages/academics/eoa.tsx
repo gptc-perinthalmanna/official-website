@@ -6,17 +6,10 @@ import PdfCard from "../../components/custom/PdfCard";
 import { PageTitle } from "../../components/layout/PageTitle";
 import { NextPage } from "next";
 import { FileType } from "../../server/db";
-import { getOther } from "../../server/other";
-import { getFile } from "../../server/files";
 import useSWR from "swr";
 import { fetcher } from "../../server/calls";
 
-interface PageProps {
-  description: string;
-}
-
-
-const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
+const CustomPage: NextPage = () => {
   const { data } = useSWR<FileType[]>(
     "/api/files/tag/extension-of-approval",
     fetcher
@@ -44,9 +37,7 @@ const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
             </p>
             <div className="my-5">
               <div className="flex p-5 border-blue-700 flex-warp rounder-lg">
-                {data && data?.map((eoa) => (
-                  <PdfCard  {...eoa} key={eoa.key} />
-                ))}
+                {data && data?.map((eoa) => <PdfCard {...eoa} key={eoa.key} />)}
               </div>
             </div>
           </Content.FullWidth>
@@ -54,17 +45,5 @@ const CustomPage: NextPage<{ page: PageProps }> = ({ page }) => {
       </Container>
     </Page>
   );
-}
+};
 export default CustomPage;
-
-
-export async function getStaticProps() {
-  const page = (await getOther("page-extention-of-approval")) as PageProps;
-
-  return {
-    props: {
-      page,
-    },
-    revalidate: 600000,
-  };
-}
