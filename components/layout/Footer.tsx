@@ -30,28 +30,64 @@ export class Footer extends Component {
               <div>
                 <ul>
                   <li className={liClasses}>
-                    <span className="font-bold">AICTE</span> - All india council
-                    for Technical Education
+                    <a
+                      href="https://www.aicte-india.org/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">AICTE</span> - All india
+                      council for Technical Education
+                    </a>
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">SBTE</span> - State Board of
-                    Technical Education
+                    <a
+                      href="https://www.sbte.kerala.gov.in/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">SBTE</span> - State Board of
+                      Technical Education
+                    </a>
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">SITTR</span> - State Institute
-                    of Technical Teachers Training &amp; Research
+                    <a
+                      href="https://www.aicte-india.org/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">SITTR</span> - State Institute
+                      of Technical Teachers Training &amp; Research
+                    </a>
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">DTE Kerala</span> - Department
-                    of Technical Education Kerala
+                    <a
+                      href="https://www.sbte.kerala.gov.in/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">DTE Kerala</span> - Department
+                      of Technical Education Kerala
+                    </a>
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">Poly Admision</span> - Single
-                    window Polytechnic admission portal
+                    <a
+                      href="https://polyadmission.org/"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">Poly Admision</span> - Single
+                      window Polytechnic admission portal
+                    </a>
                   </li>
                   <li className={liClasses}>
-                    <span className="font-bold">DDFS</span> - Digital Document
-                    Filing System
+                    <a
+                      href="https://ddfs.in/ddfs/login.do"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span className="font-bold">DDFS</span> - Digital Document
+                      Filing System
+                    </a>
                   </li>
                 </ul>
               </div>
@@ -60,16 +96,23 @@ export class Footer extends Component {
               <div>
                 <ul>
                   <li className={liClasses}>
-                    Department of <span className="font-bold">Electroncis</span> Engineering
+                    Department of <span className="font-bold">Electroncis</span>{" "}
+                    Engineering
                   </li>
                   <li className={liClasses}>
-                   Department of  <span className="font-bold">Mechanical</span> Engineering
+                    Department of <span className="font-bold">Mechanical</span>{" "}
+                    Engineering
                   </li>
                   <li className={liClasses}>
-                    Department of <span className="font-bold">Electrical and Electronics</span> Engineering
+                    Department of{" "}
+                    <span className="font-bold">
+                      Electrical and Electronics
+                    </span>{" "}
+                    Engineering
                   </li>
                   <li className={liClasses}>
-                    Department of <span className="font-bold">Civil</span> Engineering
+                    Department of <span className="font-bold">Civil</span>{" "}
+                    Engineering
                   </li>
                   <li className={liClasses}>
                     <span className="font-bold">General</span> Department
@@ -89,7 +132,7 @@ export class Footer extends Component {
                   src="https://i.ibb.co/hLW4Wr1/7b6bfee1923979593c6b19a5c71b2f18.jpg"
                   alt="Magazine Image"
                   width={200}
-                  height={260}  
+                  height={260}
                 />
               </div>
             </Box>
