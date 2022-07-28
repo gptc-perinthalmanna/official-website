@@ -1,160 +1,156 @@
 import Image from "next/image";
-import React, { Component } from "react";
+import React from "react";
 
-export class Footer extends Component {
-  render() {
-    return (
-      <footer className="py-3 bg-blue-900">
-        <div className="container mx-auto">
-          <div className="flex flex-wrap pt-8 pb-6">
-            <Box title="Contact Details">
-              <div>
-                <div className="flex text-white">
-                  <h4 className="font-bold">Address</h4>
-                </div>
-
-                <p className="text-sm ">
-                  Near Railway Gate, Angadipuram. Malappuram Dist - 679321,
-                  Kerala, India
-                </p>
-                <div className="mt-3">
-                  <h4 className="font-bold">Contact</h4>
-                  <p className="text-sm">Office: 04933227253</p>
-                  <p className="text-sm">Email: polypmna@gmail.com</p>
-                  <p className="text-sm">Principal: 98439849384</p>
-                  <p className="text-sm" />
-                </div>
-              </div>
-            </Box>
-            <Box title="Important Links">
-              <div>
-                <ul>
-                  <li className={liClasses}>
-                    <a
-                      href="https://www.aicte-india.org/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">AICTE</span> - All india
-                      council for Technical Education
-                    </a>
-                  </li>
-                  <li className={liClasses}>
-                    <a
-                      href="https://www.sbte.kerala.gov.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">SBTE</span> - State Board of
-                      Technical Education
-                    </a>
-                  </li>
-                  <li className={liClasses}>
-                    <a
-                      href="https://www.aicte-india.org/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">SITTR</span> - State Institute
-                      of Technical Teachers Training &amp; Research
-                    </a>
-                  </li>
-                  <li className={liClasses}>
-                    <a
-                      href="https://www.sbte.kerala.gov.in/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">DTE Kerala</span> - Department
-                      of Technical Education Kerala
-                    </a>
-                  </li>
-                  <li className={liClasses}>
-                    <a
-                      href="https://polyadmission.org/"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">Poly Admision</span> - Single
-                      window Polytechnic admission portal
-                    </a>
-                  </li>
-                  <li className={liClasses}>
-                    <a
-                      href="https://ddfs.in/ddfs/login.do"
-                      target="_blank"
-                      rel="noreferrer"
-                    >
-                      <span className="font-bold">DDFS</span> - Digital Document
-                      Filing System
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </Box>
-            <Box title="Departments/Sections">
-              <div>
-                <ul>
-                  <li className={liClasses}>
-                    Department of <span className="font-bold">Electroncis</span>{" "}
-                    Engineering
-                  </li>
-                  <li className={liClasses}>
-                    Department of <span className="font-bold">Mechanical</span>{" "}
-                    Engineering
-                  </li>
-                  <li className={liClasses}>
-                    Department of{" "}
-                    <span className="font-bold">
-                      Electrical and Electronics
-                    </span>{" "}
-                    Engineering
-                  </li>
-                  <li className={liClasses}>
-                    Department of <span className="font-bold">Civil</span>{" "}
-                    Engineering
-                  </li>
-                  <li className={liClasses}>
-                    <span className="font-bold">General</span> Department
-                  </li>
-                  <li className={liClasses}>
-                    <span className="font-bold">General</span> Workshop
-                  </li>
-                  <li className={liClasses}>
-                    <span className="font-bold">Office</span> Section
-                  </li>
-                </ul>
-              </div>
-            </Box>
-            <Box title="Magazine / Publications">
-              <div className="relative w-full">
-                <Image
-                  src="https://i.ibb.co/hLW4Wr1/7b6bfee1923979593c6b19a5c71b2f18.jpg"
-                  alt="Magazine Image"
-                  width={200}
-                  height={260}
-                />
-              </div>
-            </Box>
-          </div>
-        </div>
-        <div className="container flex flex-wrap items-center justify-between px-3 mx-auto text-sm bg-blue">
-          <div className="w-full text-white md:w-1/2">
-            Copyright © 2021 Government Polytechnic College Perinthalmanna.
-          </div>
-          <div className="text-white">
+export function Footer() {
+  return (
+    <footer className="py-3 bg-blue-900">
+      <div className="container mx-auto">
+        <div className="flex flex-wrap pt-8 pb-6">
+          <Box title="Contact Details">
             <div>
-              Website Designed and Developed by{" "}
-              <span className="font-bold">Amjed Ali K.</span>
+              <div className="flex text-white">
+                <h4 className="font-bold">Address</h4>
+              </div>
+
+              <p className="text-sm ">
+                Near Railway Gate, Angadipuram. Malappuram Dist - 679321,
+                Kerala, India
+              </p>
+              <div className="mt-3">
+                <h4 className="font-bold">Contact</h4>
+                <p className="text-sm">Office: 04933227253</p>
+                <p className="text-sm">Email: polypmna@gmail.com</p>
+                <p className="text-sm">Principal: 98439849384</p>
+                <p className="text-sm" />
+              </div>
             </div>
-            <div className="text-xs cursor-pointer hover:text-green-400">
-              Click here Know more about Technologies used.
+          </Box>
+          <Box title="Important Links">
+            <div>
+              <ul>
+                <li className={liClasses}>
+                  <a
+                    href="https://www.aicte-india.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">AICTE</span> - All india council
+                    for Technical Education
+                  </a>
+                </li>
+                <li className={liClasses}>
+                  <a
+                    href="https://www.sbte.kerala.gov.in/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">SBTE</span> - State Board of
+                    Technical Education
+                  </a>
+                </li>
+                <li className={liClasses}>
+                  <a
+                    href="https://www.aicte-india.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">SITTR</span> - State Institute
+                    of Technical Teachers Training &amp; Research
+                  </a>
+                </li>
+                <li className={liClasses}>
+                  <a
+                    href="https://www.sbte.kerala.gov.in/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">DTE Kerala</span> - Department
+                    of Technical Education Kerala
+                  </a>
+                </li>
+                <li className={liClasses}>
+                  <a
+                    href="https://polyadmission.org/"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">Poly Admision</span> - Single
+                    window Polytechnic admission portal
+                  </a>
+                </li>
+                <li className={liClasses}>
+                  <a
+                    href="https://ddfs.in/ddfs/login.do"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <span className="font-bold">DDFS</span> - Digital Document
+                    Filing System
+                  </a>
+                </li>
+              </ul>
             </div>
+          </Box>
+          <Box title="Departments/Sections">
+            <div>
+              <ul>
+                <li className={liClasses}>
+                  Department of <span className="font-bold">Electroncis</span>{" "}
+                  Engineering
+                </li>
+                <li className={liClasses}>
+                  Department of <span className="font-bold">Mechanical</span>{" "}
+                  Engineering
+                </li>
+                <li className={liClasses}>
+                  Department of{" "}
+                  <span className="font-bold">Electrical and Electronics</span>{" "}
+                  Engineering
+                </li>
+                <li className={liClasses}>
+                  Department of <span className="font-bold">Civil</span>{" "}
+                  Engineering
+                </li>
+                <li className={liClasses}>
+                  <span className="font-bold">General</span> Department
+                </li>
+                <li className={liClasses}>
+                  <span className="font-bold">General</span> Workshop
+                </li>
+                <li className={liClasses}>
+                  <span className="font-bold">Office</span> Section
+                </li>
+              </ul>
+            </div>
+          </Box>
+          <Box title="Magazine / Publications">
+            <div className="relative w-full">
+              <Image
+                src="https://i.ibb.co/hLW4Wr1/7b6bfee1923979593c6b19a5c71b2f18.jpg"
+                alt="Magazine Image"
+                width={200}
+                height={260}
+              />
+            </div>
+          </Box>
+        </div>
+      </div>
+      <div className="container flex flex-wrap items-center justify-between px-3 mx-auto text-sm bg-blue">
+        <div className="w-full text-white md:w-1/2">
+          Copyright © 2021 Government Polytechnic College Perinthalmanna.
+        </div>
+        <div className="text-white">
+          <div>
+            Website Designed and Developed by{" "}
+            <span className="font-bold">Amjed Ali K.</span>
+          </div>
+          <div className="text-xs cursor-pointer hover:text-green-400">
+            Click here Know more about Technologies used.
           </div>
         </div>
-      </footer>
-    );
-  }
+      </div>
+    </footer>
+  );
 }
 
 export default Footer;

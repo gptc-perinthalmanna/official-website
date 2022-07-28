@@ -9,7 +9,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://admin-gptc-pmna.vercel.app/api/public/:path*",
+        destination: "http://localhost:3001/api/public/:path*",
       },
     ];
   },
