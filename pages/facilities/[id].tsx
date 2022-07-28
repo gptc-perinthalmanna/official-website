@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import useSWRImmutable from "swr/immutable";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -6,6 +7,7 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import PhotoGallery from "../../components/widgets/PhotoGallery";
+import { fetcher } from "../../server/calls";
 import { getFacilities } from "../../server/pages";
 
 interface StaffType {
@@ -19,6 +21,7 @@ interface StaffType {
 }
 
 interface PageType {
+  key: string;
   title: string;
   about: string;
   cover: string;
@@ -45,38 +48,44 @@ const _paths = [
   "medical-facility",
 ];
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
-  <Page title={page.title}>
-    <CoverImage source={page.cover} title={page.title} />
-    <Container>
-      <PageTitle>{page.title}</PageTitle>
-      <Content>
-        <Content.Left>
-          <div>
-            <p>{page.about}</p>
-          </div>
-          {page.staffs && page.staffs.length > 0 && (
+const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
+  const { data } = useSWRImmutable<PageType>(
+    `/api/pages/facilities/${page.key}`,
+    fetcher
+  );
+  return (
+    <Page title={page.title}>
+      <CoverImage source={page.cover} title={page.title} />
+      <Container>
+        <PageTitle>{page.title}</PageTitle>
+        <Content>
+          <Content.Left>
             <div>
-              <PageTitle>Staffs</PageTitle>
-              <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-                {page.staffs.map((staff) => (
-                  <UserProfileCard {...staff} key={staff.name} />
-                ))}
+              <p>{page.about}</p>
+            </div>
+            {data && data.staffs && data.staffs.length > 0 && (
+              <div>
+                <PageTitle>Staffs</PageTitle>
+                <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
+                  {data.staffs.map((staff) => (
+                    <UserProfileCard {...staff} key={staff.name} />
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
-        </Content.Left>
-        <Content.Right>
-          {page.photos && page.photos.length > 0 && (
-            <div>
-              <PhotoGallery images={page.photos} />
-            </div>
-          )}
-        </Content.Right>
-      </Content>
-    </Container>
-  </Page>
-);
+            )}
+          </Content.Left>
+          <Content.Right>
+            {data && data.photos && data.photos.length > 0 && (
+              <div>
+                <PhotoGallery images={data.photos} />
+              </div>
+            )}
+          </Content.Right>
+        </Content>
+      </Container>
+    </Page>
+  );
+};
 
 export default CustomPage;
 
@@ -88,16 +97,17 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
-  async ({ params }) => {
-    if (!params || !params.id) {
-      return { props: { error: true } };
-    }
-    const page = await getFacilities(params.id);
-    return {
-      props: {
-        page: page,
-      },
-      revalidate: 6000,
-    };
+export const getStaticProps: GetStaticProps<
+  {},
+  { [key: string]: string }
+> = async ({ params }) => {
+  if (!params || !params.id) {
+    return { props: { error: true } };
+  }
+  const page = await getFacilities(params.id);
+  return {
+    props: {
+      page: page,
+    },
   };
+};

@@ -1,4 +1,5 @@
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
+import useSWRImmutable from "swr/immutable";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -6,6 +7,7 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
+import { fetcher } from "../../server/calls";
 import { getCampus } from "../../server/pages";
 
 interface StaffType {
@@ -51,13 +53,10 @@ const _paths = [
 ];
 
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
-  // fetch events /api/events/[page_id]
-  let events: {
-    title: string;
-    subtitle: string;
-    image: string;
-    date: string;
-  }[] = [];
+  const { data } = useSWRImmutable<PageType>(
+    `/api/pages/campus/${page.key}`,
+    fetcher
+  );
 
   return (
     <Page title={page.title}>
@@ -69,11 +68,11 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             <div>
               <p>{page.about}</p>
             </div>
-            {page.staffs && page.staffs.length > 0 && (
+            {data && data.staffs && data.staffs.length > 0 && (
               <div>
                 <PageTitle>Staffs</PageTitle>
                 <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-                  {page.staffs.map((staff) => (
+                  {data.staffs.map((staff) => (
                     <UserProfileCard {...staff} key={staff.key} />
                   ))}
                 </div>
@@ -81,7 +80,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             )}
           </Content.FullWidth>
         </Content>
-        {events && events.length > 0 && (
+        {data && data.events && data.events.length > 0 && (
           <Content>
             <Content.FullWidth>
               <PageTitle>Events</PageTitle>
@@ -100,10 +99,6 @@ export default CustomPage;
 
 // This function gets called at build time
 export const getStaticPaths: GetStaticPaths = () => {
-  // Call an external API endpoint to get posts
-  // const res = await fetch('https://.../posts')
-  // const posts = await res.json()
-
   // Get the paths we want to pre-render based on posts
   const paths = _paths.map((page) => ({
     params: { id: page },
@@ -115,22 +110,21 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
-  async ({ params }) => {
-    // const res = await fetch('https://.../posts')
-    // const posts = await res.json()
+export const getStaticProps: GetStaticProps<
+  {},
+  { [key: string]: string }
+> = async ({ params }) => {
+  if (!params || !params.id) {
+    return { props: { error: true } };
+  }
 
-    if (!params || !params.id) {
-      return { props: { error: true } };
-    }
-
-    return {
-      props: {
-        page: await getCampus(params.id),
-      },
-      // Next.js will attempt to re-generate the page:
-      // - When a request comes in
-      // - At most once every 10 seconds
-      revalidate: 600000, // In seconds
-    };
+  return {
+    props: {
+      page: await getCampus(params.id),
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    // revalidate: 600000, // In seconds
   };
+};
