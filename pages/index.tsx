@@ -61,15 +61,15 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       </div>
       <NewsTicker />
 
-      <div className="container mx-auto my-3">
-        <div className="flex flex-col lg:flex-row">
-          <div className="w-full lg:w-3/4">
-            <h1 className="my-3 text-2xl font-bold text-gray-700">
+      <div className="container mx-auto mt-3">
+        <div className="flex w-full h-full flex-col justify-center items-stretch lg:flex-row">
+          <div className="grow h-full lg:pr-4">
+            <h1 className="my-3 px-2 sm:px-0 text-2xl font-bold text-gray-700">
               Welcome to Govt Polytechnic College Perinthalmanna
             </h1>
             <div className="flex">
               <div
-                className="relative w-2/4 min-h-full bg-center bg-no-repeat bg-cover 2xl:w-2/5"
+                className="relative hidden sm:block w-2/4 min-h-full bg-center bg-no-repeat bg-cover 2xl:w-2/5"
                 style={{
                   backgroundImage:
                     "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
@@ -98,57 +98,61 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                 </Link>
               </div>
             </div>
-          </div>
-          <div className="flex flex-col w-full mt-3 h-60 lg:h-auto lg:mt-0 lg:w-1/4 lg:pl-2">
-            <h1 className="my-3 text-2xl font-bold text-gray-700">Events</h1>
+            {/* Misson and Vision */}
 
-            <div className="flex h-full">
-              {event.data && (
-                <ImagePost
-                  fullHeight
-                  image={event.data?.image}
-                  date={event.data?.date}
-                  title={event.data?.title}
-                  subtitle={event.data?.subtitle}
-                />
-              )}
+            <div
+              className="mt-4 bg-bottom bg-no-repeat bg-cover"
+              style={{
+                backgroundImage:
+                  "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
+              }}
+            >
+              <div className="flex flex-col items-center justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
+                <div className="w-2/3 py-4 text-center">
+                  <div className=" text-white">
+                    <BsEyeFill className="mx-auto" size={50} />
+                  </div>
+                  <h1 className="text-2xl mx-auto font-bold text-white">
+                    Vision
+                  </h1>
+                  <p className="text-sm text-white">
+                    To be a centre of excellence to mould technically competent
+                    engineers for industry expertise and social development.
+                  </p>
+                </div>
+                <div className="w-2/3 py-4 text-center">
+                  <div className=" text-white">
+                    <GiTargetPoster className="mx-auto" size={50} />
+                  </div>
+                  <h1 className="text-2xl font-bold text-white"> Mission </h1>
+                  <p className="text-sm text-white">
+                    Impart quality technical education and skills to develop
+                    engineering professionals to meet the needs of industry and
+                    society. Facilitate professional interactions between
+                    industry and engineers and to promote innovation and
+                    entrepreneurship. Inculcate moral values and life ethics in
+                    engineering professionals to serve the society.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Misson and Vision */}
-
-      <div
-        className="container mx-auto bg-bottom bg-no-repeat bg-cover"
-        style={{
-          backgroundImage: "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
-        }}
-      >
-        <div className="flex justify-center mx-auto bg-gray-900 lg:px-4 bg-opacity-80">
-          <div className="w-2/3 py-16 text-center">
-            <div className="w-20 mx-auto text-white">
-              <BsEyeFill size={70} />
-            </div>
-            <h1 className="text-2xl font-bold text-white"> Vision </h1>
-            <p className="text-sm text-white">
-              To be a centre of excellence to mould technically competent
-              engineers for industry expertise and social development.
-            </p>
-          </div>
-          <div className="w-2/3 py-16 text-center">
-            <div className="w-20 mx-auto text-white">
-              <GiTargetPoster size={70} />
-            </div>
-            <h1 className="text-2xl font-bold text-white"> Mission </h1>
-            <p className="text-sm text-white">
-              Impart quality technical education and skills to develop
-              engineering professionals to meet the needs of industry and
-              society. Facilitate professional interactions between industry and
-              engineers and to promote innovation and entrepreneurship.
-              Inculcate moral values and life ethics in engineering
-              professionals to serve the society.
-            </p>
+          <div className="mt-3 !min-w-[320px] shrink-0 flex-col h-full lg:mt-0">
+            <h1 className="my-3 text-center lg:text-left text-2xl shrink-0 font-bold text-gray-700">
+              Notice board
+            </h1>
+            {event.data && (
+              <div className="bg-gradient-to-br from-fuchsia-700 p-1 lg:p-0 overflow-hidden max-w-sm mx-auto to-violet-700">
+                <div className="lg:w-[320px] border-4 border-white  relative aspect-[1/1.41] h-full">
+                  <Image
+                    layout="fill"
+                    objectFit="cover"
+                    src={event.data.image}
+                    alt=""
+                  />
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -156,9 +160,9 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       {/* Principals message and Placement Cell */}
 
       <Container>
-        <div className="flex flex-col flex-wrap lg:flex-row">
+        <div className="flex flex-col flex-wrap  lg:flex-row">
           <div
-            className="flex-grow-0 w-full m-2 transition-opacity duration-300 ease-in border-2 rounded-md cursor-pointer lg:w-108 hover:opacity-70 "
+            className="flex-grow-0 w-full  my-4 mr-4 transition-opacity duration-300 ease-in hidden xl:block  cursor-pointer lg:w-108 hover:opacity-70 "
             style={{ backgroundColor: "#dde4ff" }}
           >
             <Link href="/college/placement-officers-desk">
@@ -175,7 +179,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
               </a>
             </Link>
           </div>
-          <div className="flex flex-1 w-full m-2 bg-gray-100 border-2 rounded-md ">
+          <div className="flex flex-1 w-full my-4  bg-gray-100  ">
             <div className="p-3">
               <h3 className="mb-2 text-2xl font-bold">
                 {"Principal's Message"}
@@ -193,7 +197,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
               <p className="mt-2 font-semibold text-right ">- Dr Pradeep M</p>
               <p className="text-sm text-right ">Principal</p>
             </div>
-            <div className="relative hidden w-full md:block h-80">
+            <div className="relative shrink-0 w-72 hidden md:block">
               <Image
                 src="/images/principal.jpg"
                 layout="fill"
