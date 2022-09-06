@@ -43,7 +43,7 @@ const _mou = [
 const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
   const event = useSWR<EventType>("api/events/highlighted", fetcher);
   return (
-    <div>
+    <div className="selection:bg-fuchsia-400">
       <Head>
         <title>Govt Polytechnic College, Perinthalmanna</title>
         <meta
@@ -61,7 +61,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       </div>
       <NewsTicker />
 
-      <div className="container mx-auto mt-3">
+      <div className="container s mx-auto mt-3">
         <div className="flex w-full h-full flex-col justify-center items-stretch lg:flex-row">
           <div className="grow h-full lg:pr-4">
             <h1 className="my-3 px-2 sm:px-0 text-2xl font-bold text-gray-700">
