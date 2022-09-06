@@ -142,13 +142,23 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
               Notice board
             </h1>
             {event.data && (
-              <div className="bg-gradient-to-br from-fuchsia-700 p-1 lg:p-0 overflow-hidden max-w-sm mx-auto to-violet-700">
-                <div className="lg:w-[320px] border-4 border-white  relative aspect-[1/1.41] h-full">
+              <div className="bg-gradient-to-br  from-rose-500 p-1 lg:p-0 overflow-hidden max-w-sm mx-auto to-violet-700">
+                <div
+                  onClick={() =>
+                    window.open(
+                      event.data?.image,
+                      "_blank",
+                      "noopener,noreferrer"
+                    )
+                  }
+                  className="lg:w-[320px] cursor-pointer	 border-4  border-white border-opacity-10  relative aspect-[1/1.41] h-full"
+                >
                   <Image
                     layout="fill"
                     objectFit="cover"
                     src={event.data.image}
                     alt=""
+                    className=" hover:hue-rotate-15"
                   />
                 </div>
               </div>
@@ -226,7 +236,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
 
       <Container>
         <Content>
-          <Content.Half>
+          <Content.FullWidth>
             <h1 className="my-3 text-2xl font-bold text-gray-700">
               MOU | Partners
             </h1>
@@ -234,7 +244,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
               <LogoCarousal images={_mou} />
               <div></div>
             </div>
-          </Content.Half>
+          </Content.FullWidth>
         </Content>
       </Container>
 
