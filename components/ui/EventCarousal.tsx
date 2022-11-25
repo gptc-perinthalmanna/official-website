@@ -46,12 +46,19 @@ const EventCarousel = ({
       </div>
     );
 
-    if(data.length === 0)
-      return (
-        <div className="p-2 select-none sm:p-4 sm:h-22 rounded-2xl">
-          <div className="flex flex-row items-center justify-center h-32 bg-gray-50 sm:h-22 sm:w-full rounded-xl"> <p className="flex items-center text-xl "> <FcHighPriority className="mr-2" /> No events found.</p></div>
+  if (data.length === 0) {
+    return (
+      <div className="p-2 select-none sm:p-4 sm:h-22 rounded-2xl">
+        <div className="flex flex-row items-center justify-center h-32 bg-gray-50 sm:h-22 sm:w-full rounded-xl">
+          {" "}
+          <p className="flex items-center text-xl ">
+            {" "}
+            <FcHighPriority className="mr-2" /> No events found.
+          </p>
         </div>
-      )
+      </div>
+    );
+  }
 
   const _items = data?.map((event) => (
     <div key={event.title} className="pr-4">

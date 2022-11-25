@@ -25,7 +25,6 @@ interface PageType {
   vss: UserType[];
 }
 
-
 const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
   return (
     <Page title="National Service Scheme (NSS)">
@@ -61,7 +60,30 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
           <Content.FullWidth>
             <PageTitle>NSS on Instagram </PageTitle>
             <div className="mx-2 border-2 border-pink-700 rounded-lg">
-              <InstagramHeader />
+              <InstagramHeader
+                description={
+                  <>
+                    <span>NATIONAL SERVICE SCHEME</span>
+                    <p>G P T C P M N A</p>
+                    <p>UNIT NO:132</p>
+                    <p>NOT ME BUT YOU</p>
+                    <p>
+                      Volunteers do not necessarily have the time;they just have
+                      the heart🍃
+                    </p>
+                    <p className="font-semibold text-blue-800">
+                      instagram.com/nss_gpc_pmna?igshid=1xdrvyag0w0eo
+                    </p>
+                  </>
+                }
+                followers={311}
+                following={21}
+                posts={90}
+                title="NSS GPC Pmna"
+                image="https://i.ibb.co/gjQJmx9/7413ba8406f5.png"
+                name="nss_gpc_pmna"
+                link="https://www.instagram.com/accounts/login/?next=%2Fnss_gpc_pmna%2F&source=follow"
+              />
             </div>
           </Content.FullWidth>
         </Content>

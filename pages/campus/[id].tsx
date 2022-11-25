@@ -44,7 +44,7 @@ const _paths = [
   "staff-club",
   "anti-ragging-committe",
   "boomithrasena-club",
-  "innovation-entrepreneurship-development-club",
+  // "innovation-entrepreneurship-development-club",
   "sholar-support-programme",
   "students-union",
   "alumini",
