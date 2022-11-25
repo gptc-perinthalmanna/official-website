@@ -26,42 +26,56 @@ function UserProfileCard({
         />
       </div>
       <div className="w-full p-6 text-left md:w-3/5 md:p-4 ">
-        <p className="font-bold text-gray-700 capitalize lg:text-xl md:text-lg text-md">{name}</p>
-        <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">{designation}</p>
-      {socialLinks &&  <div className="flex justify-start mt-2 space-x-2">
-          {socialLinks?.facebook && (
-            <a
-              href={socialLinks.facebook}
-              className="text-gray-500 hover:text-gray-600"
-            >
-              <BsFacebook size={22} />
-            </a>
-          )}
-          {socialLinks?.telegram && (
-            <a
-              href={socialLinks.telegram}
-              className="text-gray-500 hover:text-gray-600"
-            >
-              <FaTelegram size={22} />
-            </a>
-          )}
-          {socialLinks?.linkedin && (
-            <a
-              href={socialLinks.linkedin}
-              className="text-gray-500 hover:text-gray-600"
-            >
-              <BsLinkedin size={22} />
-            </a>
-          )}
-          {socialLinks?.instagram && (
-            <a
-              href={socialLinks.instagram}
-              className="text-gray-500 hover:text-gray-600"
-            >
-              <BsInstagram size={22} />
-            </a>
-          )}
-        </div>}
+        <p className="font-bold text-gray-700 capitalize lg:text-xl md:text-lg text-md">
+          {name}
+        </p>
+        <p className="text-sm font-normal text-gray-400 lg:text-lg md:text-md">
+          {designation}
+        </p>
+        {socialLinks && (
+          <div className="flex justify-start mt-2 space-x-2">
+            {socialLinks?.facebook && (
+              <a
+                href={socialLinks.facebook}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-500 hover:text-gray-600"
+              >
+                <BsFacebook size={22} />
+              </a>
+            )}
+            {socialLinks?.telegram && (
+              <a
+                href={socialLinks.telegram}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-500 hover:text-gray-600"
+              >
+                <FaTelegram size={22} />
+              </a>
+            )}
+            {socialLinks?.linkedin && (
+              <a
+                href={socialLinks.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-500 hover:text-gray-600"
+              >
+                <BsLinkedin size={22} />
+              </a>
+            )}
+            {socialLinks?.instagram && (
+              <a
+                href={socialLinks.instagram}
+                target="_blank"
+                rel="noreferrer"
+                className="text-gray-500 hover:text-gray-600"
+              >
+                <BsInstagram size={22} />
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
