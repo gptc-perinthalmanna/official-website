@@ -204,7 +204,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                 infrastructure and other facilities and various activities to
                 boost the academic performance of students and staff.
               </p>
-              <p className="mt-2 font-semibold text-right ">- Dr Pradeep M</p>
+              <p className="mt-2 font-semibold text-right ">- Manjusha M</p>
               <p className="text-sm text-right ">Principal</p>
             </div>
             <div className="relative shrink-0 w-72 hidden md:block">

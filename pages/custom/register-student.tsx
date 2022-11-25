@@ -194,8 +194,8 @@ export function Form({
   const onSubmit = async (data: any) => {
     const toSubmit = {
       ...data,
-      password: "faculty@123",
-      role: ["staff"],
+      password: "student@123",
+      role: ["student"],
       socialLinks: {
         facebook: data.facebook,
         instagram: data.instagram,
@@ -287,15 +287,15 @@ export function Form({
             {...register("department", {
               required: "This field is required!",
             })}
-            className="w-full px-4 text-gray-800 bg-transparent rounded-md shadow-sm outline-none appearance-none"
+            className="w-full  py-3 px-4 text-gray-800 bg-transparent rounded-md shadow-sm outline-none appearance-none"
           >
             <option value="Electronics Dept">Electronics Dept</option>
             <option value="Electrical Dept"> Electrical Dept</option>
             <option value="Mechanical Dept"> Mechanical Dept</option>
             <option value="Civil Dept"> Civil Dept</option>
-            <option value="General Dept"> General Dept</option>
+            {/* <option value="General Dept"> General Dept</option>
             <option value="Office Section"> Office Section</option>
-            <option value="General Workshop">General Workshop</option>
+            <option value="General Workshop">General Workshop</option> */}
           </select>
           <ErrorMessage
             errors={errors}
@@ -303,18 +303,24 @@ export function Form({
             render={({ message }) => <ErrorMessageComp message={message} />}
           />
         </InputItem>
-        <InputItem title="Designation" span="5">
-          <input
-            type="text"
-            className="w-full h-10 px-4 mt-1 border-gray-300 rounded-md shadow-sm bg-gray-50"
-            placeholder="Designation"
-            {...register("designation", {
+        <InputItem title="Year of passout" span="5">
+          <select
+            {...register("yearOfPassout", {
               required: "This field is required!",
             })}
-          />
+            className="w-full px-4 py-3  text-gray-800 bg-transparent rounded-md shadow-sm outline-none appearance-none"
+          >
+            <option value="Electronics Dept">2023</option>
+            <option value="Electrical Dept">2024</option>
+            <option value="Mechanical Dept">2025</option>
+            <option value="Civil Dept">2026</option>
+            {/* <option value="General Dept"> General Dept</option>
+            <option value="Office Section"> Office Section</option>
+            <option value="General Workshop">General Workshop</option> */}
+          </select>
           <ErrorMessage
             errors={errors}
-            name="designation"
+            name="yearOfPassout"
             render={({ message }) => <ErrorMessageComp message={message} />}
           />
         </InputItem>
@@ -356,13 +362,13 @@ export function Form({
             render={({ message }) => <ErrorMessageComp message={message} />}
           />
         </InputItem>
-        <InputItem title="LinkedIn Link" optional span="5">
+        <InputItem title="LinkedIn Link" span="5">
           <input
             type="url"
             className="w-full h-10 px-4 mt-1 border-gray-300 rounded-md shadow-sm bg-gray-50"
             placeholder="LinkedIn Link"
             {...register("linkedin", {
-              required: false,
+              required: true,
               pattern: {
                 value: /^(http(s)?:\/\/)?(www\.)?linkedin\.com\/in\/.+$/i,
                 message: "Invalid Link",
@@ -405,8 +411,8 @@ function Wrapper({
             Data for GPTC Perinthalmanna Website
           </h2>
           <p className="mb-6 text-gray-500">
-            Hello. This form is made to collect data for adding staff details on
-            website. Kindly fill all the data possible to make your profile
+            Hello. This form is made to collect data for adding student details
+            on website. Kindly fill all the data possible to make your profile
             complete.
           </p>
 
