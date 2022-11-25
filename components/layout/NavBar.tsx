@@ -409,7 +409,7 @@ const _menu: MenuItem[] = [
         icon: GiSchoolOfFish,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/campus/national-service-scheme",
+        link: "/campus/alumini",
       },
       {
         name: "Placement Cell",
