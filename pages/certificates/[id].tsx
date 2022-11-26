@@ -1,39 +1,14 @@
-import { GetStaticProps, NextPage } from "next";
+import { NextPage } from "next";
 import Container from "../../components/layout/Container";
-import Page from "../../components/layout/Page";
 import logoImage from "../../public/logo.png";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { TbFileDownload } from "react-icons/tb";
-import { useRef, useState } from "react";
-
-interface StaffType {
-  name: string;
-  designation: string;
-  social?: {
-    facebook: string;
-    twitter: string;
-    instagram: string;
-  };
-}
-
-interface PageType {
-  key: string;
-  title: string;
-  about: string;
-  cover: string;
-  staffs?: StaffType[];
-  photos?: PhotoType[];
-}
-
-interface PhotoType {
-  src: string;
-  alt: string;
-}
+import { useRef } from "react";
 
 const _certificate = {
-  id: "3aa9d27c-d46a-4fac-9780-745a1265f19e",
+  key: "3aa9d27c-d46a-4fac-9780-745a1265f19e",
   referance: "0003",
   title: "Orientation programme from of IEDC",
   instructors: [
@@ -57,7 +32,7 @@ const _certificate = {
   duration: "1 day",
 };
 
-const CustomPage: NextPage<{ page: PageType }> = () => {
+const CustomPage = () => {
   const router = useRouter();
   const certElm = useRef(null);
   const { id } = router.query;
@@ -121,11 +96,11 @@ const CustomPage: NextPage<{ page: PageType }> = () => {
                     id="certificate-details"
                     className="text-xs text-gray-400 text-right"
                   >
-                    <p>Certificate no: {certificate.id}</p>
+                    <p>Certificate no: {certificate.key}</p>
                     <p>
                       <p>
                         Certificate url: gptcperinthalmanna.in/certificates/
-                        {certificate.id}
+                        {certificate.key}
                       </p>
                       Referance Number: {certificate.referance}
                     </p>
