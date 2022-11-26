@@ -52,7 +52,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
         />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <TopBanner />
       <LogoBanner />
       <NavBar />
@@ -60,7 +59,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
         <HeroCarousel images={heroImgs} />
       </div>
       <NewsTicker />
-
       <div className="container s mx-auto mt-3">
         <div className="flex w-full h-full flex-col justify-center items-stretch lg:flex-row">
           <div className="grow h-full lg:pr-4">

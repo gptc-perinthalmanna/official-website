@@ -82,6 +82,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             )}
           </Content.Right>
         </Content>
+        <div className="my-4 py-4" />
       </Container>
     </Page>
   );
