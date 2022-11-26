@@ -89,7 +89,7 @@ const CustomPage: NextPage<{ page: PageType }> = () => {
   return (
     <div title={"Certificate"}>
       <Head>
-        <title>Hello</title>
+        <title>{`Certificate of ${certificate.holder.name} - ${certificate.title}`}</title>
         {/* <meta name="description" content={desc} /> */}
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -121,10 +121,7 @@ const CustomPage: NextPage<{ page: PageType }> = () => {
                     id="certificate-details"
                     className="text-xs text-gray-400 text-right"
                   >
-                    <p>
-                      Certificate no:
-                      {certificate.id}
-                    </p>
+                    <p>Certificate no: {certificate.id}</p>
                     <p>
                       <p>
                         Certificate url: gptcperinthalmanna.in/certificates/
