@@ -2,6 +2,15 @@ import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import { fetcher } from "../server/calls";
 import { NotificationType } from "../server/db";
+import Marquee from "react-fast-marquee";
+import { GiSpotedFlower } from "react-icons/gi";
+
+type NewsTypeProps = {
+  title: string;
+  date?: string;
+  isNew?: boolean;
+  link?: string;
+};
 
 function NewsTicker() {
   const { data, error } = useSWR<NotificationType[]>(
@@ -39,44 +48,85 @@ function NewsTicker() {
 
 export default NewsTicker;
 
-function Wrapper({
-  title,
-  date,
-  isNew,
-  link,
-}: {
-  title: string;
-  date?: string;
-  isNew?: boolean;
-  link?: string;
-}) {
+function Wrapper(props: NewsTypeProps) {
   return (
     <div className="flex items-center mx-auto mt-3 bg-gradient-to-r from-amber-200 to-yellow-100 lg:container">
       <div className="h-full px-3 py-3 text-sm font-bold uppercase bg-blue-800 text-gray-50">
         LATEST NEWS
       </div>
-      <p
-        onClick={() => window.open(link, "_blank")}
-        className="h-full cursor-pointer px-3 text-sm font-bold "
-      >
-        {title}
-      </p>
+      <NewsItem {...props} />
+    </div>
+  );
+}
+
+const NewsItem = ({ title, date, isNew, link }: NewsTypeProps) => {
+  return (
+    <>
       {date && (
         <div
           onClick={() => window.open(link, "_blank")}
-          className="flex-shrink-0 mx-1 text-xs font-bold text-gray-500"
+          className="flex-shrink-0 mx-1 text-xs bg-slate-50/60 leading-3 rounded-full px-3 py-0.5 font-bold text-gray-500"
         >
           {date}
         </div>
       )}
+      <p
+        onClick={() => window.open(link, "_blank")}
+        className="h-full cursor-pointer px-1 text-sm font-bold "
+      >
+        {title}
+      </p>
       {isNew && (
         <div
           onClick={() => window.open(link, "_blank")}
-          className="mr-2 text-xs font-semibold text-red-600"
+          className="mr-2 animate-pulse text-xs font-semibold text-red-600"
         >
           New!
         </div>
       )}
+    </>
+  );
+};
+
+export const NewsMarquee = () => {
+  const { data, error } = useSWR<NotificationType[]>(
+    "/api/notifications/all",
+    fetcher
+  );
+  return (
+    <div className="flex items-center mx-auto mt-3 bg-gradient-to-r from-amber-200 to-yellow-100 lg:container">
+      <div className="h-full px-3 py-3 text-sm font-bold uppercase bg-blue-800 text-gray-50">
+        LATEST NEWS
+      </div>
+      <div className="grow">
+        {error && <div>Failed to load</div>}
+        {data &&
+          (data.length < 1 ? (
+            <div>No Notifications</div>
+          ) : (
+            <Marquee gradient={false}>
+              {data.map((e) => {
+                const date = e.createdAt ? new Date(e.createdAt) : new Date();
+                return (
+                  <div
+                    className="flex items-center mr-6 overflow-y-hidden"
+                    key={e.title}
+                  >
+                    <p className="text-rose-700 animate-spin duration-75">
+                      <GiSpotedFlower />
+                    </p>
+                    <NewsItem
+                      title={e.title}
+                      date={date.toISOString().substring(0, 10)}
+                      isNew={date.getTime() > Date.now() - 1000 * 60 * 60 * 24}
+                      link={e.link}
+                    />
+                  </div>
+                );
+              })}
+            </Marquee>
+          ))}
+      </div>
     </div>
   );
-}
+};

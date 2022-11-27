@@ -12,7 +12,7 @@ import Footer from "../components/layout/Footer";
 import LogoBanner from "../components/layout/LogoBanner";
 import NavBar from "../components/layout/NavBar";
 import TopBanner from "../components/layout/TopBanner";
-import NewsTicker from "../components/NewsTicker";
+import NewsTicker, { NewsMarquee } from "../components/NewsTicker";
 import EventCarousel from "../components/ui/EventCarousal";
 import HeroCarousel from "../components/ui/HeroCarousal";
 import LogoCarousal from "../components/ui/Logo Carousal";
@@ -58,7 +58,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
       <div className="w-full h-90">
         <HeroCarousel images={heroImgs} />
       </div>
-      <NewsTicker />
+      <NewsMarquee />
       <div className="container s mx-auto mt-3">
         <div className="flex w-full h-full flex-col justify-center items-stretch lg:flex-row">
           <div className="grow h-full lg:pr-4">
