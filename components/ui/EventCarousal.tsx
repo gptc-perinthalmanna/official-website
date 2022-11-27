@@ -1,11 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ImagePost from "../custom/ImagePost";
 import useSWR from "swr";
 import { fetcher } from "../../server/calls";
 import { FcHighPriority } from "react-icons/fc";
-import { Dialog } from "@headlessui/react";
 
 const responsive = {
   0: { items: 1 },

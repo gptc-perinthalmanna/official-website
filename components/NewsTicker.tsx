@@ -99,10 +99,10 @@ export const NewsMarquee = () => {
         LATEST NEWS
       </div>
       <div className="grow">
-        {error && <div>Failed to load</div>}
+        {error && <div className="mx-4 font-semibold">Failed to load</div>}
         {data &&
           (data.length < 1 ? (
-            <div>No Notifications</div>
+            <div className="mx-4 font-semibold">No Notifications</div>
           ) : (
             <Marquee gradient={false}>
               {data.map((e) => {
