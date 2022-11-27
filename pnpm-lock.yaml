@@ -8,6 +8,7 @@ specifiers:
   '@types/react': 18.0.15
   '@types/react-dom': 18.0.6
   '@types/react-pdf': ^5.7.2
+  '@vercel/analytics': ^0.1.5
   autoprefixer: ^10.4.7
   deta: ^1.1.0
   eslint: 8.19.0
@@ -32,6 +33,7 @@ specifiers:
 dependencies:
   '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
   '@hookform/error-message': 2.0.0_y76bwq3jqk3kv5erecl3m6n6ne
+  '@vercel/analytics': 0.1.5_react@18.2.0
   deta: 1.1.0
   html2canvas: 1.4.1
   next: 12.2.2_biqbaboplfbrettd7655fr4n2y
@@ -398,6 +400,14 @@ packages:
       '@typescript-eslint/types': 5.30.6
       eslint-visitor-keys: 3.3.0
     dev: true
+
+  /@vercel/analytics/0.1.5_react@18.2.0:
+    resolution: {integrity: sha512-/k9N8Ea3Yc5A52GlkjzUEbi2vE/izClrOf++ryBkxEfrZM/OZwtHkdNw/QExZ1h/B67RCZLK7bCOnKKrhG7gTg==}
+    peerDependencies:
+      react: ^16.8||^17||^18
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /acorn-jsx/5.3.2_acorn@8.7.1:
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}

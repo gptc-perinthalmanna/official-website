@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { useState } from "react";
 import Image from "next/image";
 import { Dialog } from "@headlessui/react";
@@ -64,6 +65,7 @@ function ImagePost({
                     className="item rounded-md"
                     src={e}
                     data-value="1"
+                    alt="slider"
                   />
                 ))}
               />
