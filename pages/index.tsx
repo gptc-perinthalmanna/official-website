@@ -207,7 +207,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             </div>
             <div className="relative shrink-0 w-72 hidden md:block">
               <Image
-                src="/images/principal.jpg"
+                src="https://i.ibb.co/HdbvtcG/3d5ef2fcd9fe.jpg"
                 layout="fill"
                 objectFit="cover"
                 alt="Principal's Image"
