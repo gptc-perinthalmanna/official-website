@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
 import ImagePost from "../custom/ImagePost";
 import useSWR from "swr";
 import { fetcher } from "../../server/calls";
 import { FcHighPriority } from "react-icons/fc";
+import { Dialog } from "@headlessui/react";
 
 const responsive = {
   0: { items: 1 },
@@ -18,6 +19,7 @@ interface Event {
   subtitle: string;
   image: string;
   date: string;
+  images?: string[];
 }
 
 const EventCarousel = ({
@@ -60,16 +62,19 @@ const EventCarousel = ({
     );
   }
 
-  const _items = data?.map((event) => (
-    <div key={event.title} className="pr-4">
-      <ImagePost
-        image={event.image}
-        date={event.date}
-        title={event.title}
-        subtitle={event.subtitle}
-      />
-    </div>
-  ));
+  const _items = data
+    ?.map((event) => (
+      <div key={event.title} className="pr-4">
+        <ImagePost
+          image={event.image}
+          date={event.date}
+          title={event.title}
+          subtitle={event.subtitle}
+          images={event.images}
+        />
+      </div>
+    ))
+    .reverse();
 
   return (
     <AliceCarousel
