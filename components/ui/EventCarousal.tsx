@@ -78,6 +78,7 @@ const EventCarousel = ({
   return (
     <AliceCarousel
       autoPlay
+      infinite
       autoPlayInterval={5000}
       mouseTracking
       touchTracking

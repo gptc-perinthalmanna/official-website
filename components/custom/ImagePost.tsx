@@ -52,7 +52,7 @@ function ImagePost({
         {/* Full-screen container to center the panel */}
         <div className="fixed inset-0 flex items-center justify-center p-4">
           {/* The actual dialog panel  */}
-          <Dialog.Panel className="mx-auto max-w-xl p-5 rounded bg-white">
+          <Dialog.Panel className="mx-auto w-full max-w-xl p-5 rounded bg-white">
             <Dialog.Title className="text-lg font-semibold">
               {title}
             </Dialog.Title>
