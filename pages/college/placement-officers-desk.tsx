@@ -14,6 +14,9 @@ import RibbonCard from "../../components/custom/RibbonCard";
 import { getOther } from "../../server/other";
 import { UserType } from "../../server/db";
 import { getUser } from "../../server/users";
+import Content from "../../components/layout/Content";
+import { PageTitle } from "../../components/layout/PageTitle";
+import EventCarousel from "../../components/ui/EventCarousal";
 
 const _features = [
   {
@@ -74,6 +77,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
       <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
         <LargeUserCardWithDetails
           {...page.placementOfficer}
+          email={`cgpcpmna@gmail.com,  ${page.placementOfficer.email}`}
           subTitle={"Placement Officer"}
         />
       </div>
@@ -135,6 +139,16 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
         <ContactForm />
       </div>
     </div>
+    <div className="container mx-auto">
+      <Content>
+        <Content.FullWidth>
+          <PageTitle>Previous Events</PageTitle>
+          <div className="my-3">
+            <EventCarousel id="placement-cell" />
+          </div>
+        </Content.FullWidth>
+      </Content>
+    </div>
   </Page>
 );
 
@@ -143,7 +157,6 @@ export default CustomPage;
 export async function getStaticProps() {
   let page = (await getOther("page-placement-officer-desk")) as PageType;
   page.placementOfficer = (await getUser(page.placementOfficer_id)) as UserType;
-  console.log(page);
   return {
     props: {
       page,

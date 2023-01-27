@@ -187,7 +187,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
               </a>
             </Link>
           </div>
-          <div className="flex flex-1 w-full my-4  bg-gray-100  ">
+          <div className="flex flex-1 w-full my-4 bg-gray-100  ">
             <div className="p-3">
               <h3 className="mb-2 text-2xl font-bold">
                 {"Principal's Message"}

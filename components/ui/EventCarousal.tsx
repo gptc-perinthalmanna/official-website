@@ -25,7 +25,19 @@ const EventCarousel = ({
   id,
   fetchAll = false,
 }: {
-  id?: string;
+  id?:
+    | "electronics-engineering"
+    | "electrical-and-electronics-engineering"
+    | "civil-engineering"
+    | "mechanical-engineering"
+    | "general-dept"
+    | "office-section"
+    | "nss"
+    | "placement-cell"
+    | "boomithraseena-club"
+    | "staff-club"
+    | "iedc"
+    | "all";
   fetchAll?: boolean;
 }) => {
   const _id = fetchAll ? "all" : id;
