@@ -57,7 +57,7 @@ const CustomPage: NextPage<{ page: DeptPageType }> = ({ page }) => (
         </Content.Left>
         <Content.FullWidth>
           <PageTitle>Events </PageTitle>
-          <EventCarousel id={page.key} />
+          <EventCarousel id={page.key as any} />
         </Content.FullWidth>
       </Content>
     </Container>
@@ -85,22 +85,24 @@ export const getStaticPaths: GetStaticPaths = () => {
   return { paths, fallback: false };
 };
 
-export const getStaticProps: GetStaticProps<{}, { [key: string]: string }> =
-  async ({ params }) => {
-    if (!params || !params.id) {
-      return { props: { error: true } };
-    }
-    const key = params.id;
+export const getStaticProps: GetStaticProps<
+  {},
+  { [key: string]: string }
+> = async ({ params }) => {
+  if (!params || !params.id) {
+    return { props: { error: true } };
+  }
+  const key = params.id;
 
-    const page = await getDepartments(key);
+  const page = await getDepartments(key);
 
-    return {
-      props: {
-        page: page,
-      },
-      // Next.js will attempt to re-generate the page:
-      // - When a request comes in
-      // - At most once every 10 seconds
-      revalidate: 600000, // In seconds
-    };
+  return {
+    props: {
+      page: page,
+    },
+    // Next.js will attempt to re-generate the page:
+    // - When a request comes in
+    // - At most once every 10 seconds
+    revalidate: 600000, // In seconds
   };
+};
