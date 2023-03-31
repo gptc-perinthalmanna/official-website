@@ -65,6 +65,7 @@ import {
   GrUserExpert,
   GrUserManager,
   GrSync,
+  GrDocumentDownload,
 } from "react-icons/gr";
 import { IoDocumentAttach } from "react-icons/io5";
 import { AiOutlineSolution, AiOutlineVideoCamera } from "react-icons/ai";
@@ -467,7 +468,13 @@ const _menu: MenuItem[] = [
           "Downloadable contents related to the college and departments.",
         link: "/archives/downloads",
       },
-
+      {
+        name: "Student Downloads",
+        icon: GrDocumentDownload,
+        description:
+          "PDFs and downloads related to the students of the college.",
+        link: "/archives/student-downloads",
+      },
       {
         name: "Important GOs and Circulars",
         icon: BsFillFileMedicalFill,
