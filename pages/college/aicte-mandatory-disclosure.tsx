@@ -4,7 +4,9 @@ import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import redirect from "nextjs-redirect";
-const Redirect = redirect("https://drive.google.com/file/d/13yJDAzclBlRYFTgtPR0KuYVSJpuujqyh/view?usp=sharing");
+const Redirect = redirect(
+  "https://drive.google.com/file/d/1keJyExfWNUupEoDK-wGrsyJmtFbMSBRb/view"
+);
 
 const CustomPage: NextPage = () => (
   <Redirect>

@@ -8,7 +8,6 @@ import { PageTitle } from "../../components/layout/PageTitle";
 import { fetcher } from "../../server/calls";
 import { FileType } from "../../server/db";
 
-
 const FileContainer = () => {
   const { data, error } = useSWR<FileType[]>(
     "/api/files/tag/design-files",
@@ -33,8 +32,10 @@ const CustomPage: NextPage = () => (
       <PageTitle>Design Files</PageTitle>
       <Content>
         <Content.FullWidth>
-          <div className="flex flex-wrap">
-            <FileContainer />
+          <div className="min-h-[350px]">
+            <div className="flex flex-wrap">
+              <FileContainer />
+            </div>
           </div>
         </Content.FullWidth>
       </Content>
