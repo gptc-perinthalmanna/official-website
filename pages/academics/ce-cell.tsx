@@ -116,8 +116,13 @@ const CustomPage: NextPage = () => (
           <h2 className="mt-3 mb-2 text-xl font-bold">Contact Details</h2>
           <p className="text-sm">
             CONTINUING EDUCATION SUB CENTRE (Reg.No: CE/P-128/2000 under CCEK,
-            Thiruvananthapuram) <br/>ANGADIPPURAM (PO), MALAPPURAM (DT)KERALA-679321
-            <br /><strong>PHONE NO:</strong> 04933 228045 <br /><strong>FAX:</strong> 04933 227253 <br /><strong>Email:</strong> cecellpmna@gmail.com
+            Thiruvananthapuram) <br />
+            ANGADIPPURAM (PO), MALAPPURAM (DT)KERALA-679321
+            <br />
+            <strong>PHONE NO:</strong>
+            04933 228045
+            <br />
+            <strong>Email:</strong> cecellpmna@gmail.com
           </p>
         </Content.Half>
         <Content.FullWidth>
