@@ -21,7 +21,7 @@ export function Footer() {
                 <h4 className="font-bold">Contact</h4>
                 <p className="text-sm">Office: 04933227253</p>
                 <p className="text-sm">Email: polypmna@gptcperinthalmanna.in</p>
-                <p className="text-sm">Principal: 98439849384</p>
+                <p className="text-sm">Principal: 9846312570</p>
                 <p className="text-sm" />
               </div>
             </div>
