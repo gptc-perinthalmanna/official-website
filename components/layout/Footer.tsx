@@ -24,6 +24,13 @@ export function Footer() {
                 <p className="text-sm">Principal: 9846312570</p>
                 <p className="text-sm" />
               </div>
+              <div className="mt-3">
+                <h4 className="font-bold">Legal</h4>
+                <p className="text-sm">PAN: AAAGG0872P</p>
+                <p className="text-sm">GSTIN: 32AAAGG0872P1ZA</p>
+                <p className="text-sm">TAN: CHNG02636E</p>
+                <p className="text-sm" />
+              </div>
             </div>
           </Box>
           <Box title="Important Links">

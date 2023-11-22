@@ -19,7 +19,7 @@ function Page({
   desc?: string;
 }) {
   return (
-    <>
+    <div className="flex flex-col min-h-screen">
       <Head>
         <title>{title}</title>
         <meta name="description" content={desc} />
@@ -28,9 +28,9 @@ function Page({
       <TopBanner />
       <LogoBanner />
       <NavBar />
-      <div>{children}</div>
+      <div className="grow">{children}</div>
       <Footer />
-    </>
+    </div>
   );
 }
 

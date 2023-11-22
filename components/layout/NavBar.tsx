@@ -494,7 +494,7 @@ const _menu: MenuItem[] = [
         icon: BsFillPatchQuestionFill,
         description:
           "Previous Diploma semester final examination question papers in dowloadable pdf format. ",
-        link: "/campus/previous-question-papers",
+        link: "/archives/previous-question-papers",
       },
       {
         name: "Design Files",
