@@ -5,7 +5,7 @@ import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import redirect from "nextjs-redirect";
 const Redirect = redirect(
-  "https://drive.google.com/file/d/1keJyExfWNUupEoDK-wGrsyJmtFbMSBRb/view"
+  "https://drive.google.com/file/d/1dzGs0fPYhTu1PsKIx-AWe-2I_Z6GrOZS/view"
 );
 
 const CustomPage: NextPage = () => (
