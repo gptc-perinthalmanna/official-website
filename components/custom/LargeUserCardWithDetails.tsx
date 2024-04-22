@@ -48,9 +48,7 @@ function LargeUserCardWithDetails({
           Email:
           <span className="ml-2 text-gray-600">{email}</span>
         </div>
-        <div className="flex mb-1 text-sm text-gray-500">
-          Phone: <span className="ml-2 text-gray-600">{phone}</span>
-        </div>
+
         <div className="flex mb-1 text-sm text-gray-500">
           Address:
           <span className="ml-2 text-gray-600">{address}</span>
