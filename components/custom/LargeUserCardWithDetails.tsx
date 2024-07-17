@@ -20,7 +20,7 @@ function LargeUserCardWithDetails({
   email: string;
   phone: string;
   address: string;
-  socialLinks: { [key: string]: string };
+  socialLinks?: { [key: string]: string };
 }) {
   const photo = avatar ? avatar : "/images/avatar-placeholder.png";
   return (

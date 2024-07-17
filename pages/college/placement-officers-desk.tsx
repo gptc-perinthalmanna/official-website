@@ -77,6 +77,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
       <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
         <LargeUserCardWithDetails
           {...page.placementOfficer}
+          socialLinks={undefined}
           email={`cgpcpmna@gmail.com,  ${page.placementOfficer.email}`}
           subTitle={"Placement Officer"}
         />
