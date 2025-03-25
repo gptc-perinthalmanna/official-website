@@ -12,7 +12,7 @@ import EventCarousel from "../../components/ui/EventCarousal";
 
 const programOfficer = {
   name: "Asker Ali",
-  avatar: "",
+  avatar: "https://i.ibb.co/84kgTYg/52bcb8689954.jpg",
   id: "",
   email: "",
   designation: "Trade Instruction",

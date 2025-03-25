@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-page-custom-font */
-import React from "react";
+import type React from "react";
 import Head from "next/head";
-import { useColor } from "../../common/hooks";
+import { type ColorLiteral, useColor } from "../../common/hooks";
 
 
 function BoldTitle({
@@ -11,7 +11,7 @@ function BoldTitle({
 }: {
   children: React.ReactNode;
   className?: string;
-  color?: string;
+  color?: ColorLiteral;
 }) {
   className = useColor(color, className);
 
@@ -25,8 +25,7 @@ function BoldTitle({
       </Head>
       <span
         className={
-          "lg:text-3xl md:text-2xl sm:text-xl text-lg font-bold text-transparent font-poppins bg-gradient-to-r bg-clip-text " +
-          className
+          `lg:text-3xl md:text-2xl sm:text-xl text-lg font-bold text-transparent font-poppins bg-gradient-to-r bg-clip-text ${className}`
         }
       >
         {children}

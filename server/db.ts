@@ -1,3 +1,4 @@
+import type { ColorLiteral } from "../common/hooks";
 
 export interface NewsMediaType {
   key: string;
@@ -126,7 +127,7 @@ export interface DepartmentFacilityType {
   title: string;
   description: string;
   image: string;
-  color: string;
+  color: ColorLiteral;
   tags: string[];
 }
 

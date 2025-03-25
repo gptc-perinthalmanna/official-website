@@ -1,6 +1,20 @@
-export const _color: {
-  [key: string]: string;
-} = {
+export type ColorLiteral =
+  | "gray"
+  | "red"
+  | "blue"
+  | "yellow"
+  | "green"
+  | "pink"
+  | "purple"
+  | "orange"
+  | "lime"
+  | "teal"
+  | "indigo"
+  | "violet"
+  | "fuchsia"
+  | "rose";
+
+export const _color: { [key in ColorLiteral]: string } = {
   gray: "from-gray-800 to-gray-500",
   red: "from-red-800 to-red-500",
   blue: "from-blue-800 to-blue-500",
@@ -17,8 +31,7 @@ export const _color: {
   rose: "from-rose-800 to-rose-500",
 };
 
-export function useColor(color?: string, cn?: string) {
-  cn = cn ? cn : "";
-  cn = color ? `${cn} ${_color[color]}` : cn;
-  return cn;
+export function useColor(color?: ColorLiteral, cn?: string): string {
+  const _cn = cn ? cn : "";
+  return color ? `${_cn} ${_color[color]}` : _cn;
 }
