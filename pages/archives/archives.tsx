@@ -6,7 +6,7 @@ import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import { fetcher } from "../../server/calls";
-import { FileType } from "../../server/db";
+import type { FileType } from "../../server/db";
 
 
 const FileContainer = () => {
