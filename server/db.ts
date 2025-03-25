@@ -1,28 +1,3 @@
-import { Deta } from "deta"; // import Deta
-
-// Initialize with a Project Key
-const deta = Deta(process.env.DETA_PROJECT_ID);
-
-export const usersDb = deta.Base("users");
-
-export const facilitiesDb = deta.Base("page_facilities");
-export const campusDB = deta.Base("page_campus");
-export const departmentsDB = deta.Base("page_departments");
-
-export const pressAndMediaDB = deta.Base("post_press_and_media");
-export const eventsDB = deta.Base("post_events");
-export const notificationsDB = deta.Base("post_notifications");
-export const deptFacilitiesDB = deta.Base("post_dept_facilities");
-export const newsAndMediaDB = deta.Base("post_news_and_media");
-
-export const filesDB = deta.Base("media_files");
-export const imagesDB = deta.Base("media_images");
-
-export const otherDB = deta.Base("other_details");
-
-export const deletedDB = deta.Base("deleted_records");
-
-// Types Definitions
 
 export interface NewsMediaType {
   key: string;
@@ -116,6 +91,7 @@ export interface ImageType {
 
 export interface OtherType {
   key: string;
+  // biome-ignore lint/suspicious/noExplicitAny: <explanation>
   value: { [key: string]: any };
 }
 
