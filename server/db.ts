@@ -123,7 +123,7 @@ export interface EventType {
 }
 
 export interface DepartmentFacilityType {
-  key: string;
+  id: string;
   title: string;
   description: string;
   image: string;

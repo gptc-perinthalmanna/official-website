@@ -10,7 +10,7 @@ import { PageTitle } from "../../components/layout/PageTitle";
 import type { DepartmentFacilityType, UserType } from "../../server/db";
 
 interface DeptPageType {
-  key: string;
+  id: string;
   title: string;
   cover: string;
   about: string;
@@ -19,7 +19,7 @@ interface DeptPageType {
 }
 const pages: DeptPageType[] = [
   {
-    key: "electronics-engineering",
+    id: "electronics-engineering",
     title: "Electronics Engineering",
     about:
       "Electronic engineering, or electronics engineering is a form of engineering associated with electronic circuits, devices and the equipment and systems that use them.Electronic engineering utilises a variety of different types of electronic components from the more traditional analogue components through to digital electronic components, microprocessors and microcontrollers as well as programmable logic devices. This means that electronic engineering can incorporate a large variety of different areas.The field of electronic engineering includes a variety more specific electronic engineering fields including: analogue electronics, digital electronics, consumer electronics, embedded systems and power electronics.",
@@ -31,14 +31,14 @@ const pages: DeptPageType[] = [
         description:
           "An embedded system is a microprocessor-based computer hardware system with software that is designed to perform a dedicated function, either as an independent system or as a part of a large system. At the core is an integrated circuit designed to carry out computation for real-time operations.",
         color: "blue",
-        key: "embedded-system-lab",
+        id: "embedded-system-lab",
         image: "https://i.ibb.co/WBXfsyF/library-1.jpg",
         tags: ["lab", "embedded", "system"],
       },
     ],
   },
   {
-    key: "mechanical-engineering",
+    id: "mechanical-engineering",
     title: "Mechanical Engineering",
     about:
       "Mechanical engineering is a branch of engineering that deals with the design, production, and maintenance of mechanical systems. It is a broad field that includes a wide range of sub-disciplines, such as mechanical design, manufacturing, and maintenance. Mechanical engineers use a variety of tools and techniques to design and build mechanical systems, including mechanical parts, assemblies, and machines. They also use a variety of materials and processes to create mechanical systems, such as metals, plastics, and composites. Mechanical engineers also use a variety of software and tools to simulate and analyze mechanical systems, such as CAD and FEA. They also use a variety of testing and measurement equipment to test and validate mechanical systems. They also use a variety of tools and techniques to maintain and repair mechanical systems, such as lubrication, inspection, and maintenance.",
@@ -47,7 +47,7 @@ const pages: DeptPageType[] = [
     facilities: [],
   },
   {
-    key: "civil-engineering",
+    id: "civil-engineering",
     title: "Civil Engineering",
     about:
       "Civil engineering is a branch of engineering that deals with the design, production, and maintenance of civil systems. It is a broad field that includes a wide range of sub-disciplines, such as civil design, manufacturing, and maintenance. Civil engineers use a variety of tools and techniques to design and build civil systems, including civil parts, assemblies, and machines. They also use a variety of materials and processes to create civil systems, such as metals, plastics, and composites. Civil engineers also use a variety of software and tools to simulate and analyze civil systems, such as CAD and FEA. They also use a variety of testing and measurement equipment to test and validate civil systems. They also use a variety of tools and techniques to maintain and repair civil systems, such as lubrication, inspection, and maintenance.",
@@ -56,7 +56,7 @@ const pages: DeptPageType[] = [
     facilities: [],
   },
   {
-    key: "electrical-and-electronics-engineering",
+    id: "electrical-and-electronics-engineering",
     title: "Electrical and Electronics Engineering",
     about:
       "Electrical and Electronics Engineering is a branch of engineering that deals with the design, production, and maintenance of electrical and electronic systems. It is a broad field that includes a wide range of sub-disciplines, such as electrical design, manufacturing, and maintenance. Electrical and Electronics Engineers use a variety of tools and techniques to design and build electrical and electronic systems, including electrical parts, assemblies, and machines. They also use a variety of materials and processes to create electrical and electronic systems, such as metals, plastics, and composites. Electrical and Electronics Engineers also use a variety of software and tools to simulate and analyze electrical and electronic systems, such as CAD and FEA. They also use a variety of testing and measurement equipment to test and validate electrical and electronic systems. They also use a variety of tools and techniques to maintain and repair electrical and electronic systems, such as lubrication, inspection, and maintenance.",
@@ -73,8 +73,8 @@ const _paths = [
   "electrical-and-electronics-engineering",
 ];
 
-const CustomPage: NextPage<{ key: string }> = ({ key }) => {
-  const page = pages.find((page) => page.key === key);
+const CustomPage: NextPage<{ id: string }> = ({ id }) => {
+  const page = pages.find((page) => page.id === id);
   if (!page) return <div />;
 
   return (
@@ -142,7 +142,7 @@ export const getStaticProps: GetStaticProps<
   }
   return {
     props: {
-      key: params.id,
+      id: params.id,
     },
   };
 };

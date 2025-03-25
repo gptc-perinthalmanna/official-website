@@ -18,7 +18,7 @@ interface StaffType {
 }
 
 interface PageType {
-  key: string;
+  id: string;
   title: string;
   about: string;
   cover: string;
@@ -46,7 +46,7 @@ const _paths = [
 ];
 
 const pages = [{
-  key: "health-centre",
+  id: "health-centre",
   title: "Health Centre",
   about: "Health Centre with motorised Tread mill, Manual Tread Mill, ElliptiKal Bike, Body Twister, Pec Dec machine, High lat pulley/Rowing pulley, Leg press heavy machine, Leg curl & eg extension machine, Weighing Machine, Gym ball, Facilities for free weight exercises have been attached to the Health Centre",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -54,7 +54,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "finishing-school",
+  id: "finishing-school",
   title: "Finishing School",
   about: "A finishing school is defined as a private school for students that emphasizes training in all round personality development, cultural and social activities. Specific skill sets may be imparted as value addition. The name reflects that it follows a school or college education and is intended to complete the educational experience. It may consist of an intensive course, or a one-year program.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -62,7 +62,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "language-lab",
+  id: "language-lab",
   title: "Language Lab",
   about: "A language laboratory is a dedicated space for foreign language learning where students access audio or audio-visual materials. They allow a teacher to listen to and manage student audio, which is delivered to individual students through headsets or in isolated 'sound booths.' They have now largely been replaced by self access language learning centers, which may be called 'language labs.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -70,7 +70,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "co-operative-society",
+  id: "co-operative-society",
   title: "Co-Operative Society",
   about: "There is a co-operative society with all the stationary items for the students and staff like note books,text books,drawing equipments,laboratory records etc are available through the society.College uniform cloths are also available.Every items are sold for a reasonable rate . All the staff and students are enrolled their name in the Society.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -78,7 +78,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "internet-common-facility-centre",
+  id: "internet-common-facility-centre",
   title: "Internet Common Facility Centre",
   about: "This lab is equipped with High speed, broadband internet connection through OFC which is provided by BSNL under the scheme of NATIONAL MISSION FOR EDUCATION under Ministry for HRD. This will ensure ample net facilities in the campus. The net lab will be available to the students from 8.30am to 5.00pm.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -86,7 +86,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "womens-hostel",
+  id: "womens-hostel",
   title: "Womens Hostel",
   about: "The college provides residential facilities for up to 50 women students. Students wishing to avail the facilities should submit a request to the management at the beginning of the academic year.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -94,7 +94,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "staff-quarters",
+  id: "staff-quarters",
   title: "Staff quarters",
   about: "“Staff Quarters” means buildings/quarters constructed by the college for the purpose of allotment to eligible employees of the College for their residence and which are under the control of the College.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -102,7 +102,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "auditorium",
+  id: "auditorium",
   title: "Auditorium",
   about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -110,7 +110,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "electronics-block",
+  id: "electronics-block",
   title: "Electronics Block",
   about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -118,7 +118,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "civil-block",
+  id: "civil-block",
   title: "Civil Block",
   about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -126,7 +126,7 @@ const pages = [{
   events: [],
 },
 {
-  key: "medical-facility",
+  id: "medical-facility",
   title: "Medical facility",
   about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
   cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
@@ -135,9 +135,9 @@ const pages = [{
 },
 ]
 
-const CustomPage: NextPage<{ key: string }> = ({  key  }) => {
+const CustomPage: NextPage<{ id: string }> = ({  id  }) => {
   
-  const page =  pages.find((page) => page.key === key);
+  const page =  pages.find((page) => page.id === id);
   if (!page) return <div />;
   return (
     <Page title={page.title}>
@@ -194,7 +194,7 @@ export const getStaticProps: GetStaticProps<
   }
   return {
     props: {
-      key: params.id,
+      id: params.id,
     },
   };
 };
