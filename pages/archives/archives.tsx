@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import useSWR from "swr";
 import PdfCard from "../../components/custom/PdfCard";
 import Container from "../../components/layout/Container";

@@ -28,8 +28,8 @@ class MyDocument extends Document {
             sizes="16x16"
             href="/favicon-16x16.png"
           />
-          <meta property="og:image" content="/cover.jpg"></meta>
-          <meta property="twitter:image" content="/cover.jpg"></meta>
+          <meta property="og:image" content="/cover.jpg" />
+          <meta property="twitter:image" content="/cover.jpg" />
 
         </Head>
         <body>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import useSWR from "swr";
 import { fetcher } from "../server/calls";
-import { NotificationType } from "../server/db";
+import type { NotificationType } from "../server/db";
 import Marquee from "react-fast-marquee";
 import { GiSpotedFlower } from "react-icons/gi";
 
@@ -63,26 +63,29 @@ const NewsItem = ({ title, date, isNew, link }: NewsTypeProps) => {
   return (
     <>
       {date && (
-        <div
+        <button
+          type="button"
           onClick={() => window.open(link, "_blank")}
           className="flex-shrink-0 mx-1 text-xs bg-slate-50/60 leading-3 rounded-full px-3 py-0.5 font-bold text-gray-500"
         >
           {date}
-        </div>
+        </button>
       )}
-      <p
+      <button
+        type="button"
         onClick={() => window.open(link, "_blank")}
         className="h-full cursor-pointer px-1 text-sm font-bold "
       >
         {title}
-      </p>
+      </button>
       {isNew && (
-        <div
+        <button
+          type="button"
           onClick={() => window.open(link, "_blank")}
           className="mr-2 animate-pulse text-xs font-semibold text-red-600"
         >
           New!
-        </div>
+        </button>
       )}
     </>
   );

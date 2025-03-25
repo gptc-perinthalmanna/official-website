@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import { BiLoader } from "react-icons/bi";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";

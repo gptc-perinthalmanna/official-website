@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import Page from "../../components/layout/Page";
 import Divider from "../../components/ui/Divider";
 import { H1, H2 } from "../../components/ui/Heading";

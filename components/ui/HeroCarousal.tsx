@@ -2,14 +2,13 @@ import ImageItem from "next/image";
 import React, { useState, useEffect } from "react";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import { ImageType } from "../../server/db";
 
 
-const HeroCarousel = ({images}:{images: ImageType[]}) => {
+const HeroCarousel = ({images}:{images: string[]}) => {
   const [, setTimestamp] = useState(0);
   const onLoad = () => setTimestamp(Date.now());
   const items = images.map((img, i) => (
-    <LazyLoader key={i} img={img} onLoad={onLoad} delay={i * 2000} />
+    <LazyLoader key={img} img={img} onLoad={onLoad} delay={i * 2000} />
   ));
 
   return (
@@ -38,7 +37,7 @@ function LazyLoader({
   onLoad,
   delay,
 }: {
-  img: ImageType;
+  img: string;
   onLoad: () => void;
   delay: number;
 }) {
@@ -49,7 +48,7 @@ function LazyLoader({
   function loadImage() {
     const image = new Image();
 
-    image.src = img.url;
+    image.src = img;
     image.onload = () => {
       setLoading(false);
       onLoad();
@@ -59,14 +58,16 @@ function LazyLoader({
     };
   }
 
+  // biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
   useEffect(() => {
     if (!isMounted) {
       setMounted(true);
       // eslint-disable-next-line react-hooks/exhaustive-deps
-      delay ? (timerId = setTimeout(loadImage, delay)) : loadImage();
+      // biome-ignore lint/suspicious/noAssignInExpressions: <explanation>
+            delay ? (timerId = setTimeout(loadImage, delay)) : loadImage();
     }
     return () => clearTimeout(timerId);
-  }, []);
+  }, [isMounted, delay]);
 
   return isLoading ? (
     <div>Loading...</div>
@@ -77,8 +78,8 @@ function LazyLoader({
         alt="Carousal Image"
         objectFit="cover"
         layout="fill"
-        src={img.url}
-        blurDataURL={img.thumb.url}
+        src={img}
+        blurDataURL={img}
       />
     </div>
   );

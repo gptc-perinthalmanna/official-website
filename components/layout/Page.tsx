@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React from "react";
+import type React from "react";
 import Footer from "./Footer";
 import LogoBanner from "./LogoBanner";
 import NavBar from "./NavBar";

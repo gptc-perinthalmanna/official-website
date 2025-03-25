@@ -1,10 +1,10 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
-import { UserType } from "../../server/db";
+import type { UserType } from "../../server/db";
 import useSWRImmutable from "swr/immutable";
 import { fetcher } from "../../server/calls";
 
@@ -20,7 +20,7 @@ interface PageType {
 
 const CustomPage: NextPage = () => {
   const { data } = useSWRImmutable<PageType>(
-    `/api/pages/others/whos-who`,
+    "/api/pages/others/whos-who",
     fetcher
   );
 

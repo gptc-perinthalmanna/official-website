@@ -4,8 +4,8 @@ import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import PdfCard from "../../components/custom/PdfCard";
 import { PageTitle } from "../../components/layout/PageTitle";
-import { NextPage } from "next";
-import { FileType } from "../../server/db";
+import type { NextPage } from "next";
+import type { FileType } from "../../server/db";
 import useSWR from "swr";
 import { fetcher } from "../../server/calls";
 
@@ -37,7 +37,7 @@ const CustomPage: NextPage = () => {
             </p>
             <div className="my-5">
               <div className="flex p-5 border-blue-700 flex-warp rounder-lg">
-                {data && data?.map((eoa) => <PdfCard {...eoa} key={eoa.key} />)}
+                {data?.map((eoa) => <PdfCard {...eoa} key={eoa.key} />)}
               </div>
             </div>
           </Content.FullWidth>

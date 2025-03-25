@@ -67,6 +67,7 @@ export default function NextPage() {
                   onClick={previousPage}
                   className="p-2 mr-4 rounded hover:bg-gray-100"
                 >
+                  {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6"
@@ -89,6 +90,7 @@ export default function NextPage() {
                   onClick={nextPage}
                   className="p-2 ml-4 rounded hover:bg-gray-100"
                 >
+                  {/* biome-ignore lint/a11y/noSvgWithoutTitle: <explanation> */}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="w-6 h-6"

@@ -1,31 +1,32 @@
-import { NextPage } from "next";
-import { useEffect, useState } from "react";
-import useSWR from "swr";
+import type { NextPage } from "next";
 
 import InstagramHeader from "../../components/custom/InstagramHeader";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 import RibbonCard from "../../components/custom/RibbonCard";
-import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
-import { fetcher } from "../../server/calls";
-import { usersDb, UserType } from "../../server/db";
-import { getOther } from "../../server/other";
-import { getUser } from "../../server/users";
 
-interface PageType {
-  programOfficer: UserType;
-  misssion: string;
-  about: string;
-  programOfficer_id: string;
-  volenteerSecreteries_ids: string[];
-  vss: UserType[];
-}
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
+const programOfficer = {
+  name: "Asker Ali",
+  avatar: "",
+  id: "",
+  email: "",
+  designation: "Trade Instruction",
+  department: "Electronics Engineering",
+  address: "",
+  phone: "+919745330034",
+  social: {
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    whatsapp: "+919745330034",
+  },
+};
+const CustomPage: NextPage = () => {
   return (
     <Page title="National Service Scheme (NSS)">
       <Container>
@@ -35,14 +36,14 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             <div className="mr-2">
               <LargeUserCardWithDetails
                 subTitle={"Program Officer, NSS"}
-                {...page.programOfficer}
+                {...programOfficer}
               />
             </div>
           </Content.Left>
           <Content.Right>
             <RibbonCard color="red">
               <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
-              <p className="text-gray-100">{page.misssion}</p>
+              <p className="text-gray-100">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium minima perspiciatis tenetur, modi aperiam distinctio necessitatibus officia, nostrum cupiditate animi voluptatum earum, est assumenda id iusto non quasi quia accusamus!</p>
               <h2 className="mb-2 text-2xl font-bold text-gray-100">Motto</h2>
               <p className="text-gray-100">Not me but You!</p>
             </RibbonCard>
@@ -52,7 +53,9 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
           <Content.FullWidth>
             <PageTitle>About NSS</PageTitle>
             <div className="my-3">
-              <p>{page.about}</p>
+              <p>The National Service Scheme was started to establish a meaningful linkage between the campus and the community. Mahatma Gandhi, the Father of the Nation, had recognized that the country could not progress in a desired direction until the student youth were motivated to work for the upliftment of the community. For Gandhiji the villages, where majority of the population lived, represent the country i.e. India. Therefore, for the national reconstruction and national resurgence it was deemed fit that the students and teachers should be properly sensitized and utilized for strengthening the Indian society as a whole with particular emphasis on rural community. Therefore, student youth, teachers and the community are considered the three basic components of the National Service Scheme.
+
+</p>
             </div>
           </Content.FullWidth>
         </Content>
@@ -76,8 +79,8 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
                     </p>
                   </>
                 }
-                followers={311}
-                following={21}
+                followers={419}
+                following={4}
                 posts={90}
                 title="NSS GPC Pmna"
                 image="https://i.ibb.co/gjQJmx9/7413ba8406f5.png"
@@ -95,7 +98,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             </div>
           </Content.FullWidth>
         </Content>
-        <Content>
+        {/* <Content>
           <Content.Left>
             <PageTitle>Volunteer secretaries</PageTitle>
             <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
@@ -104,34 +107,10 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
               ))}
             </div>
           </Content.Left>
-        </Content>
+        </Content> */}
       </Container>
     </Page>
   );
 };
 
 export default CustomPage;
-
-export async function getStaticProps() {
-  let page = (await getOther("page-national-service-scheme")) as PageType;
-  page.programOfficer = (await getUser(page.programOfficer_id)) as UserType;
-  let unresolvedpromises: any;
-  let staffs: UserType[] = [];
-  unresolvedpromises = page.volenteerSecreteries_ids?.map(async (element) => {
-    const staff = await getUser(element);
-    if (staff) {
-      staffs.push(staff);
-    }
-    return staff;
-  });
-  if (unresolvedpromises) await Promise.all(unresolvedpromises);
-  return {
-    props: {
-      page: { ...page, vss: staffs },
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 600000, // In seconds
-  };
-}

@@ -10,11 +10,12 @@ function TopBanner() {
           <div className="mx-2">info@gptcperinthalmanna.in</div>
         </div>
         <div className="flex flex-wrap justify-center">
-          <a href="https://gpcperinthalmanna.infrastruct.in/" rel="noreferrer" target="_blank" className="mx-2">Moodle LMS</a>
-          <Link href="/archives/downloads" className="mx-2">Downloads</Link>
-          <Link href="/archives/privacy-policy" className="mx-2">Privacy Policy</Link>
-          <Link href="/custom/photo-uploader" className="mx-2">
-          Photo Uploader</Link>
+          <Link href="/archives/downloads" className="mx-2">
+            Downloads
+          </Link>
+          <Link href="/archives/privacy-policy" className="mx-2">
+            Privacy Policy
+          </Link>
         </div>
       </div>
     </div>

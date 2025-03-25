@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { BiHomeSmile, BiGitBranch, BiBook } from "react-icons/bi";
 import {
   FaHandshake,
@@ -70,7 +71,7 @@ import {
 import { IoDocumentAttach } from "react-icons/io5";
 import { AiOutlineSolution, AiOutlineVideoCamera } from "react-icons/ai";
 import Link from "next/link";
-import { IconType } from "react-icons";
+import type { IconType } from "react-icons";
 
 type MenuItem = {
   name: string;
@@ -236,13 +237,6 @@ const _menu: MenuItem[] = [
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
         link: "/academics/ce-cell",
-      },
-      {
-        name: "Moodle LMS",
-        icon: MdOutlineScreenSearchDesktop,
-        description:
-          "Govt Polytechnic College Perinthalmanna is one of the leading institutions of its kind in Kerala.",
-        link: "/academics/moodle",
       },
       {
         name: "AICTE Approval",
@@ -556,8 +550,7 @@ function NavBar() {
           className="container absolute z-50 px-3 py-2 transition-all duration-700 border-2 border-red-100 rounded-b-2xl bg-red-50"
         >
           <div className="flex flex-wrap justify-start">
-            {selectedMenu &&
-              selectedMenu.map((item) => {
+            {selectedMenu?.map((item) => {
                 const Icon = item.icon;
                 return (
                   <Link

@@ -1,5 +1,4 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next";
-import useSWRImmutable from "swr/immutable";
+import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import UserProfileCard from "../../components/custom/UserProfileCard";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
@@ -7,8 +6,6 @@ import CoverImage from "../../components/layout/CoverImage";
 import Page from "../../components/layout/Page";
 import { PageTitle } from "../../components/layout/PageTitle";
 import PhotoGallery from "../../components/widgets/PhotoGallery";
-import { fetcher } from "../../server/calls";
-import { getFacilities } from "../../server/pages";
 
 interface StaffType {
   name: string;
@@ -48,11 +45,100 @@ const _paths = [
   "medical-facility",
 ];
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
-  const { data } = useSWRImmutable<PageType>(
-    `/api/pages/facilities/${page.key}`,
-    fetcher
-  );
+const pages = [{
+  key: "health-centre",
+  title: "Health Centre",
+  about: "Health Centre with motorised Tread mill, Manual Tread Mill, ElliptiKal Bike, Body Twister, Pec Dec machine, High lat pulley/Rowing pulley, Leg press heavy machine, Leg curl & eg extension machine, Weighing Machine, Gym ball, Facilities for free weight exercises have been attached to the Health Centre",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "finishing-school",
+  title: "Finishing School",
+  about: "A finishing school is defined as a private school for students that emphasizes training in all round personality development, cultural and social activities. Specific skill sets may be imparted as value addition. The name reflects that it follows a school or college education and is intended to complete the educational experience. It may consist of an intensive course, or a one-year program.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "language-lab",
+  title: "Language Lab",
+  about: "A language laboratory is a dedicated space for foreign language learning where students access audio or audio-visual materials. They allow a teacher to listen to and manage student audio, which is delivered to individual students through headsets or in isolated 'sound booths.' They have now largely been replaced by self access language learning centers, which may be called 'language labs.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "co-operative-society",
+  title: "Co-Operative Society",
+  about: "There is a co-operative society with all the stationary items for the students and staff like note books,text books,drawing equipments,laboratory records etc are available through the society.College uniform cloths are also available.Every items are sold for a reasonable rate . All the staff and students are enrolled their name in the Society.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "internet-common-facility-centre",
+  title: "Internet Common Facility Centre",
+  about: "This lab is equipped with High speed, broadband internet connection through OFC which is provided by BSNL under the scheme of NATIONAL MISSION FOR EDUCATION under Ministry for HRD. This will ensure ample net facilities in the campus. The net lab will be available to the students from 8.30am to 5.00pm.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "womens-hostel",
+  title: "Womens Hostel",
+  about: "The college provides residential facilities for up to 50 women students. Students wishing to avail the facilities should submit a request to the management at the beginning of the academic year.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "staff-quarters",
+  title: "Staff quarters",
+  about: "“Staff Quarters” means buildings/quarters constructed by the college for the purpose of allotment to eligible employees of the College for their residence and which are under the control of the College.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "auditorium",
+  title: "Auditorium",
+  about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "electronics-block",
+  title: "Electronics Block",
+  about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "civil-block",
+  title: "Civil Block",
+  about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+{
+  key: "medical-facility",
+  title: "Medical facility",
+  about: "The library is a collection of books, periodicals, manuscripts, etc. that are available for reference and lending.",
+  cover: "https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg",
+  staffs: [],
+  events: [],
+},
+]
+
+const CustomPage: NextPage<{ key: string }> = ({  key  }) => {
+  
+  const page =  pages.find((page) => page.key === key);
+  if (!page) return <div />;
   return (
     <Page title={page.title}>
       <CoverImage source={page.cover} title={page.title} />
@@ -63,11 +149,11 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             <div>
               <p>{page.about}</p>
             </div>
-            {data && data.staffs && data.staffs.length > 0 && (
+            {page?.staffs && page.staffs.length > 0 && (
               <div>
                 <PageTitle>Staffs</PageTitle>
                 <div className="grid grid-cols-2 gap-4 my-3 lg:grid-cols-2 2xl:grid-cols-3">
-                  {data.staffs.map((staff) => (
+                  {page.staffs.map((staff: StaffType) => (
                     <UserProfileCard {...staff} key={staff.name} />
                   ))}
                 </div>
@@ -75,9 +161,9 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => {
             )}
           </Content.Left>
           <Content.Right>
-            {data && data.photos && data.photos.length > 0 && (
+            {page?.events && page.events.length > 0 && (
               <div>
-                <PhotoGallery images={data.photos} />
+                <PhotoGallery images={page.events} />
               </div>
             )}
           </Content.Right>
@@ -99,16 +185,16 @@ export const getStaticPaths: GetStaticPaths = () => {
 };
 
 export const getStaticProps: GetStaticProps<
+  // biome-ignore lint/complexity/noBannedTypes: <explanation>
   {},
   { [key: string]: string }
 > = async ({ params }) => {
   if (!params || !params.id) {
     return { props: { error: true } };
   }
-  const page = await getFacilities(params.id);
   return {
     props: {
-      page: page,
+      key: params.id,
     },
   };
 };

@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import { BiHistory, BiMapPin } from "react-icons/bi";
 import { FaAward, FaUserGraduate, FaUserTie } from "react-icons/fa";
 import { GiTreasureMap } from "react-icons/gi";
@@ -11,9 +11,6 @@ import Image from "next/image";
 import ContactForm from "../../components/custom/ContactForm";
 import LargeUserCardWithDetails from "../../components/custom/LargeUserCardWithDetails";
 import RibbonCard from "../../components/custom/RibbonCard";
-import { getOther } from "../../server/other";
-import { UserType } from "../../server/db";
-import { getUser } from "../../server/users";
 import Content from "../../components/layout/Content";
 import { PageTitle } from "../../components/layout/PageTitle";
 import EventCarousel from "../../components/ui/EventCarousal";
@@ -61,14 +58,26 @@ const _features = [
   },
 ];
 
-interface PageType {
-  placementOfficer: UserType;
-  placementOfficer_id: string;
-  misssion: string;
-  description: string;
-}
 
-const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
+
+const placementOfficer = {
+  name: "Nidhin Roy",
+  avatar: "",
+  id: "",
+  email: "nithkke@gmail.com",
+  designation: "Lecturer",
+  department: "Mechanical Engineering",
+  address: "THEKKEKUNNATHU MARARIKULAM NORTH P O ALAPPUZHA",
+  phone: "+918714121009",
+  social: {
+    facebook: "",
+    twitter: "",
+    instagram: "",
+    whatsapp: "+918714121009",
+  },
+};
+
+const CustomPage: NextPage = () => (
   <Page title="Placement Officers Desk in GPC Perinthalmanna">
     <div className="container mx-auto">
       <H1>Placement Officers Desk</H1>
@@ -76,15 +85,15 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
     <div className="container flex flex-wrap mx-auto mt-4">
       <div className="w-full mb-2 lg:w-2/3 lg:mb-0 lg:px-3">
         <LargeUserCardWithDetails
-          {...page.placementOfficer}
-          email={`cgpcpmna@gmail.com,  ${page.placementOfficer.email}`}
+          {...placementOfficer}
+          email={`cgpcpmna@gmail.com,  ${placementOfficer.email}`}
           subTitle={"Placement Officer"}
         />
       </div>
       <div className="h-auto lg:w-1/3">
         <RibbonCard>
           <h2 className="mb-2 text-2xl font-bold text-gray-100">Mission</h2>
-          <p className="text-gray-100">{page.misssion}</p>
+          <p className="text-gray-100">Develop the personality of every student by imparting training in soft skills, communication skills, group discussion, interview techniques, leadership qualities and teamwork. Empower the students to face life confidently and to enable every one of them to leave the campus with a coveted job in the reputed establishment.</p>
         </RibbonCard>
       </div>
     </div>
@@ -130,7 +139,7 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
         <h2 className="pb-5 text-3xl font-bold ">
           Career Guidance and Placement Cell
         </h2>
-        <p className="p-3 text-xl font-medium leading-9">{page.description}</p>
+        <p className="p-3 text-xl font-medium leading-9">Career guidance and placement cell have been assisting the students in paving a way to their careers. The cell conducts training programmes to prepare the students to face the recruitment process and to meet the needs of the industry. It also provides complete support to visiting companies at every stage of the placement process. Arrangements for pre-placement talks, written tests, interviews and group discussions are made as per the requirement of the visiting companies. It bridges the gap between the industry and the institution. We Receive and forwards the feedback pertinent to curriculum improvement from the visiting companies to the faculty, to ensure that the curriculum follows the latest industrial trends. We are confident that these young men and women would be an asset to your organization through their technical and managerial capabilities and their talent for innovation. We, work towards continuing education for the college employees over the years, the placement cell has maintained a symbiotic, vibrant and purposeful relationships with Industries and as a result, has built up an impressive placement record both in terms of percentage of registered students placed, as well as the number of companies visiting the campus.</p>
       </div>
     </div>
 
@@ -154,17 +163,3 @@ const CustomPage: NextPage<{ page: PageType }> = ({ page }) => (
 
 export default CustomPage;
 
-export async function getStaticProps() {
-  let page = (await getOther("page-placement-officer-desk")) as PageType;
-  page.placementOfficer = (await getUser(page.placementOfficer_id)) as UserType;
-  console.log(page)
-  return {
-    props: {
-      page,
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 600000, // In seconds
-  };
-}

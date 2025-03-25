@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import { BsFillCheckCircleFill } from "react-icons/bs";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";

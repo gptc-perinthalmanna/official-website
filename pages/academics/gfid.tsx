@@ -1,4 +1,4 @@
-import { NextPage } from "next";
+import type { NextPage } from "next";
 import Container from "../../components/layout/Container";
 import Content from "../../components/layout/Content";
 import Page from "../../components/layout/Page";
@@ -22,7 +22,7 @@ const CustomPage: NextPage = () => (
       <PageTitle>GFID</PageTitle>
       <Content>
         <Content.Left>
-            <div></div>
+            <div />
         </Content.Left>
       </Content>
     </Container>

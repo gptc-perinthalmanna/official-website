@@ -5,21 +5,18 @@ import Link from "next/link";
 import { BsEyeFill } from "react-icons/bs";
 import { GiTargetPoster } from "react-icons/gi";
 import useSWR from "swr";
-import ImagePost from "../components/custom/ImagePost";
 import Container from "../components/layout/Container";
 import Content from "../components/layout/Content";
 import Footer from "../components/layout/Footer";
 import LogoBanner from "../components/layout/LogoBanner";
 import NavBar from "../components/layout/NavBar";
 import TopBanner from "../components/layout/TopBanner";
-import NewsTicker, { NewsMarquee } from "../components/NewsTicker";
+import { NewsMarquee } from "../components/NewsTicker";
 import EventCarousel from "../components/ui/EventCarousal";
 import HeroCarousel from "../components/ui/HeroCarousal";
 import LogoCarousal from "../components/ui/Logo Carousal";
 import { fetcher } from "../server/calls";
-import { EventType, ImageType } from "../server/db";
-import { getImage } from "../server/files";
-import { getOther } from "../server/other";
+import type { EventType } from "../server/db";
 
 const _mou = [
   {
@@ -40,7 +37,9 @@ const _mou = [
   },
 ];
 
-const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
+const heroImgs = ["https://i.ibb.co/FWZb0zQ/87f4a817cf90.jpg", "https://i.ibb.co/TbVcdP2/6f27f98edec4.jpg", "https://i.ibb.co/Xxv2bJR/25b234ced5f9.jpg"]
+
+const Home: NextPage = () => {
   const event = useSWR<EventType>("api/events/highlighted", fetcher);
   return (
     <div className="selection:bg-fuchsia-400">
@@ -73,9 +72,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                     "url('https://i.ibb.co/cTmmnYV/main1-scaled.jpg')",
                 }}
               >
-                <a className="absolute px-3 py-2 text-xs transition-all duration-200 bg-gray-800 cursor-pointer bottom-2 left-2 text-gray-50 hover:bg-gray-700">
-                  Virtual Tour
-                </a>
               </div>
               <div className="flex-grow w-2/4 p-3 bg-gray-200 2xl:w-3/5">
                 <h2 className="text-xl font-semibold ">About our College</h2>
@@ -143,6 +139,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             </h1>
             {event.data && (
               <div className="bg-gradient-to-br  from-rose-500 p-1 lg:p-0 overflow-hidden max-w-sm mx-auto to-violet-700">
+                {/* biome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
                 <div
                   onClick={() =>
                     window.open(
@@ -181,7 +178,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                   layout="fill"
                   objectFit="contain"
                   alt="Decorative"
-                  objectPosition={`100% 50%`}
+                  objectPosition={"100% 50%"}
                 />
               </div>
 
@@ -236,7 +233,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             </h1>
             <div className="">
               <LogoCarousal images={_mou} />
-              <div></div>
+              <div />
             </div>
           </Content.FullWidth>
         </Content>
@@ -248,26 +245,3 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
 };
 
 export default Home;
-
-export async function getStaticProps() {
-  const _images = (await getOther("hero-images")) as { images: string[] };
-  let heroImgs: ImageType[] = [];
-  let unresolvedpromises: any;
-
-  unresolvedpromises = _images.images.map(async (id) => {
-    const img = await getImage(id);
-    if (img) {
-      heroImgs.push(img);
-    }
-  });
-  if (unresolvedpromises) await Promise.all(unresolvedpromises);
-  return {
-    props: {
-      heroImgs,
-    },
-    // Next.js will attempt to re-generate the page:
-    // - When a request comes in
-    // - At most once every 10 seconds
-    revalidate: 600000, // In seconds
-  };
-}
