@@ -202,12 +202,12 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                 infrastructure and other facilities and various activities to
                 boost the academic performance of students and staff.
               </p>
-              <p className="mt-2 font-semibold text-right ">- Manjusha TT</p>
+              <p className="mt-2 font-semibold text-right ">- Sajeev PS</p>
               <p className="text-sm text-right ">Principal</p>
             </div>
             <div className="relative shrink-0 w-72 hidden md:block">
               <Image
-                src="https://i.ibb.co/HdbvtcG/3d5ef2fcd9fe.jpg"
+                src="/images/sajeev-pricipal.jpeg"
                 layout="fill"
                 objectFit="cover"
                 alt="Principal's Image"
