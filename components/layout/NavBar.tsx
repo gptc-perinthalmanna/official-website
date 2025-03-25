@@ -543,7 +543,6 @@ function NavBar() {
           </div>
         </div>
       </nav>
-
       <div
         className={`container mx-auto transition-all duration-700 ${
           selectedMenu ? "opacity-100" : "opacity-0"
@@ -561,20 +560,23 @@ function NavBar() {
               selectedMenu.map((item) => {
                 const Icon = item.icon;
                 return (
-                  <Link href={item.link} key={item.name}>
-                    <a className="flex items-center max-w-xs p-2 transition-all duration-300 ease-in-out rounded-lg cursor-pointer ring-pink-100 hover:ring-2 hover:bg-white">
-                      <div className="mr-2 text-gray-700">
-                        <Icon size={40} />
+                  <Link
+                    href={item.link}
+                    key={item.name}
+                    className="flex items-center max-w-xs p-2 transition-all duration-300 ease-in-out rounded-lg cursor-pointer ring-pink-100 hover:ring-2 hover:bg-white">
+
+                    <div className="mr-2 text-gray-700">
+                      <Icon size={40} />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-700 text-md">
+                        {item.name}
                       </div>
-                      <div>
-                        <div className="font-bold text-gray-700 text-md">
-                          {item.name}
-                        </div>
-                        <p className="text-xs text-gray-600">
-                          {item.description}
-                        </p>
-                      </div>
-                    </a>
+                      <p className="text-xs text-gray-600">
+                        {item.description}
+                      </p>
+                    </div>
+
                   </Link>
                 );
               })}
@@ -621,7 +623,7 @@ function Linked({
   link?: string;
 }) {
   if (link) {
-    return <Link href={link}>{children}</Link>;
+    return <Link href={link} legacyBehavior>{children}</Link>;
   }
   return <>{children}</>;
 }

@@ -83,7 +83,7 @@ function Linked({
   }
   return (
     <Link href={url}>
-      <a>{children}</a>
+      {children}
     </Link>
   );
 }

@@ -104,60 +104,54 @@ export function Footer() {
               <ul>
                 <li className={liClasses}>
                   <Link href={"/departments/electronics-engineering"}>
-                    <a>
-                      Department of{" "}
-                      <span className="font-bold">Electroncis</span> Engineering
-                    </a>
+                    Department of{" "}
+                    <span className="font-bold">Electroncis</span>Engineering
+                                        
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link href={"/departments/mechanical-engineering"}>
-                    <a>
-                      Department of{" "}
-                      <span className="font-bold">Mechanical</span> Engineering{" "}
-                    </a>
+                    Department of{" "}
+                    <span className="font-bold">Mechanical</span>Engineering{" "}
+
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link
                     href={"/departments/electrical-and-electronics-engineering"}
                   >
-                    <a>
-                      Department of{" "}
-                      <span className="font-bold">
-                        Electrical and Electronics
-                      </span>{" "}
-                      Engineering{" "}
-                    </a>
+                    Department of{" "}
+                    <span className="font-bold">
+                      Electrical and Electronics
+                    </span>{" "}Engineering{" "}
+
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link href={"/departments/civil-engineering"}>
-                    <a>
-                      Department of <span className="font-bold">Civil</span>{" "}
-                      Engineering{" "}
-                    </a>
+                    Department of <span className="font-bold">Civil</span>{" "}Engineering{" "}
+
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link href={"/departments/electronics-engineering"}>
-                    <a>
-                      <span className="font-bold">General</span> Department{" "}
-                    </a>
+
+                    <span className="font-bold">General</span>Department{" "}
+
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link href={"/departments/electronics-engineering"}>
-                    <a>
-                      <span className="font-bold">General</span> Workshop{" "}
-                    </a>
+
+                    <span className="font-bold">General</span>Workshop{" "}
+
                   </Link>
                 </li>
                 <li className={liClasses}>
                   <Link href={"/departments/electronics-engineering"}>
-                    <a>
-                      <span className="font-bold">Office</span> Section{" "}
-                    </a>
+
+                    <span className="font-bold">Office</span>Section{" "}
+
                   </Link>
                 </li>
               </ul>

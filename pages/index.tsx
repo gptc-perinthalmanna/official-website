@@ -89,10 +89,12 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
                   present is praiseworthy, so the future has to be envisioned in
                   the light of the glorious past and the meritorious present
                 </p>
-                <Link href={"/college/breif-history"}>
-                  <a className="pt-4 text-sm text-gray-500 cursor-pointer hover:text-gray-600">
+                <Link
+                  href={"/college/breif-history"}
+                  className="pt-4 text-sm text-gray-500 cursor-pointer hover:text-gray-600">
+                  
                     - Know More
-                  </a>
+                  
                 </Link>
               </div>
             </div>
@@ -164,9 +166,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </div>
         </div>
       </div>
-
       {/* Principals message and Placement Cell */}
-
       <Container>
         <div className="flex flex-col flex-wrap  lg:flex-row">
           <div
@@ -174,17 +174,17 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
             style={{ backgroundColor: "#dde4ff" }}
           >
             <Link href="/college/placement-officers-desk">
-              <a>
-                <div className="relative w-full h-80">
-                  <Image
-                    src="/images/placement-cover.png"
-                    layout="fill"
-                    objectFit="contain"
-                    alt="Decorative"
-                    objectPosition={`100% 50%`}
-                  />
-                </div>
-              </a>
+
+              <div className="relative w-full h-80">
+                <Image
+                  src="/images/placement-cover.png"
+                  layout="fill"
+                  objectFit="contain"
+                  alt="Decorative"
+                  objectPosition={`100% 50%`}
+                />
+              </div>
+
             </Link>
           </div>
           <div className="flex flex-1 w-full my-4 bg-gray-100  ">
@@ -216,9 +216,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </div>
         </div>
       </Container>
-
       {/* Previous Events  */}
-
       <Container>
         <Content>
           <Content.FullWidth>
@@ -229,9 +227,7 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </Content.FullWidth>
         </Content>
       </Container>
-
       {/* Mou Signed with  */}
-
       <Container>
         <Content>
           <Content.FullWidth>
@@ -245,7 +241,6 @@ const Home: NextPage<{ heroImgs: ImageType[] }> = ({ heroImgs }) => {
           </Content.FullWidth>
         </Content>
       </Container>
-
       <div className="my-3" />
       <Footer />
     </div>
