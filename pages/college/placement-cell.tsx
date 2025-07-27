@@ -10,7 +10,7 @@ import { PageTitle } from "../../components/layout/PageTitle";
 const PlacementCell: NextPage = () => {
   const [selectedImage, setSelectedImage] = useState<number | null>(null);
   
-  // Generate array of placement images (placement1.jpeg to placement5.jpeg)
+  // Generate array of placement images (placement1.jpg to placement5.jpg)
   const placementImages = Array.from({ length: 5 }, (_, i) => ({
     id: i + 1,
     src: `/images/placement/placement${i + 1}.jpg`,
