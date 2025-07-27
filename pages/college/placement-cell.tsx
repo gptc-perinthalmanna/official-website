@@ -40,7 +40,6 @@ const PlacementCell: NextPage = () => {
   return (
     <Page title="Placement Cell - GPC Perinthalmanna">
       <Content>
-
         <div className="container mx-auto px-4 py-8">
           <H1>Career Guidance and Placement Cell</H1>
           
