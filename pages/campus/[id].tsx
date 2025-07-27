@@ -22,7 +22,6 @@ interface StaffType {
 
 const _paths = [
   "grievance-redressal-committee",
-  "placement-cell",
   "parents-teachers-association",
   "staff-club",
   "anti-ragging-committe",
@@ -40,15 +39,6 @@ const pages = [
     id: "grievance-redressal-committee",
     title: "Grievance Redressal Committee",
     about: "",
-    cover: "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
-    staffs: [],
-    events: [],
-  },
-  {
-    id: "placement-cell",
-    title: "Placement Cell",
-    about:
-      "Career guidance and placement cell have been assisting the students in paving the way to their careers. The cell conducts training programmes to prepare the students to face the recruitment process and to meet the needs of the industry. It also provides complete support to visiting companies at every stage of the placement process. Arrangements for pre-placement talks, written tests, interviews and group discussions are made as per the requirement of the visiting companies. It bridges the gap between the industry and the institution. We Receive and forwards the feedback pertinent to curriculum improvement from the visiting companies to the faculty, to ensure that the curriculum follows the latest industrial trends. We are confident that these young men and women would be an asset to your organization through their technical and managerial capabilities and their talent for innovation. GPTC Perinthalmanna works towards continuing education for the college employees over the years, the placement cell has maintained a symbiotic, vibrant and purposeful relationship with Industries and as a result, has built up an impressive placement record both in terms of percentage of registered students placed, as well as the number of companies visiting the campus.",
     cover: "https://i.ibb.co/ZWfQcvf/greivance-redressal-committee.jpg",
     staffs: [],
     events: [],

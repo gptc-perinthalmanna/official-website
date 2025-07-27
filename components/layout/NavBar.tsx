@@ -411,7 +411,7 @@ const _menu: MenuItem[] = [
         icon: MdWork,
         description:
           "Here we teaches and manages about the fastest growing techs in the world",
-        link: "/campus/placement-cell",
+        link: "/college/placement-cell",
       },
       {
         name: "Scholar Support Programme",

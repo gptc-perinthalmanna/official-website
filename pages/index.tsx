@@ -170,7 +170,7 @@ const Home: NextPage = () => {
             className="flex-grow-0 w-full  my-4 mr-4 transition-opacity duration-300 ease-in hidden xl:block  cursor-pointer lg:w-108 hover:opacity-70 "
             style={{ backgroundColor: "#dde4ff" }}
           >
-            <Link href="/college/placement-officers-desk">
+            <Link href="/college/placement-cell">
 
               <div className="relative w-full h-80">
                 <Image
