@@ -152,7 +152,7 @@ const PlacementCell: NextPage = () => {
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-8 rounded-lg shadow-lg text-white">
             <h3 className="text-2xl font-bold mb-4">Get in Touch</h3>
             <p className="mb-6">
-              For more information about placements, career guidance, or to connect with our placement officer, visit our placement officer's desk.
+              For more information about placements, career guidance, or to connect with our placement officer, visit our placement officer&apos;s desk.
             </p>
             <Link href="/college/placement-officers-desk" legacyBehavior>
               <a className="inline-flex items-center px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-gray-100 transition-colors duration-300">
